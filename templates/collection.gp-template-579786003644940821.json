@@ -1,0 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_579786003712115221": {
+      "settings": {
+        "checksum": "587cf537814e4d8597f483a9acad5038bd2e47f3164288c236f75a3c1f0f9d45_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-579786003712115221"
+    },
+    "gp_section_579786003712180757": {
+      "settings": {
+        "checksum": "09b189c4a4e5b33513e5f85c11afd2646625eb05f85db792522b5f81acb6e1e8_1_1_1_0__1",
+        "gg-yQ0hoFr5_text": "<p>Robuste Materialien</p>",
+        "gg0Z3xUDoBo_text": "<p>Von Experten empfohlen</p>",
+        "gg4N6rbjzTV_text": "<p>Von Experten empfohlen</p>",
+        "ggBMd8DYIJA_text": "<p>Robuste Materialien</p>",
+        "ggMSgTJuzC7_text": "<p>Emotionale Lampen</p>",
+        "ggRXvOJqYIX_text": "<p>Emotionale Lampen</p>",
+        "ggg6Dh1Zpy__text": "<p>Kostenlose Lieferung</p>",
+        "ggjLfFzs7U6_text": "<p>Kostenlose Lieferung</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-579786003712180757"
+    },
+    "gp_section_607177800410989466": {
+      "settings": {
+        "checksum": "92ca68222a419e00b0e592b9ac3df819de24a68c4c31dbbb1e3ac2310792cafb_1_1_1_0__1",
+        "ggArSaYZDmw_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggBXsgRew8i_text": "<p>Gartenort – Ihr Weg zum sicheren Gärtnern</p>",
+        "ggPKWjRU4SX_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>",
+        "gg_HYn1dWMs_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "gguVUni0Toc_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggyJSeAQPB7_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>"
+      },
+      "type": "gp-section-607177800410989466"
+    }
+  },
+  "order": [
+    "gp_section_579786003712180757",
+    "gp_section_579786003712115221",
+    "gp_section_607177800410989466"
+  ]
+}

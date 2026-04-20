@@ -1,0 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "theme.gempages.blank",
+  "sections": {
+    "gp_section_510611119396684973": {
+      "type": "gp-section-510611119396684973",
+      "settings": {
+        "section_preload": "true",
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_510611119379842221": {
+      "type": "gp-section-510611119379842221",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_510611119379907757": {
+      "type": "gp-section-510611119379907757",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_510611119346287789": {
+      "type": "gp-section-510611119346287789",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_510611119396619437": {
+      "type": "gp-section-510611119396619437",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_510611119363065005": {
+      "type": "gp-section-510611119363065005",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_510611119329510573": {
+      "type": "gp-section-510611119329510573",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    }
+  },
+  "order": [
+    "gp_section_510611119396684973",
+    "gp_section_510611119379842221",
+    "gp_section_510611119379907757",
+    "gp_section_510611119346287789",
+    "gp_section_510611119396619437",
+    "gp_section_510611119363065005",
+    "gp_section_510611119329510573"
+  ]
+}

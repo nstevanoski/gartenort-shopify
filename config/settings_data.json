@@ -1,0 +1,886 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "color_sale_text": "#6db643",
+    "color_button": "#fd7e15",
+    "color_small_button_text_border": "#fd7e15",
+    "type_header_font": "rubik_n7",
+    "type_header_base_size": 25,
+    "type_base_font": "montserrat_n4",
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_pinterest": false,
+    "favicon": "shopify://shop_images/BERGAKTIV_Logo_1.jpg",
+    "enable_ajax": false,
+    "currency_code_enabled": false,
+    "ps_optimization": false,
+    "checkout_logo_image": "shopify://shop_images/ddd.jpg",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "medium",
+    "checkout_accent_color": "#3a3a3a",
+    "checkout_button_color": "#ff7c46",
+    "checkout_error_color": "#64a93e",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify://shop_images/BERGAKTIV_3.png",
+          "logo_max_width": 250,
+          "main_linklist": "main-menu",
+          "message": true,
+          "home_page_only": false,
+          "message_text": "KOSTENLOSER VERSAND",
+          "message_link": "",
+          "color_bg": "#6db643",
+          "color_text": "#ffffff"
+        }
+      },
+      "hero-1": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify://shop_images/cozy-livingroom-with-window.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_size": "large",
+          "title": "Frühlingssale 2026",
+          "text": "<h4></h4><h4>Jetzt unsere besten Angebote entdecken ⬇️</h4>",
+          "button_label": "ZU DEN ANGEBOTEN",
+          "button_link": "shopify://collections/sale-angebote"
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify://shop_images/5_b7b16800-7e63-4cba-bad6-78237ce71e43.jpg",
+          "layout": "left",
+          "title": "UNSERE ANGEBOTE IM SALE",
+          "text": "<p>Lassen Sie sich von unserer Leidenschaft für das Gärtnern anstecken und erlauben Sie uns, Ihnen dabei zu helfen, Ihre eigene grüne Oase zu schaffen.</p>",
+          "button_label": "ZUM SALE",
+          "button_link": "shopify://collections/sale-angebote"
+        }
+      },
+      "feature-columns": {
+        "type": "feature-columns",
+        "blocks": {
+          "feature-columns-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Service & Qualität seit 2008",
+              "text": "<p>Unsere Produkte und Services unterliegen regelmäßiger Qualitätskontrollen, da unser familärer Qualitätsanspruch hoch ist.</p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature-columns-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Wir lieben die Natur",
+              "text": "<p>Unsere Leidenschaft möchten wir mit unseren Kunden und Freunden teilen. </p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature-columns-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Alles für unsere Kunden",
+              "text": "<p>Unsere Kunden sind das was uns ausmacht. Gerne erwarten wir jedes Feedback um unseren Service und Produkt stetig zu verbessern. Gemeinsam sind wir stark</p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "feature-columns-0",
+          "feature-columns-1",
+          "feature-columns-2"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "settings": {
+          "title": "UNSERE BESTSELLER",
+          "collection": "sale-angebote",
+          "grid": 4,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "quotes": {
+        "type": "quotes",
+        "blocks": {
+          "quotes-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Es gibt sehr viele interessante und preiswerte Angebote. Die Preise sind gut und die Bestellung ist sehr einfach. Man bekommt eine sehr schnelle und kompetente Antwort. Kann ich insgesamt nur empfehlen</p>",
+              "author": "Joachim W."
+            }
+          },
+          "quotes-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Ich habe eine tolle leuchtende<br/>Katze für meine Enkelin bestellt<br/>zu Weihnachten. Sie war ganz toll begeistert und meine anderen Gäste auch, habe diese in der Familie und mit Freunden ausgetauscht.<br/></p>",
+              "author": "Renate W."
+            }
+          },
+          "quotes-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Große Auswahl an emotionalen Lampen zum Beispiel<br/>Tiere. Habe die Eule bestellt und bin zufrieden damit.<br/>Schöne Farben.<br/></p>",
+              "author": "Mathias L."
+            }
+          }
+        },
+        "block_order": [
+          "quotes-0",
+          "quotes-1",
+          "quotes-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "image-bar": {
+        "type": "image-bar",
+        "blocks": {
+          "image-bar-0": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "image-bar-1": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "image-bar-2": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "image-bar-0",
+          "image-bar-1",
+          "image-bar-2"
+        ],
+        "disabled": true,
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "0496a8e4-5175-4067-af75-6f179b0f8914": {
+            "type": "text",
+            "settings": {
+              "title": "Über Uns",
+              "text": "<p>Dein go-to place für Garten & Home Decor – kuratiert, inspirierend und nah am echten Zuhause.</p>"
+            }
+          },
+          "406ed7d0-ebc1-4acc-9643-c5249763c4ba": {
+            "type": "text",
+            "settings": {
+              "title": "Benötigst du Hilfe zu deiner Bestellung? Wir beantworten gerne deine Fragen.",
+              "text": "<p><strong>Gartenort</strong><br/><br/>Ein Angebot der Berlin Marketing Group LLC</p><p>30 N Gould St Ste R, Sheridan, WY 82801, United States</p><p>Registration Number: 2023-001322821</p><p>Telefon: +44 7386621201<br/><br/>E-Mail: info@gartenort.de</p><p>Geschäftszeiten: Montag - Freitag, 9:00 - 17:00 Uhr</p><p>Rücksendungen erfolgen gemäß unserer <a href=\"/pages/widerrufsrecht\">Widerrufsbelehrung</a>.</p><p><a href=\"https://www.facebook.com/gartenort.de\" target=\"_blank\" title=\"Facebook\">Facebook</a></p><p><a href=\"https://www.instagram.com/gartenortde/\" title=\"Instagram\">Instagram</a></p>"
+            }
+          },
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "Quick-Links",
+              "menu": "footer"
+            }
+          }
+        },
+        "block_order": [
+          "0496a8e4-5175-4067-af75-6f179b0f8914",
+          "406ed7d0-ebc1-4acc-9643-c5249763c4ba",
+          "footer-0"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#f6f6f6",
+          "color_footer_text": "#333232",
+          "show_currency_selector": false,
+          "show_locale_selector": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 2,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": false,
+          "tags_enable": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": false,
+          "heading": "Das könnte dir auch gefallen",
+          "show_vendor": false
+        }
+      },
+      "6a5e9989-422f-4ab4-96f5-e8b4a26c4018": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify://shop_images/4_b52f8786-fb8c-42bb-b193-c003703c8779.jpg",
+          "layout": "right",
+          "title": "HERVORRAGENDER SUPPORT",
+          "text": "<p>Unser Kundenservice-Team steht Ihnen mit Fachkenntnis und Herzlichkeit zur Seite. Egal, ob es um Fragen zu unseren Produkten, zur Einrichtung Ihres Zuhauses oder zur Gestaltung Ihres Gartens geht, wir sind hier, um Ihnen zu helfen. Wir sind bestens geschult und immer bereit, Ihre Anliegen zu hören und Ihnen die bestmögliche Unterstützung zu bieten.</p>",
+          "button_label": "MEHR DAZU",
+          "button_link": "shopify://pages/uber-uns"
+        }
+      },
+      "0577afcf-ecad-47bb-a551-3bb6e33bac32": {
+        "type": "newsletter",
+        "settings": {
+          "section_title": "NEWSLETTER ANMELDUNG",
+          "subheading": "<p>Trage dich in unserem Newsletter ein um spezielle Angebote zu erhalten</p>",
+          "show_background": true
+        }
+      },
+      "02bb07eb-0d37-49ff-a77a-9c368e97b2e0": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify://shop_images/GARTENSTADL_2.webp",
+          "layout": "right",
+          "title": "100% GELD-ZURÜCK-GARANTIE",
+          "text": "<p>Wir stehen stolz hinter der Qualität unserer Produkte und Dienstleistungen. Sollten Sie dennoch mit Ihrem Kauf unzufrieden sein, kontaktieren Sie unser Support-Center innerhalb von 14 Tagen. Wir erstatten Ihnen den vollen Kaufpreis.</p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "rich_text_c6hkJq": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": false,
+          "section_title": "Wilkommen bei Gartenort",
+          "text": "<p>Bei Gartenort bietet alles für ein nachhaltiges Zuhause: von Gartendeko über Werkzeuge bis zu Haushaltsgadgets.</p><p>Entdecken Sie mit uns umweltfreundliche Produkte und Ideen für ein grüneres Wohnen.</p>",
+          "text_size": "large"
+        }
+      },
+      "ps_optimization": {
+        "type": "ps_optimization",
+        "settings": {
+          "po_css": "",
+          "get_id": "",
+          "dns_preconnect": "https://cdn.shopify.com, https://shop.app, https://monorail-edge.shopifysvc.com, https://doubleclick.net",
+          "exclude_scripts": "",
+          "delay_scripts": "",
+          "delay_time": 10,
+          "defer_scripts": "",
+          "exclude_css": "",
+          "defer_css": "",
+          "critical_css": "",
+          "exclude_apps_string": "",
+          "delay_apps": "",
+          "delay_time_apps": 10,
+          "exclude_fonts": "",
+          "delay_fonts": "",
+          "exclude_images": "",
+          "delay_images": "",
+          "hidden_scripts_for_lighthouse": ""
+        }
+      },
+      "product-template-sharpener": {
+        "type": "product-template-sharpener",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-template-shower": {
+        "type": "product-template-shower",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-template-waldfreunde": {
+        "type": "product-template-waldfreunde",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-template-wakelight": {
+        "type": "product-template-wakelight",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-template-plain": {
+        "type": "product-template-plain",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-template-ultrawasher": {
+        "type": "product-template-ultrawasher",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-template-reinwerk": {
+        "type": "product-template-reinwerk",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-template-fugenrein": {
+        "type": "product-template-fugenrein",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      }
+    },
+    "content_for_index": [
+      "hero-1",
+      "collection",
+      "rich_text_c6hkJq",
+      "6a5e9989-422f-4ab4-96f5-e8b4a26c4018",
+      "feature-row",
+      "02bb07eb-0d37-49ff-a77a-9c368e97b2e0",
+      "0577afcf-ecad-47bb-a551-3bb6e33bac32"
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "10967200920248657493": {
+        "type": "shopify://apps/widebundle/blocks/app-embed/392bb313-2491-436e-a58e-9bb68ebd8f47",
+        "disabled": false,
+        "settings": {}
+      },
+      "3827277656414359441": {
+        "type": "shopify://apps/firewall-country-ip-restrict/blocks/firewall-app/26fe934c-42a8-4db2-817a-7de3b4bda592",
+        "disabled": false,
+        "settings": {}
+      },
+      "6478312753674380289": {
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
+        "disabled": false,
+        "settings": {}
+      },
+      "14327677521557774844": {
+        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "disabled": false,
+        "settings": {}
+      },
+      "11532412952436166569": {
+        "type": "shopify://apps/loox-reviews/blocks/loox-inject/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+        "disabled": false,
+        "settings": {}
+      },
+      "17676059084223943535": {
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "11724500921838622758": {
+        "type": "shopify://apps/frequently-bought/blocks/app-embed-block/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
+        "disabled": true,
+        "settings": {}
+      },
+      "11254466806377166470": {
+        "type": "shopify://apps/bf-size-charts/blocks/embed-block/47ee4f2e-eb5e-41af-9beb-e2786646bf2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "1692329972272007824": {
+        "type": "shopify://apps/zepto-product-personalizer/blocks/product_personalizer_main/7411210d-7b32-4c09-9455-e129e3be4729",
+        "disabled": true,
+        "settings": {}
+      },
+      "1377643287126208955": {
+        "type": "shopify://apps/eazy-product-options/blocks/app-block/27ed4125-4a4e-420f-9e93-3b9f2b5f5628",
+        "disabled": false,
+        "settings": {}
+      },
+      "15914998778720525373": {
+        "type": "shopify://apps/crisp-live-chat-chatbot/blocks/app-embed/5c3cfd5f-01d4-496a-891b-f98ecf27ff08",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  },
+  "platform_customizations": {
+    "custom_css": []
+  }
+}

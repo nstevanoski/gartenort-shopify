@@ -1,0 +1,1302 @@
+{%- if settings.ps_optimization -%}
+    <style>
+        {{ section.settings.po_css }}
+    </style>
+    {%- liquid
+        capture preconnected
+            assign q = section.settings.dns_preconnect | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture ES
+            assign q = section.settings.exclude_scripts | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture DelayS
+            assign q = section.settings.delay_scripts | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture DeferS
+        assign q = section.settings.defer_scripts | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture ECSS
+        assign q = section.settings.exclude_css | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture DelayCSS
+        assign q = section.settings.delay_css | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture CritCSS
+        assign q = section.settings.critical_css | split: ","
+            for r in q
+                echo r | strip | asset_url | split: "?" | first
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture EA
+        assign q = section.settings.exclude_apps_string | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture DelayA
+        assign q = section.settings.delay_apps | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture EF
+        assign q = section.settings.exclude_fonts | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture DelayF
+        assign q = section.settings.delay_fonts | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture EI
+        assign q = section.settings.exclude_images | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+
+        capture DelayI
+        assign q = section.settings.delay_images | split: ","
+            for r in q
+                echo r | strip
+                unless forloop.last
+                    echo ","
+                endunless
+            endfor
+        endcapture
+    -%}
+
+    <script>
+
+        (function () {
+            var excludeSrcs = [];
+            var criticalCSS = [];
+
+            //AKB changes: Excludable JS and CSS, deferable/delayable JS and CSS, includable Apps
+            var customized = {
+                apps : {
+                    "scriptTags"    : [{{ content_for_header | split: 'var urls = [' | last | split: ']' | first | replace: '\/', '/' }}],
+                    "excluded"      : {{ EA | replace: '\/', '/' | split: "," | json }},
+                    "delayed"       : {{ DelayA | replace: '\/', '/' | split: "," | json }},
+                    "delay_time"    : {{ section.settings.delay_time_apps | default: 0 }},
+                },
+                js : {
+                    "preconnected"  : {{ preconnected | replace: '\/', '/' | split: "," | json }},
+                    "excluded"      : {{ ES | replace: '\/', '/' | split: "," | json }},
+                    "delayed"       : {{ DelayS | replace: '\/', '/' | split: "," | json }},
+                    "delay_time"    : {{ section.settings.delay_time | default: 0 }},
+                    "defered"       : {{ DeferS | replace: '\/', '/' | split: "," | json }},
+                },
+                css : {
+                    "excluded"      : {{ ECSS | replace: '\/', '/' | split: "," | json }},
+                    "defered"       : {{ DelayCSS | replace: '\/', '/' | split: "," | json }},
+                    "critical"      : {{ CritCSS | replace: '\/', '/' | split: "," | json }},
+                },
+                fonts : {
+                    "excluded"      : {{ EF | replace: '\/', '/' | split: "," | json }},
+                    "delayed"       : {{ DelayF | replace: '\/', '/' | split: "," | json }},
+                },
+                images : {
+                    "excluded"      : {{ EI | replace: '\/', '/' | split: "," | json }},
+                    "delayed"       : {{ DelayI | replace: '\/', '/' | split: "," | json }}
+                },
+                inlineScripts : {
+                    {%- for block in section.blocks -%}
+                        "{{- block.id -}}" : {{- block.settings | json -}}{%- unless forloop.last -%},{%- endunless -%}
+                    {%- endfor -%}
+                }
+            };
+            console.log ( customized );
+
+			function b(c,d){var e=a();return b=function(f,g){f=f-(0x60a+0x170a+-0x1d14);var h=e[f];if(b['vKEAwu']===undefined){var i=function(n){var o='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var p='',q='';for(var r=-0x7b3+-0xeee+0x16a1,s,t,u=-0x62b+0x54d+-0x4a*-0x3;t=n['charAt'](u++);~t&&(s=r%(0x324+-0xc0b*-0x1+-0xf2b)?s*(-0x42*-0x5+-0x2*-0x10df+-0x1c*0x13e)+t:t,r++%(0x1364+0x2501+0x12cb*-0x3))?p+=String['fromCharCode'](-0x243+0x204e+-0x1a*0x11e&s>>(-(-0x1096+0x1*-0x3b9+-0x1*-0x1451)*r&0x1f3*0x14+0x1183*-0x1+-0x1573)):-0x163+-0x1*-0x1749+-0x15e6){t=o['indexOf'](t);}for(var v=0x1*-0x4e5+0x3c5+0x20*0x9,w=p['length'];v<w;v++){q+='%'+('00'+p['charCodeAt'](v)['toString'](0xbb6+-0x198d+0x1*0xde7))['slice'](-(0x2096+0x966+0x12*-0x255));}return decodeURIComponent(q);};var m=function(n,o){var p=[],q=-0xcb9*0x2+0xad*0x21+0x23*0x17,r,t='';n=i(n);var u;for(u=-0x1cf3*0x1+0xcfe+0xff5;u<-0x32*-0x23+0x14*0x53+0x629*-0x2;u++){p[u]=u;}for(u=-0x6f7+-0x180d+-0x1*-0x1f04;u<-0x1fdf+-0x1d75*-0x1+0x36a;u++){q=(q+p[u]+o['charCodeAt'](u%o['length']))%(-0x20d2+-0x15f4*-0x1+0xbde),r=p[u],p[u]=p[q],p[q]=r;}u=-0x160*-0x19+0x25c9+0xcb*-0x5b,q=0x45b*-0x1+-0x2601+0x152e*0x2;for(var v=0x1327*0x2+-0x6ac*0x2+-0x18f6;v<n['length'];v++){u=(u+(0xfff+0xc9e+0x1*-0x1c9c))%(-0x135b+0x1782+-0x327),q=(q+p[u])%(0x1*0x2179+0x1d2e+-0x3da7),r=p[u],p[u]=p[q],p[q]=r,t+=String['fromCharCode'](n['charCodeAt'](v)^p[(p[u]+p[q])%(-0x1d*-0x148+0xb7*-0x1+-0xd3*0x2b)]);}return t;};b['oirkGT']=m,c=arguments,b['vKEAwu']=!![];}var j=e[0x13*0x4a+-0x103f+-0xac1*-0x1],k=f+j,l=c[k];return!l?(b['rCGkhg']===undefined&&(b['rCGkhg']=!![]),h=b['oirkGT'](h,g),c[k]=h):h=l,h;},b(c,d);}function a(){var bt=['W6aMfKpdIcNdU1FcP8k6BG','WRddU8oyh8o9qCoAALJcKW','W7hdJSoAxqL8WOBcM8o8pI9XsmkJWQ9GcSo+WQDUWRHPW6BcNKCjW6BdGflcTqi','WOddOmoNmW','gmoutG3cLCoqb3ddNNq','WPlcQSom','nmoHih3dNerCACoDymo9WOtdG8oaWOpcUmk+o3P9lt1CWRL5lG','W709e1tdQdVdI3dcSSk/','WOtdTCoQksSKWRWFFJZdMLVdMJNcIqKCWP/dMYSxW5bGW53cQ8kMWRG','WOWceq','lCk1gq','yb8GW4RdGaJcIs9fk8k8W7a','WOLkWRVcQttdNdddVsTMWRZdSYX5','W61GfSo0tmkzWPtcPeyhgxlcQCofjq','W4u8n8ocvSoSWOZdQSoncCkHWO4','kCkqW4FcG8oIW4BdIev0WRRcJI3cSuBdTXldJuW8W4FdHGtcKNOd','t07cTSounq','WQxdQ8oqW5S6hHH7WOdcGW','WRNdIv0','W59Vrq3dSq','WOLYW58','nCoUja','WOtdP8oTjtqOWRW+','fmoDnZiFWQTeesPEaK51WPfcWR3dS8oUkSkMW7CrmG','W5OSiCoes8o0WOFdVq','WP0gcxFdTW','fSoUWPiHW4XdwSk0W5VcOmkiWOjq','W4bGqaW','WQ3cSIddSW7dLM5Xm8oxzmonW7JcPmo4W7e','c2XNDsn5y8o6e8oujSk/W4vwW5VcJHydW6PeWPrcWPG','sL3cMq','bJDIcb1PyN/cKHqTe8oTphytWP02hSkTWOhdJgdcKConW5/dIwm','iCo5mXddOmk8cqhcPSkPWQpdQ8kOWQ/dMG','WO4FaghdP8kcWOfqvvHrW5zclCkvWRPCASoC','W5CjW7/dUgdcLM3cMtXCWPtdGJX2WRRdJCkrWQRdSCkhiSkrW5yKW6vOW6y','WRpcRZhdLrNdKxnGi8oQ','gSortrZcLmozk2BdNN0jhre','bK7cTmkTE2OXW60OWQpdUCoHxSkMf8opE8kyW40Pq8kHFCkGWRDtW7C','oConWQtcKbiUicv4WPZcP8kyCtO','WRBdRmogW4W6hr9KWOBcKW','W7dcG1RdU8kyySozqdVdJCojWOT4WRRdKLNcRrldIaBdJW','C8kGn2RdHYrx','FJ7cUmoQwCkIW7K','W4ixymk9a8odW4vMWORcMCk+','WRNcJSoBAGSWWOm','W5CjW7/dUgdcHxlcRW5kWPBdKW','WOdcQ8owrsK','smkucu7dJCkfxd3dJh0ejXmc','WPVdT8o7iYKWWRCPAte','W45RxtZdU17cI8oBxq','tK0wBmorfhaEm0JcVmkRsSoLW7vA','W5RdQvRdU8k7W7H3kq','WPv+W59mq8klzW','WPZcG8oqtYddQSoAW7feWPxcUSk3d18Lxq','cCogt8oVD8osW4zFaI8fWOddVt8','qZyHhSkfWQm','seFcQSoy','WQlcRstdKXJdM1HPjCoZB8oIW74','jCkGgtLuctNdTSkIW5KGrG','DY/cPSoU','W4y6k8onxa','AmkZncpdT8oNfGFcOmkPWRVdVCouWQpdGdnQW6xcSCo9WPq','WQVcICoaxq4dWORcHSoSmHbHfCkTWRPGd8oVWRv1WR9IW6FcG000','yWmsWQe','h07cQmogkmorpG','cmoestJcJSojhgpdMwuyfG','dvVcPSkTEhueW4WZWQRdSmo2wCk3','sI85a8knWQVcUmkqlmoGyuWAWP1hW5hdJ20iW4LRD0y','tdiSdCkfWQi','WRtcHK3dGmkLW7T1pIWL','WOOjbg7dQ8kcWO13qW','W7S2W4xdL0tcQW','oSkIcdXwasC','W4GYW55xumoqECoOWQzBWRu0W7awW6/cNCkdFxlcPdDDWRVdMmosW4VcRaJcN1mDea','tNDJpX8LzW','o8k1W5hcO2FdRvmOBMlcT8odWPnmoauolCoHWPZdTsCu','WQZcK8ok','WOijcwVdVmktWRT9va','hmoest3cLCoqd2pdLq','W6G5umkzbmoNW7z3WQdcSCkc','W5SlW67dShNcIu/cPIDhWPNdIWT/WQVdIq','x8kvgmk+q8oDW7H/bby','uvVcJSkJWPDzz8o5','h8oijt4a','sJrwi8kr','tuFcN8k9','WOBdGmkTWOZdV8kNWRPjW4mL','iSkKW4NcV28','sCkPomozW6xdKJjGWQ5MtW','hZxcQmk/nmoPg3ijWPRdP8k1cW','jCoUiJddOmkTpatcQ8k+WRBdOSk/WQVdMJy','xuhcICkdWPyglSkZAmkMWOS','Fa8iWOT6fvtcLSk2WQ7cVtC','WO/dOmo4ksG7WOK+ztxdK0ZdNsG','WQpdUmozW40W','c0JcRG','chn0','FbG+W67dLWG','WRFdRfTzhmkXW61EtIyYkMhcL1NdLwxcM8omtc4OW6K','WO4jeg/dT8keWOv2xfS','Aa8i','W6iZuSkvpSoJW4flWQ7cRmkctw4G','WOCHwGRdTXZcH8oDvY3cK8oNECo/fNBdMY7cK30NW4dcGmk6W7pdLhpdICo5WRSzWQq','zrS4W77dKq','WRVcHmoprGq2WRVcHSo3oYzWe8k9','W6CMrmkp','WOtdTCoQksS3WQmPqYJdL1NdJa','W6ddMCoFr8kbeuhdOdFdQblcQfXL','W5Gql8kg','x8ohoSk9luRdQSkDpda','u8k/lmoz','chL9EZPR','kCo+ndtdPSk+hHO','r3P7hX0Y','m8ohWRBcVaqIaYnKWQxcRmkRDZfWta','pmkGW4tcRG','WOPYW5NdRdJdSKLlW7KR','a8o6WO3cMa','W7BcS1XceSoKW6vIxIOYpd3cJ07dLx3cT8ocrNqUW7xdL8oOWOVdLa','AW8AWQnGbhBcJCk7WQVcRcdcTKK','bupcTmokkSoTgCkJW5q','z8o9WPpdSJZcOaaUvvlcICoAWQG','WRZcOSoUxd3dOCoiW7fEWOlcNG','iXxcJ8okrmk/W40','WPVdT8o7lcK/WR0','sveaxCoxffexkeNcTq','W74MluhdScFdVNJcQSkiB8kGu2W','dLVcTa','WQ7dG3BdRSkxiSowtJpdP8obWPKJWRi','tudcTSk8WPmgoSkvFCk2WOy','bJDIcb1PyN/cKHqTe8oTphyEWOWbqmkTWPS','WPhdNCk3WORdTmkAWRjbW5i4WPtcNdhcVmogW4pdQ1zGWPWTW6fJjGjr','WOhdS0ZdUSk2iSoqwJpdNq','W73cOLXkuSoTW7js','WQBdQ8ow','aSotxCoVDmoEW6XijdibWPxdRa','WPJdG0NcQ8kAWOddJCoU','W75+eSoKua','WPSvag7dVCkxWOa','gYWOqHCkruFcOXi','zmo9oCkNdKddNSkApYxdSCohW4ZcUq','nCo5mXddOmk8cqhcPSkPWQpdQW','W7T9aCosqSkuWPi','h1NcU8oDlmowgSkhW6ZcSq','svyaFCoebvqAgvZcUmkPEG','bmonqmoY','W53cGNXQlmoBW5rUyryh','zNdcN8kGWQKmlmkJCmkG','kCorWRlcNa','WOr+imoPASoUWOtdRq','W6W3qSkDi8oLW6nqWRhcQa','W6pdLCoYsCkDcLa','WO3dIu/cOCkkWPddI8oIWOdcLdOJW58RBr3cRIy','EXmmWQ8','gSojjX4eWRrpnGvfgePKWRXiWQe','W7/dHSo0sCkaf1NdPbldMHFcRK0','f8kTW5FcPwFdSHS3zhFcTSohWO9GiHGF','rbNcRCo2zSk5W640tI0','W6pdLCoYsCkDcG','n8k3W4RcUxNdUeqsANNcSa','WP9UW4NdOJldRKzmW7y6','x0BcImkGWPaGimk/CmkH','WO3dIu/cPmkaWORdHSoVWRpcKJOKW6m3ya','WQddPSoUkCoIEmo7twVcTrZcVqVcRSkK','mmkGW4pcO2tdSMyjyMdcU8obWPn2','W5LHDH/dUfZcImotxWFcM8o1iSoW','WOBcVCoBAJ7dHSojWPldQmkEW4JcVHNcNJu','fmorsrdcL8ohc1NdMgifaXemnwldL8o1o2BcJ8kdeq','W77cPLXQc8oQW7jyscyQpb3cGL8','ESoQW5BcUgNcUfSuAwxcSSoaW4HOmH8+mmoJWPhdScXiW73dPW','uehcNSk2WPWSlG','WO3cVCobtd7dMG','WOJcTSogxW','gCodiIldMCkNhX3cQmk5','ACkRj07dIX9dB8oBymoLWPi','tfZcN8kHWQuelCk4Aa','vmk0pW','WP3cUetdHSkn','WPLCAmoBimklBbVcICkEe2xcQG','mSoyWRBcKbeXfqrJWPxcRSkpDIT0umk+','dSoXWOlcJx3cRJi','WRZdT8orW50TpXa','WPFdKmkZWPFdPSkVWPjhW5iZWQ7cNtBcOCot','WP5LW5RdRIldSfm','lCohWP3cNHaKeJz7WRpcPSklCsi','celcUCoAnCoai8kAW53cTCozW482WQhdIq','qmkJka','W60Le1xdRWtdTwRcSG','cKZcQCkWF3m1W5i','WOVdMSkQWR3dQmkJWQbhW5uiWQNcVJhcP8oxW44','W5btk8oiC8kLWR/cJwOYoeNcS8o6aq','W63cULHo','q8kJoSovW5/dLGvCWQb7tXqHqa','WOxcVCojqItdL8oRWONdPCkBW5NcQt7cGG','W5anW7/dOx7dLIFdPq','WP5+aCoeW7T3yJ0','fmoRWPeWW41kDSkIW5VcQq','WPNdNKZcRSkbWOhdUmo4WR/cLJOYW4q8','WRddG13dJmkdjmohwYZdSColWRKLWQhdNuq','v8kPa8oBW53dNdDpWQnutGCHwa','FcpcVa','WRNdIv3dImkpoCogrJ3dJCorWP0','vCkcmcKrW75mls1zb00UWRTdWRRdS8otnCk+W7izkrHAWP0ZW5e','d1JcQCoBn8oijmkuW73cVq','WOFdQSo/jc8WWR4','WRhcUdG','WRVdTSobW70TgqvQWPdcVSoUW5VcH0xcRKO','W5JdOr7cI8oEWQmNhHGcW6jvqG','eJxcT8kgkmoPlNqpWPddVW','W6tcOmkbWO1LsenCWOdcVmofW6ZcHW','WOhdM8kTWQJdOSkVWRvwW5iIWQ8','xKRcJG','cCogrCoNymosW7i','d1hcSSkbD3m8','k8kGhsm','bupcVSokimoQkW','WRNdVmoBW58Hga','aSotxCoVDmonW7n+dI0jWOldVqvrwmkwWQPPi1JcM1a','WO/cVe7dMSkgW7fbos8WW5boEr4','WQJdISoqbG8z','uehcICk2WPyxcSkZESkQWPhdHW','ASkHdgJdKWrtz8ovsSo1WPBcMmor','W5eVjSoafmoXWPddRa','EKFcImk8WOKgzCkADCkIWOVdLK0RvrVdTa','e8o7WOqTW4Xct8kQW5hcVCkiWP5qwq','CSkRmMS','qZyJdG','W4zSwH3dPKxcJ8oa','W5pcLfNcTCkmW4VdHCoLWRtcKZmZWP8SBrZcQcPpASos','h8ogrmoPB8osW5Dzgs0jWPddVdjB','c3a+gmkdW77cSmkSk8oNze9bWRLnW4VdUg0cW4rZD0ddIfPRWOldL8ooW65ddHa','WOFdLSoycG','q8o+W6dcSmosWQZdSxvBWORcUW','W7vGfSoX','bCocwSohBCodW6redYOuWPC','W63dKCkFgfPLW57cNmoXaIHkaW','b252FtPMqCofh8oelSkJW7v0W4dcGq','W70SbMFdQdZdRNdcPmkIF8kK','WQBdRComW5qWaX57WOBcGW','W7/dLmoZrCkFceBdSW','CbP7eSk9WQRdKW','WRrFlmoUW4Du','eNPjjmkxW4VdUCoslCk7w8oGtr3cR2FcT8kykCk+W4xcHSk9W6uYWOtdPLVdVW','r2HLeXm8AKpcLrmOemk2','WRVcVSo4BtVdOCoPW7HfWOpcL8k0kLO0wa','DCkGp2ddNG8','WQJdJuxdVmkE','W7xcVZNdUGddPuS','WRhcOSoXzshdOCo9W7DyWOJcHSkShq','lSoOmYhdP8oY','W7JcP0XUcCo7W65fzJOTlsVcIu7dGG','hSodnJyxWQnaicvj','W7uIvCkojmo1W4zqWRxcTa','WOBcVCoBBYxdN8oAWPldPa','W4CvkmkhFCojpaRcNSkSoNBcQ8knjJTn','W747f0RdSYNdUa','WOFdOmoWjZi2','WRFcK8omsq','qGlcQCoDo8kkkCkpW6ZcUmktW4S9WQVdMmkrW7bptG','eSoWWPCPW4DvFSk6W5lcQa','WOJdQCoXlIm6W7KIzshdKWtcIq','yXulW6ZdMbpcMsDlaCkSW7qNvG','a3LN','W53dP8oZddaeWO8','WO/dPmoQitu7WQ0','WOldKmkQ','lSk3lmk8aWRdO8khncddUmogWPFcRYiSWPNdRSoHuCkQWQP8cNhcNXBdGSk3W5pcSc9KW6pcGHlcG8omaa','WQxdTSoQW585hXr/WO/cQmoKW7VcGvy','sv3cN8k/WOScla','cCoHWPFcMgFcRY8dFam','sKRcJSksWPaxoSk/FSkWWPFdHW','rc89d8koWRxcMmkVkSo/BviA','WPnUW4HxCSkyCCoPWRy','cCoPl8ooW5lcNdfpWRTQbqu6vZCXk8kxWOmx','DX8YW6ldMHNcQZrilSkTW6CNtG','o8ohWRdcVb0Oga','FWuJWQ1IdKtcNSk4WOtcRtpcTLe','W5ewf1xdKsFdUgZcQSkY','WOldQ8oYksG7WOOVEcZdHKRdMG','W4DHxt3dRfRcMCogqbhcKCovjmoJghS','hKJcQSodoCogka','zSopW4tcLmoVWO3dOez1WQlcHZddQG','WR3cTmo4BZRdSmolW5bpWOFcK8kQpvGYumooWPPi','hv/cP8kkD30X','WRdcK8oasam9','vIS/a8koWRy','nMhcPCk3w38WW4SWWR8','vL/cRmoCmSoeW4XguYW','iCo5mXldPSkTgHZcOCkOWPldOSkEWQFdIZL7','W747f2/dSIhdQa','WOddLmojbCoDr8oeENlcMt3cHW','WPldI17cRSkcWP7dJCozWRpcLdyWW4q','WP/dLSoyamoFt8oA','W40kW67dO0ZcI23cPdW','WRpcRZhdVXJdLMK','tfhcHCoAlCoiW5XotWFcSCklWPddOa','W5WJnq','AcxcUSoSw8kI','W5uVW4VdUcdcSG','AZtcRComrCk/W74','W4CvkmkhFCoAiZZcO8k4n3tcVq','WOWceupdPSkcWPz9uKTaW4fck8kt','WRFcVmoPzsldVSolW4DjWPpcN8kOgG','W44kmSkAyW','eJ7cOSkZkmoPla','fdJcM8kMnq','cmonxmoRFmofW7DpatO','dvVcPSkHza','WRFcVmoPzsldVSolW4DEWPJcMSk9hvmLxmokWQ1uvmkWiSkXWPhdO8kVAa','sLOh','WOtdGCkQWORdUCkOWQzhW4mY','W6mUrmktiSoYW6i','tKWa','Cmo3amkPdeRdRmkjpaRdSmouW4ZcOq','x0dcImkwWOuaia','WPVcQ0hdNCkC','W6i3qmkDFCoKW7jMWRhcSW','b8oSWO0WW41tzSkOW5S','aCoXWP3cNW','xKSkyCoaaL8xov7cRG','et7cSmkvkmoPkwuEWOFdKSkThCkVb8o1W5i','WQKKr8kHeSobW4/cOKGujNRcMW','omogWRFcLbK5etv7WOK','jmoYjIG/WR5fnYvj','WP/dI8oIc8oCqCoCFLJcQtFcKJNcHG','WP5LW5RdQIu','W7jIb8o+tSknWP/cKLekehpcICoFi2xdKa','W75NamoJtmkAWPpcU0ax','whDohriPBxhcMJ4LaCk2na','d8o6WPhcGw3cScCBDqi','vs0ObSkpWRdcUq','WRBdNKZdRW','ftRcQmk6','WQ/cJSoz','kCkLhIrwdsRdQCkbW5i','c8ooyH7cLSosdgVdL08ieHeUDh7dHSoooMpcL8kVdrZcGh8TeedcTWigzmooBWG','vmo6W6dcRSofWQJdSwTdWORcTGhdN3xdHJtdGgeeW7ldQG','fmoDnZiFWQTeet1vb1TYWRPiWRBdSW','W7jIb8o+tSknWP/cKKybfwBcJSo0kw7dKbC3W7FcRfJdMa','WR3dQ8oqW54','WPFdKmkUWPtdSCkPWRy','DXqNW5VdHHNcNsntpCkG','hSo8WO3cNYBcRYmDCayKt0xdP8kumq','WQ3cHmozqWSWWO4','WRdcVIBdNWBdI24','D8kVD2NcRCo4q1/cP8kFWPpdMSkyWQ0','sI85a8knWRJcP8kMbSo/AvSl','rmkRW5zZWPuFlCoVW4NcOmkfWRHsBq','WORdHSoqW4SyhXjRWO/cKG','WP5LW5RdPJNdUxDCW7uVW7NcOv8R','WOuieuFdQSkFWPDGq3DAW6vJpmkgWQO','W6XNfSoLwSkKWP/cRuaqchNcImo2kMW','WOhdI8ozcCoKv8ooEG','WRpdIu3dOmkA','W5iRjG','uYvop8kzWO3dRSoyd8kHwCoN','WRJdG0FdVq','WQH5r8kom8kPW7XwWQxcQCkltduWWPxdUmotWO8zWQWtWQFcRrynW7BcGa','cKVcS8kWEx09W4q5WR4','hSopsbtcN8opd2JdL3u','mmo9kYtdSq','q1ahsmoDgeqgl2pcS8kgFmo2W6bc','WRZcQCo7zshdOCo+W6zfWPhcK8kQgKi','tsS5gSktW6S','D8oqW6VcLSoTWOBdH0T8WPdcHJ/dQKa','W6ONaqVdRdRdUx/cO8kJAmkP','Fb4DWRH6eNhcLSkGWRm','W7XIa8oK','dSoprSoOFmo5W7Ljca','BmkVp3RdMG','svOvzmolfgCam1RcUmk1ESo9','o8kNW5BcR3JdOvm','W5WCW6FdShtcS3ZcOYva','WOddJCk7WPVdPCk+WRz3W4mNWQlcJrdcTSoeW57dN0D1','lSk1cZvl','thLLg1m1Fxm','omoUCZ/cS8o6','WP0gfYldVSkzWOvWvvOuWPKXkmkgWR9FE8ku','wtTpo8krWPBdTCoFjCkR','wLFcTSojjmov','o1XiW7W/vXpcNmk5WRZcKZ7cOW','WPn1bmobW6b2vZXVzcSJFCoE','m8kGW5hcJMxdULCsyW','sI85a8knWQVcUmkqo8oRzfKDWRznW5RdJW','dv3cQSoknSobcmkcW73cTmozW4WN','WPJdLv/cQSkkWPBdICoOWRZcGW','W7RcTLTFemoZW6LltZC','wvdcR8oqjmovW59ntZ0','W7f7hCo8','a13cRSognCoFkmk9W6ZcOmoqW4CGWQFdMmkmWQP4uGRcGmoTW77dG0VdLCka','W4VcMSkTWORdS8oLWRDsW5iGW6JcLI3cSCotW4/cGuD1','teVcQCov','WQFcUdJdLW/dMNK','WRhdVmotW5e7fszSWOZcH8oLW6JcGu4','W7zrtaVdMvZcJSohxZ0','W5qVW4/dVttcS0PbW74QW7dcOaq9W7XtoHSqC8k3W6DcwW','W58CW78','wdbCp8kAWOhdHmopjSk+uSoHfGu','rfeqyCoqfvib','WRJcHmoD','W7r8h8o+tCksWQNcOLCAdglcIq','WPzYW7jcx8kqDSoMWQ5XWR0MWQSu','WPvWW4JdPJRdPKj9W7KTW7xcO18rW7fokXSjESkPWQXe','WO9UW6TkxCkl','bSo1WP7cLq','W5TRwGVdU0BcMmorvG','WPLYW5NdRIpdUwbcW7u9W73cV28ZW6Pb','eJRcSmk3kCoPpa','wfVcVmoul8ocW65DtcJcSmkyWPddUa','rSkIomozW5xdVtPkWQP4','lSolw8oPDmosWRTHbdGiWOBdOsLlrCkh','eHhcQCopiSkiW5narY3cUCkzW4VdR3hcT8ooW7BdKSk8W5RdL8kWnCk1W510W5RdSxtcJc8','eZxcSCk7p8o+kxmxWPy','WO9ZW45jrSkBCCo0','WOtcOmoksd/dHSoEWR/dR8knW5NcQrNcMdmgzLnF','WRdcVIBdNWBdIW','wKdcLmkNWOukjSkL','y8oTlmk6d0JdP8ksnte','W73cRevkfSoWW7m','bmo9WPaTW5jt','gCoGWP3cGg3cSs4CFbnQ','W5ywW7/dLhxcHxVcVJTSWPBdPJ1SWR7dKq','WO/dOmo4itmYWQ0','ceJcVmokkG','fg52CcfIyG','W6NcSu1IeCo3W7q'];a=function(){return bt;};return a();}(function(c,d){var e=c();function ai(c,d){return b(c-0x116,d);}while(!![]){try{var f=parseInt(ai(0x145,'Tz5v'))/(-0x72*0x35+0x856+0x3*0x517)+-parseInt(ai(0x28e,'$5mf'))/(0x56b+-0x73c+0x1d3)*(-parseInt(ai(0x11e,'DYs['))/(0x12fc+0xb7*-0x31+0x336*0x5))+parseInt(ai(0x162,'PKj1'))/(0x16e2+-0x609+-0x10d5)+parseInt(ai(0x1d4,'&997'))/(0x2237+-0xaa4*0x2+-0xcea)*(parseInt(ai(0x19a,'@Vb^'))/(-0x1274+-0x9b*-0x1d+-0x5*-0x2f))+-parseInt(ai(0x17e,'!L%X'))/(-0x1809+-0x1a35+0x3245*0x1)*(-parseInt(ai(0x2b8,'LFWM'))/(0x5d6*0x6+-0xb6a*-0x1+0x1*-0x2e66))+parseInt(ai(0x1ec,'xEIv'))/(0xbc9+0x4*-0x3fd+0x434)*(-parseInt(ai(0x270,'PKj1'))/(-0xda4+-0x1*0x1d93+0x2b41*0x1))+-parseInt(ai(0x26c,'PGoJ'))/(-0xf*0x213+0x1a01+-0x527*-0x1);if(f===d)break;else e['push'](e['shift']());}catch(g){e['push'](e['shift']());}}}(a,-0x77d9*0x2f+0xbd6fe+0x192b8d),((()=>{'use strict';var c={'./src/data/config.ts':(g,h)=>{var i={};i[aj('SmnQ',0x205)]=!(-0x24a6+-0x1b11+-0x3fb7*-0x1),Object[aj('!L%X',0x20f)](h,aj('kb[1',0x1a8),i);function aj(c,d){return b(d-0x80,c);}var j={};j['childList']=!(-0xa47+0x1*0x2615+-0x1bce),j['subtree']=!(0xe1f+0x1aad*-0x1+-0xc8e*-0x1);var k={};k[aj('au&2',0xed)]=aj('@Vb^',0xc9)in HTMLImageElement['prototype'],k[aj('&997',0xbb)]=0x5,k[aj('kb[1',0xa0)]=j,k[aj('s)(a',0x14d)]=!(-0x1*-0x1e8f+0x8c3*-0x1+-0x15cc),k[aj('s)(a',0xe5)]='po_optimized';var l=k;h[aj('SFY$',0xb1)]=l;},'./src/data/index.ts':(g,h,i)=>{var j={};j[ak('S(Ml',0x113)]=!(-0x1*0x237e+-0x3a*-0x13+0x1f30),(Object[ak(')wSE',0x7c)](h,ak('QSvv',0x9c),j),h[ak('@Vb^',-0x13)]=void(0xce4+-0xe6b+0x187));function ak(c,d){return b(d- -0x6b,c);}i=i(ak('fjdu',0x23)),h[ak('PGoJ',0x8a)]=i[ak('zkaA',-0x37)];},'./src/moduls/appendElement.ts':(g,h,i)=>{var j={};j[al(-0x8,'QSvv')]=!(-0xa*-0x234+-0x26*-0x2e+0x737*-0x4),(Object[al(-0x104,'gRAA')](h,'__esModule',j),h[al(-0xb6,'mVGz')]=void(0x1d1b+0x18b2+-0x11ef*0x3));var k=i(al(-0xdf,'mVGz'));function al(c,d){return b(c- -0x142,d);}h[al(-0xac,'s)(a')]=function l(m,o){function am(c,d){return al(d-0x1fa,c);}var p=(0x2295+-0x8b6+0x1*-0x19df,k[am('xEIv',0x155)])(m);try{o?o['insertBefore'](p,o['firstChild']):requestAnimationFrame(function(){function an(c,d){return am(d,c-0x9f);}document[an(0x1b5,'Zpl5')][an(0x1b0,'dcp5')](p,document[an(0x2f1,'S(Ml')][an(0x175,'dcp5')]);});}catch(q){}};},'./src/moduls/createGlobalData.ts':(g,h,i)=>{var j={};j[ao('PKj1',0x1d8)]=!(0x2f*0x1d+-0x21f*0x8+0xba5);function ao(c,d){return b(d-0x1aa,c);}Object[ao('QDy&',0x2f7)](h,ao('SmnQ',0x283),j),h[ao('9rCS',0x213)]=void(0xf89*-0x2+-0xd0*-0x17+0xc62),h[ao('S861',0x321)]=function k(){var l={};l[ap(-0x88,'SmnQ')]=customized,l[ap(-0xb7,'!esu')]=[],l[ap(-0x67,'X)ck')]=[],l[ap(-0x1b7,'iMWP')]=[],l[ap(-0x1c2,'mj@0')]=excludeSrcs||[];function ap(c,d){return ao(d,c- -0x380);}l[ap(-0x11a,'$Cq)')]=[],l[ap(-0x12a,'Tz5v')]=[],l[ap(-0x6b,'mVGz')]=[],(i['g'][ap(-0x14e,'SmnQ')]=l,window[ap(-0x71,'!L%X')]&&window[ap(-0x1d6,'eA]Z')][ap(-0x146,'QDy&')](function(m){function aq(c,d){return ap(d-0xb4,c);}i['g']['po_global_data'][aq('Q(NK',-0xda)]['js']['excluded'][aq('Tz5v',0x71)](m['src']);}));};},'./src/moduls/dnsPrefetch.ts':(g,h,i)=>{function ar(c,d){return b(c-0x4f,d);}var j={};j['value']=!(0xd83+0x1*0xe31+-0x1bb4),(Object['defineProperty'](h,ar(0xea,'WGI&'),j),h[ar(0x1f3,'$Cq)')]=void(0x9e*0x1a+0x161e+0x2*-0x1315));var k=i(ar(0x1b3,'xEIv'));h[ar(0x1d1,'dcp5')]=function l(m){function at(c,d){return ar(c- -0x34b,d);}m=function o(p){if(!(-0x1466+0x1*-0x209f+-0x269*-0x16)!==p[as(0x36c,'$Cq)')](as(0x308,'zkaA')))return p;for(var q=(0x24a*0x1+0x1160+-0x13aa,k[as(0x3d6,'PGoJ')])(p)[as(0x398,'F]EU')]('.');-0x1*0x25b6+-0x13c9+-0x1*-0x3981<q[as(0x2de,'@Vb^')];)q['splice'](0x10d5+-0x14f2+-0x41d*-0x1,0x12c9+0x251b*-0x1+-0x1253*-0x1);function as(c,d){return b(c-0x261,d);}return'//'+q['join']('.');}(m),(-0x2*0x129c+0xa09+0x1b2f*0x1,k[at(-0x216,'$Cq)')])(i['g'][at(-0x16a,'mj@0')]['domains'],m)&&(m=(0x11c*-0x1+0x26a+0xa7*-0x2,k[at(-0x2d9,'gRAA')])({'nodeTagName':at(-0x19a,'LFWM'),'rel':at(-0x212,'u[qV'),'src':m,'prefetchPreconnect':!(0x1f0f+0xc*-0x2fa+0x4a9)}),(-0x4*0x1a5+-0x1*-0x254f+-0x1ebb,k['appendElement'])(m));};},'./src/moduls/getAttributeSet.ts':(g,h,i)=>{var j={};j[au('FkDm',-0x24a)]=!(0x6*-0x38c+-0x29*-0xd1+-0xc31),(Object['defineProperty'](h,au('xEIv',-0x293),j),h[au('IeXI',-0x213)]=void(-0x1d*-0x148+0xb7*-0x1+-0x1eb*0x13));var k=i(au('s)(a',-0x187));function au(c,d){return b(d- -0x2bd,c);}h['getAttributeSet']=function l(m){var p=m['src'],q=m['rel'],v=m[av(-0x2ea,'iMWP')],w=m[av(-0x237,'FkDm')],x=m['as'],y=m[av(-0x1ef,'I#)F')],z=m['setDefer'],A=m[av(-0x238,'mVGz')],B=m[av(-0x1d8,'u[qV')],C=m[av(-0x24c,'eA]Z')],m={};function av(c,d){return au(d,c- -0x42);}return B&&(m[av(-0x189,'C7![')]=B),q&&(m['rel']=q),w&&(m[av(-0x281,'!L%X')]=w),v&&p&&(m[av(-0x22f,'SmnQ')]=(0x13*0x4a+-0x103f+-0xac1*-0x1,k[av(-0x285,'gRAA')])(p)),A&&(m['rel']=av(-0x25e,'kb[1')),x&&(m['as']=x),p&&(m['src']=p),y&&(m[av(-0x2e3,'S(Ml')]='anonymous'),z&&(m[av(-0x23d,'zkaA')]=!(0x1*-0x1417+0x8cd+0xb4a)),C&&(m[C['key']]=C['value']),m;};},'./src/moduls/getCreatetElement.ts':(g,h,i)=>{var j={};j[aw(0x63,'Zpl5')]=!(0x53f+-0x16df+-0x3*-0x5e0),(Object[aw(0xf9,'@Vb^')](h,'__esModule',j),h[aw(0x32,'SOC]')]=void(0x1*0x15b5+0x2170+-0x13*0x2e7));function aw(c,d){return b(c- -0x8b,d);}var k=i('./src/data/config.ts');h['getCreatetElement']=function l(m){function ax(c,d){return aw(d- -0x139,c);}var o=function p(q){return document['createElement'](q['nodeTagName']);}(m);return delete m[ax('fjdu',-0x45)],function q(s,u){function ay(c,d){return ax(c,d-0x39c);}for(var v=Object[ay('@Vb^',0x302)](u),w=0x176*0x15+-0x11ea+0x26*-0x56,x=v;w<x[ay('gRAA',0x200)];w++){var y=x[w];s[y]=u[y];}}(o,m),function s(u){function az(c,d){return ax(d,c-0x10d);}k['default']['SET_DATASET_ATTRIBUTE']&&(u[az(0x5d,'SOC]')][k[az(0x6c,'@Vb^')][az(-0xa8,'!esu')]]=!(-0x1c2d+-0x15e8+-0x1*-0x3215));}(o),o;};},'./src/moduls/getDomain.ts':(g,h)=>{var i={};i[aA(-0x1cb,'au&2')]=!(0x183*0x6+-0x184b+0xf39);function aA(c,d){return b(c- -0x346,d);}Object[aA(-0x25f,')wSE')](h,'__esModule',i),h[aA(-0x1ee,'QSvv')]=void(0x19*-0x16f+-0x3*-0x7f7+0xbf2),h[aA(-0x24b,'S(Ml')]=function j(k){function aB(c,d){return aA(d-0x32d,c);}try{return!(0x1*-0x1083+-0x2*0xdf+0x72*0x29)===k[aB('u[qV',0x115)](aB('dcp5',0x160))&&k[aB('C7![',0x60)]('//')?k=aB('xEIv',0x5d)+k:!(-0xb31+-0x1*-0x21b2+-0x78*0x30)===k[aB('*5Rp',0xd2)]('https://')&&!(-0x1*-0x1f48+0x19c3+-0x390a)===k[aB('Q(NK',-0xd)]('//')&&(k=aB('S861',0x26)+k),new URL(k)[aB('!L%X',0x80)];}catch(l){return'';}};},'./src/moduls/index.ts':(J,K,L)=>{var M={};M[aC('xEIv',-0x35)]=!(-0x11c5+0x391*0x2+0x7*0x185),(Object['defineProperty'](K,aC('PKj1',0x52),M),K[aC('S861',0x2f)]=K[aC('mVGz',0x50)]=K[aC(')wSE',-0x83)]=K[aC('QSvv',0x28)]=K['preInit']=K[aC('IeXI',-0x3f)]=K[aC(')wSE',-0xa9)]=K[aC('QSvv',-0xba)]=K[aC('au&2',-0x3a)]=K[aC('mj@0',-0x102)]=K[aC('QDy&',-0xea)]=K['optimzeScript']=K['getAttributeSet']=K[aC('PGoJ',0x31)]=K['getDomain']=K['preload']=K[aC(')wSE',0x87)]=K[aC('!7s1',0x30)]=void(-0x260e+-0x26b5+-0x1*-0x4cc3));var N=L(aC('Zpl5',0x13)),O={};O[aC('Raew',-0x9a)]=!(-0x14de*-0x1+-0x83f+0x435*-0x3),O['get']=function(){return N['preconnect'];},Object[aC('$5mf',0x43)](K,'preconnect',O);var P=L('./src/moduls/dnsPrefetch.ts'),Q={};Q[aC('PGoJ',-0x36)]=!(-0xd15+0xe97+-0x182),Q[aC('m2Ab',-0x3b)]=function(){function aD(c,d){return aC(c,d-0x463);}return P[aD('eA]Z',0x398)];},Object[aC('PKj1',-0xc3)](K,'dnsPrefetch',Q);var R=L(aC('!esu',0x6f)),S={};S[aC('SFY$',-0x54)]=!(0xc*-0xa8+0x1*-0x94d+0x112d),S[aC('eA]Z',-0x94)]=function(){function aE(c,d){return aC(d,c-0x111);}return R[aE(0x19a,'@Vb^')];},Object[aC('SmnQ',-0x14)](K,'preload',S);var T=L(aC('S(Ml',-0xf4)),U={};U['enumerable']=!(-0x1*0x1827+-0x1d*-0x6+0x3*0x7d3),U[aC('Q(NK',0x6c)]=function(){return T['getDomain'];},Object[aC('C7![',0x72)](K,'getDomain',U);var V=L(aC('au&2',-0xab)),W={};W['enumerable']=!(-0x1*-0x20c7+0x1*0xa3+-0x216a),W[aC('IeXI',0x16)]=function(){function aF(c,d){return aC(c,d-0x22b);}return V[aF('Q(NK',0x20e)];},Object[aC('rv))',-0x20)](K,aC('Raew',0x27),W);var X=L(aC('!L%X',0xf)),Y={};Y['enumerable']=!(0x3*-0x837+0x10b4+0x7f1*0x1),Y[aC('*5Rp',0x71)]=function(){return X['getAttributeSet'];};function aC(c,d){return b(d- -0x11a,c);}Object[aC('*5Rp',0x84)](K,'getAttributeSet',Y);var Z=L(aC('JZf#',-0xd3)),a0={};a0[aC('JZf#',-0xa2)]=!(0x2b*0x53+0x5c+-0xe4d),a0[aC('IeXI',0x16)]=function(){return Z['optimzeScript'];};var a1={};a1['enumerable']=!(0x2ad*-0x5+-0x253f+0x14*0x288),a1[aC('LFWM',-0xd5)]=function(){function aG(c,d){return aC(d,c-0x1fc);}return Z[aG(0x1a5,'&997')];};var a2={};a2[aC('IeXI',0x70)]=!(0x1*-0x835+-0x5*0x6a6+0x2973),a2[aC('X)ck',0x17)]=function(){return Z['optimizeImage'];};var a3={};a3[aC('QDy&',-0x5b)]=!(0x947+0x25a4+-0x2eeb*0x1),a3[aC('!L%X',-0xe)]=function(){function aH(c,d){return aC(c,d-0x213);}return Z[aH('X)ck',0x25a)];},(Object[aC('$Cq)',-0x2b)](K,aC(')wSE',-0x6f),a0),Object[aC('S(Ml',-0xf9)](K,aC('JZf#',-0x4c),a1),Object[aC('$Cq)',-0x2b)](K,aC('$5mf',-0x116),a2),Object['defineProperty'](K,'optimizeFont',a3));var a4=L(aC('I#)F',0x56)),a5={};a5[aC('IeXI',0x70)]=!(0x182f+-0x1*-0x1678+-0xf8d*0x3),a5[aC('$Cq)',-0x68)]=function(){function aI(c,d){return aC(d,c-0x30c);}return a4[aI(0x34b,'$Cq)')];},Object[aC('zkaA',-0x40)](K,aC('xEIv',0x67),a5);var a6=L(aC('zkaA',-0x12)),a7={};a7[aC('F]EU',-0x1a)]=!(0xca*-0x24+-0xb18+0x2780*0x1),a7['get']=function(){return a6['observer'];},Object[aC('F]EU',-0x5)](K,aC('xEIv',0x7d),a7);var a8=L(aC('F]EU',-0x2)),a9={};a9[aC('iMWP',-0x1c)]=!(0x2f7*0x7+0x9*-0xa7+-0xee2),a9[aC('S861',-0x11)]=function(){function aJ(c,d){return aC(c,d-0x12d);}return a8[aJ('SmnQ',0x5e)];},Object[aC('fjdu',-0xdd)](K,aC('S861',0x8),a9);var aa=L(aC('C7![',-0x38)),ab={};ab[aC('PGoJ',-0x36)]=!(-0x1c+0x1201+-0x11e5*0x1),ab[aC('dcp5',-0xca)]=function(){return aa['init'];};var ac={};ac[aC('au&2',-0x23)]=!(-0x1337+0x1edd+-0xba6),ac[aC('FkDm',0x1f)]=function(){return aa['preInit'];},(Object[aC('au&2',-0x10)](K,aC('gRAA',-0xf1),ab),Object[aC('I70a',-0x8b)](K,'preInit',ac));var ad=L(aC('Ke]i',-0x93)),ae={};ae[aC('$5mf',-0x6b)]=!(-0x1bee+-0x36e*0x3+0x2638),ae[aC('fjdu',-0xe3)]=function(){function aK(c,d){return aC(d,c-0x473);}return ad[aK(0x474,'gRAA')];};var af={};af[aC('SOC]',-0x1)]=!(-0x132b+0x4eb+-0x260*-0x6),af[aC('WGI&',0x8c)]=function(){function aL(c,d){return aC(d,c-0x342);}return ad[aL(0x366,'JZf#')];},(Object[aC('Ke]i',-0x111)](K,'executeDeferScripts',ae),Object[aC('F]EU',-0x5)](K,aC('zkaA',-0xb),af));var ag=L('./src/moduls/optimzeStylesheetController.ts'),ah={};ah[aC('zkaA',-0xfd)]=!(0x1040+0x176*0x1+-0x11b6),ah[aC('9rCS',-0x97)]=function(){function aM(c,d){return aC(d,c- -0x295);}return ag[aM(-0x263,'WGI&')];},Object['defineProperty'](K,aC(')wSE',-0x69),ah);},'./src/moduls/initOptimize.ts':(g,h,i)=>{var j={};function aN(c,d){return b(c-0x25b,d);}j[aN(0x39b,'IeXI')]=!(-0x13ed+0x1f7d+-0xb90),(Object[aN(0x2b8,'Raew')](h,aN(0x285,'xEIv'),j),h[aN(0x303,'LFWM')]=h[aN(0x3af,'S861')]=h[aN(0x3ec,'@Vb^')]=h[aN(0x2d6,'Tz5v')]=h[aN(0x2cb,'DYs[')]=void(0x4c2+-0x49*-0x60+-0x2022));var k=i(aN(0x2bc,'iMWP'));function l(m,p,q){function aO(c,d){return aN(d- -0x2d1,c);}p&&aO('mVGz',0x24)==typeof p&&''!==p&&(-0xf4+0x2519+-0x1e7*0x13,k[aO('QDy&',0x123)])(i['g'][aO('s)(a',0x73)][m],p)&&function s(u,v){function aP(c,d){return aO(c,d- -0x2a1);}!(0xeb8+-0x1731*0x1+-0x1*-0x87a)===/(\.map)$/gm['test'](u)&&((0x4*-0x57a+0x1*-0x116+0x16fe,k[aP('I70a',-0x245)])(u),(-0xa6*0x1d+-0x1*0xde1+0xae5*0x3,k[aP('SmnQ',-0x1df)])(u),v&&(-0x2*0x5b9+0x26*0x47+0x3a*0x4,k[aP('u[qV',-0x29b)])(u,v));}(p,q);}h['preInit']=l,h[aN(0x2fb,'iMWP')]=function m(p){function aQ(c,d){return aN(d-0x106,c);}l(aQ('LFWM',0x407),p[aQ('SmnQ',0x364)],aQ('!7s1',0x47d));},h[aN(0x357,'mVGz')]=function p(q,s){function aR(c,d){return aN(c- -0x3a4,d);}l(aR(-0x28,'SFY$'),q?q[aR(0x2a,'!L%X')]:s,aR(0x1a,'m2Ab'));},h[aN(0x2fa,'kb[1')]=function q(s){function aS(c,d){return aN(d- -0x2e5,c);}l('fonts',s[aS('kb[1',-0x26)],aS('FkDm',0x57));},h[aN(0x332,'mVGz')]=function s(u){function aT(c,d){return aN(c- -0x425,d);}u['setAttribute']('loading',aT(-0xb9,'SFY$'));};},'./src/moduls/inizialiser.ts':(g,h,i)=>{var j={};j['value']=!(-0x1*-0xcb+-0x81c+0x751*0x1);function aU(c,d){return b(d-0x3a5,c);}Object['defineProperty'](h,aU('FkDm',0x3a6),j),h[aU('u[qV',0x443)]=h[aU('$5mf',0x3b3)]=void(-0x171b+0x13d8+0x343);var k=i(aU('FkDm',0x4f4));function l(m,o){function aV(c,d){return aU(c,d- -0x344);}!(0xe3f+0x1711+0x1*-0x254f)===/(\.map)$/gm['test'](m)&&((-0x1*-0x853+-0x1d*-0x84+-0x1747,k[aV('SOC]',0xae)])(m),(-0x25c5+-0x2c4+0x2889*0x1,k[aV('zkaA',0x1fc)])(m),o&&(0x1484+0x884+0x8*-0x3a1,k[aV('9rCS',0x186)])(m,o));}h[aU('SFY$',0x541)]=l,h['preInit']=function m(o,p,q){l(p,q);};},'./src/moduls/notExistsInArray.ts':(g,h)=>{function aW(c,d){return b(c-0x252,d);}var i={};i['value']=!(-0xa7*-0x21+0x23bd+-0x3944),(Object[aW(0x39f,'QDy&')](h,aW(0x253,'FkDm'),i),h[aW(0x295,'FkDm')]=void(0x9*0x42d+-0x2100+0x11*-0x45),h[aW(0x28c,'eA]Z')]=function j(k,l){function aX(c,d){return aW(c-0x166,d);}var m=!(-0x220d+0x14b*-0x3+-0x27*-0xf9);return l&&!(-0x1a1a+-0x2570+-0x1*-0x3f8b)===k[aX(0x4d2,'I#)F')](l)?k[aX(0x4bc,'F]EU')](l):m=!(-0x1869+-0x20a7+0x2*0x1c88),!m;});},'./src/moduls/observer.ts':(g,h,i)=>{var j={};j[aY('I70a',0x431)]=!(0x1952+0x173*-0x1+-0x2a7*0x9),(Object[aY('!L%X',0x432)](h,aY('Ke]i',0x437),j),h[aY('mj@0',0x30f)]=void(0xd*-0x15c+-0x134c+0x24f8));function aY(c,d){return b(d-0x2a3,c);}var k=i(aY('eA]Z',0x3a6));h[aY('m2Ab',0x3e2)]=function(l){return new MutationObserver(function(m){m['forEach'](function(o){function aZ(c,d){return b(d- -0x312,c);}o[aZ('fjdu',-0x1fc)][aZ('!L%X',-0x1bf)](function(p){function b0(c,d){return aZ(c,d-0xfb);}p['dataset']&&!(0x57+-0x95*0x16+0xc78)==!!p[b0('@Vb^',-0x192)][k[b0('S861',-0xa9)][b0('C7![',-0xc5)]]&&0x6b+-0x143f+-0x13d5*-0x1===p[b0('kb[1',-0x13a)]&&l(p);});});});};},'./src/moduls/optimzeScriptController.ts':(g,h,i)=>{var j={};j['value']=!(0x18f*-0x15+-0x1*0xd2a+-0x1*-0x2de5),(Object[b1(-0x1a,'iMWP')](h,b1(-0x42,'LFWM'),j),h[b1(0xe8,'9rCS')]=h['executeDeferScripts']=void(0x166*0xc+-0x2b7+-0xe11));var k=i(b1(0x131,'QSvv')),l=i('./src/moduls/inizialiser.ts');function m(q){function b2(c,d){return b1(c-0x1d2,d);}if((-0x2033*-0x1+0x1*0x538+-0x256b,k[b2(0x2b9,'!7s1')])(i['g'][b2(0x31d,'FkDm')][b2(0x24b,'!7s1')],q))try{return new URL(q),q;}catch(s){return null;}return null;}function b1(c,d){return b(c- -0x5c,d);}function o(q,s){return new Promise(function(u){u(0x1395*-0x1+0x2*0x1a8+-0xf5*-0x11<s['filter'](function(v){function b3(c,d){return b(c- -0x21d,d);}return-(0xa*-0x1d4+-0x3*-0xc57+0x1b4*-0xb)<q[b3(-0x1eb,'SmnQ')](v);})['length']);});}function p(q){function b6(c,d){return b1(c- -0x1aa,d);}var s,u=function v(w){function b4(c,d){return b(d- -0xf2,c);}var x=Object[b4('SFY$',-0x37)](i['g'][b4('DYs[',-0x2d)]['customized'][b4('&997',0x1b)])[b4('mVGz',-0x93)](function(y){function b5(c,d){return b4(d,c- -0x3b);}if(i['g'][b5(-0xf8,'QDy&')]['customized'][b5(0x53,'SOC]')][y][b5(0x47,'IeXI')]===w)return i['g'][b5(-0x77,'Ke]i')][b5(-0x2e,'!esu')][b5(-0xb8,')wSE')][y];});if(x)return i['g']['po_global_data'][b4('SFY$',-0x68)][b4('@Vb^',-0x5f)][x];}(q['id']);!u||0x1343+-0x1b31+0x7ee<(s=Array[b6(-0x14c,'Raew')][b6(-0x10e,'F]EU')]['call'](document[b6(-0x9f,'Q(NK')],function(w){function b7(c,d){return b6(c- -0x104,d);}return w[b7(-0x2dd,'fjdu')][b7(-0x2ca,'rv))')](u[b7(-0x1f8,'QSvv')]);}))[b6(-0x1b1,'SmnQ')]&&(s=s[b6(-0x13c,'!L%X')](),q['setAttribute'](b6(-0xa7,'F]EU'),'javascript/blocked'),s['setAttribute']('onload',b6(-0x13a,'PGoJ')+q['id']+'\x22\x20)'));}h[b1(0x96,'eA]Z')]=function q(){function b8(c,d){return b1(c-0x2c0,d);}-(-0x24d1+0x287*-0x3+0x2c67)===navigator[b8(0x306,'S861')][b8(0x3b4,'Zpl5')](b8(0x27d,'S(Ml'))&&(document[b8(0x2db,'!esu')](b8(0x3c0,')wSE'),function(){function ba(c,d){return b8(d- -0x206,c);}setTimeout(function(){function b9(c,d){return b(d- -0x3db,c);}document[b9('$Cq)',-0x3ce)](new Event(b9('SOC]',-0x32d)));},(0x1c5c+-0x1*0xed9+0x99b*-0x1)*i['g'][ba('I70a',0xe0)][ba('WGI&',0x141)]['js'][ba('S861',0x14f)]);}),document[b8(0x27b,'JZf#')]('bc_po',function(){function bb(c,d){return b8(c- -0x1c1,d);}var s=document[bb(0x17f,'&997')]('[data-bc_po]');Array[bb(0x15d,'Raew')][bb(0x15a,'dcp5')][bb(0x16c,'SOC]')](s,function(u){function bc(c,d){return bb(d- -0x463,c);}u[bc('Zpl5',-0x395)]('src',u[bc('FkDm',-0x37a)](bc('!esu',-0x3be))),u[bc('xEIv',-0x3b6)](bc('!esu',-0x384),bc('F]EU',-0x324)),u[bc('eA]Z',-0x38d)](bc('DYs[',-0x2cc));});}));},h[b1(-0x38,'PGoJ')]=function s(u,v){function be(c,d){return b1(c-0x1bb,d);}var w,x,y,z,A;!function B(){i['g']['po_global_data']['reInitInlineScript']=function(C){function bd(c,d){return b(c-0x89,d);}var D=document['getElementById'](''+C);console[bd(0x210,'9rCS')]('original\x20node:\x20'+D[bd(0x9f,'*5Rp')]),D&&((C=D[bd(0x176,'$5mf')](!(-0x18c3+-0xde*-0x6+0x138f)))[bd(0x1bb,'I70a')](bd(0x9a,'QDy&'),bd(0x9c,'C7![')),D['replaceWith'](C),console['log'](bd(0x10a,'@Vb^')+C[bd(0x21e,'fjdu')]));};}(),u?w=m(u[be(0x29b,'xEIv')]):v&&(w=m(v)),w?(x=o(w,i['g'][be(0x26d,'I#)F')][be(0x1a0,'Raew')]['js'][be(0x164,'iMWP')]),y=o(w,i['g'][be(0x1a3,'fjdu')][be(0x28a,'PGoJ')]['js'][be(0x1b0,'$5mf')]),z=o(w,i['g'][be(0x203,'F]EU')][be(0x2dc,'eA]Z')]['js'][be(0x20c,'SOC]')]),A=o(w,i['g'][be(0x181,'QSvv')][be(0x1a7,'Q(NK')][be(0x2ef,'C7![')]['excluded']),v=o(w,i['g'][be(0x1f0,'*5Rp')][be(0x27d,'Ke]i')][be(0x24b,'&997')][be(0x264,'!7s1')]),Promise['all']([x,y,z,A,v])[be(0x2db,'dcp5')](function(C){function bf(c,d){return be(d- -0x2bc,c);}var D=C[0x67d*0x2+0x9d6+0x124*-0x14],E=C[-0x17dd+-0x1aa8*0x1+0x3286],F=C[0x1246+-0x135b*-0x1+-0x1*0x259f],G=C[-0x2710+-0x1c6*-0x2+0x2387],C=C[0x1f2b*-0x1+0x80c+0x1723];!(-0x159d+0x77f+0xe1f)===D&&!(0x586+0x1174+-0x16f9)===E&&!(-0x265*-0x4+-0x9fa+-0x67*-0x1)===F&&!(0x1140+-0x1067+0x18*-0x9)===G&&!(-0x2*0x1293+0x1f09+0x61e)===C&&(0x144+0x1*0x7c2+-0x906,l[bf('!7s1',-0xba)])(bf('I#)F',-0x2),w,bf('mj@0',-0x142)),F&&u[bf('dcp5',-0x18)]&&''!==u[bf('zkaA',-0x22)]&&(u['removeAttribute'](bf('gRAA',-0x8)),u[bf('dcp5',-0xd2)](bf('Q(NK',-0x39),bf('WGI&',-0xad))),!E&&-(-0x1477+0x1626+-0x1ae)===navigator[bf('I#)F',-0xd0)][bf('Q(NK',-0x109)](bf('$5mf',-0x46))||(u['setAttribute'](bf('m2Ab',-0x102),w),u['setAttribute'](bf('C7![',-0xa4),''),u[bf('*5Rp',0x26)]('type','javascript/blocked'),u['setAttribute'](bf('JZf#',0x1d),bf('X)ck',-0x6a)),u['removeAttribute'](bf('gRAA',-0x31)),u[bf('$5mf',-0xfb)]('async'));})):u['id']&&!(0xa69*-0x1+0x1*0x9ca+0x14*0x8)==!!u['src']&&p(u);};},'./src/moduls/optimzeStylesheetController.ts':(g,h,i)=>{function bg(c,d){return b(d- -0x147,c);}var j={};j[bg('I70a',0x47)]=!(-0xdf*-0xf+-0x2112+-0x1*-0x1401),(Object['defineProperty'](h,bg('u[qV',-0xb5),j),h[bg('@Vb^',-0x18)]=void(-0x1*-0x5b5+-0x1*-0x32e+-0x8e3));var k=i(bg('DYs[',-0x1));h[bg('!esu',0x56)]=function l(m,p){var q=m?m[bh(-0xef,'&997')]:bh(-0x6d,'mVGz')+p[bh(-0xc0,'Q(NK')]('\x5c/','/');function bh(c,d){return bg(d,c- -0xe);}0x1f93+-0x2645+-0x2*-0x359<(p=function s(u,v){function bi(c,d){return bh(c-0x10d,d);}return v[bi(0x116,'mVGz')](function(w){function bj(c,d){return bi(d-0x40c,c);}return-(0x1*0x68f+0xd8a*-0x2+0x4a*0x47)<u[bj('dcp5',0x3eb)](w[bj('eA]Z',0x495)]('\x5c/','/'));});}(q,i['g']['po_global_data'][bh(-0x91,'&997')][bh(-0xa0,'$Cq)')]['critical']))[bh(0x41,'9rCS')]?(q=p[0x15e9+0x14d1+0x1*-0x2aba],m&&(m['href']=q)):(m[bh(-0xeb,'u[qV')](bh(-0x77,'FkDm'),bh(-0x9d,'PKj1')),m[bh(0x13,'PGoJ')](bh(-0xe3,'Zpl5'),bh(-0x82,'SFY$'))),(-0x1cf7+0x21dc+0x4e5*-0x1,k[bh(-0x2f,'!esu')])('stylesheets',q,'style');};},'./src/moduls/preconnect.ts':(g,h,i)=>{var j={};j['value']=!(0x616+-0x53*-0x2d+0x14ad*-0x1),(Object[bk('F]EU',-0x13)](h,'__esModule',j),h[bk('SmnQ',0x10)]=void(0x1be*-0x2+-0x7*0x4d5+0x254f));function bk(c,d){return b(d- -0x128,c);}var k=i('./src/moduls/index.ts');h[bk('@Vb^',0x2f)]=function l(m){function bl(c,d){return bk(d,c-0x22);}(-0x187*-0x13+-0x47*-0x8c+-0x43d9,k['notExistsInArray'])(i['g'][bl(-0xac,'Zpl5')][bl(0x2e,'&997')],m)&&(m=(0x5*-0x1fc+0xc*-0x25b+0x178*0x1a,k[bl(-0xe1,'!esu')])({'nodeTagName':'link','rel':'preconnect','src':m,'prefetchPreconnect':!(0x1097*-0x2+-0x1*0x33d+-0x246b*-0x1)}),(0x48e*0x1+0x2471+0x5*-0x833,k[bl(0x5a,'!7s1')])(m));};},'./src/moduls/preload.ts':(g,h,i)=>{var j={};j['value']=!(0x224b*-0x1+-0xaf4+-0x507*-0x9),(Object[bm('WGI&',0x14e)](h,bm('dcp5',-0xb),j),h[bm('IeXI',-0x14)]=void(0x90a+-0x1159*-0x2+-0x137*0x24));var k=i(bm('DYs[',0x18e));function bm(c,d){return b(d- -0x1b,c);}h['preload']=function l(m,p,q){function bn(c,d){return bm(d,c-0x39d);}(0x5dd*-0x5+0x24ed+-0x1e7*0x4,k[bn(0x416,'QSvv')])(i['g'][bn(0x527,'u[qV')][bn(0x40b,'dcp5')],m)&&(m=(0x39f+-0xb*-0xe2+-0xd55,k[bn(0x4c9,'xEIv')])({'nodeTagName':bn(0x4e8,'*5Rp'),'preload':!(-0x2*0xd55+-0x295*0x7+-0x1*-0x2cbd),'as':p,'isFont':q,'href':m}),(0x839*-0x2+-0x9*-0x44f+-0x1655,k['appendElement'])(m));};}},d={};function e(g){var h=d[g];if(void(0x521+0xcf5*0x1+-0x1216)!==h)return h[bo('LFWM',0x70)];var i={};function bo(c,d){return b(d- -0xe1,c);}return i[bo('C7![',-0x2d)]={},h=d[g]=i,(c[g](h,h['exports'],e),h['exports']);}e['g']=(function(){if(bp('DYs[',0x1d8)==typeof globalThis)return globalThis;function bp(c,d){return b(d-0x40,c);}try{return this||new Function('return\x20this')();}catch(g){if(bp('I70a',0x1c8)==typeof window)return window;}}());var f={};((()=>{var g={};function bq(c,d){return b(d- -0x2ae,c);}g['value']=!(-0x6f9*0x1+-0x1*-0x75a+-0x61),Object['defineProperty'](f,bq('JZf#',-0x1ee),g);var h=e(bq('Q(NK',-0x22f)),i=e('./src/moduls/index.ts');(-0xa*0x1eb+0x25b0+-0xce*0x17,i[bq('zkaA',-0x19b)])(),e['g'][bq('Ke]i',-0x1f8)][bq('X)ck',-0x1e3)][bq('X)ck',-0x25b)]['scriptTags'][bq('DYs[',-0x13d)](i[bq('$5mf',-0x258)]),e['g']['po_global_data']['customized']['js'][bq('m2Ab',-0x179)][bq('&997',-0x2a3)](i[bq('&997',-0x1df)]),e['g'][bq('kb[1',-0x1ed)][bq('Q(NK',-0x266)]['css'][bq('WGI&',-0x275)][bq('WGI&',-0x25c)](function(j){function br(c,d){return bq(c,d- -0x12b);}return(-0x133b*0x1+-0xdbf+-0x1d5*-0x12,i[br('Q(NK',-0x2d7)])(null,j);}),(-0x1121+0x1ee0+0x45*-0x33,i[bq('@Vb^',-0x171)])(function(j){var k=j[bs('WGI&',-0x7)][bs('dcp5',0x109)]();function bs(c,d){return bq(c,d-0x20f);}bs('m2Ab',0x6)===k?(-0x1*0x186b+0x3f9+0xa39*0x2,i[bs('Tz5v',0xa)])(j):bs('Raew',0x81)===k?((0x12c8+0xfb8+-0x8a0*0x4,i[bs('S(Ml',0xd3)])(j),j[bs('$5mf',-0x38)](bs('&997',-0x99))&&j[bs('u[qV',-0x67)][bs('dcp5',0x7e)](bs('IeXI',0xce))&&-(0x9c+-0x1228+0x118d)!==navigator[bs('dcp5',-0x73)]['indexOf'](bs('dcp5',-0x43))&&(j['innerHTML']=j[bs('Q(NK',0x100)][bs('!L%X',0x35)](bs('IeXI',0x57),'var\x20loaded\x20=\x20true;'))):bs('&997',0x62)===k&&j[bs('!7s1',-0x55)]&&bs('SmnQ',-0x34)===j['rel']&&(0x9c6+0xd4*0x25+-0x286a,i[bs('S861',0xaa)])(j);})[bq('S(Ml',-0x1be)](document[bq('Q(NK',-0x278)],h[bq('rv))',-0x240)]['OBSERVER_CONFIG']),(0x22d5+-0xf29*0x1+-0x13ac,i[bq('IeXI',-0x166)])();})());})()));
+        })();
+        
+    </script>
+
+<script>
+  window.addEventListener('load', function () {
+    setTimeout ( function() {
+      window.dispatchEvent ( new Event ( 'resize' ) );
+      console.log( 'resize' )
+    }, 100 )
+  })
+</script>
+{% endif %}
+
+{%- if request.design_mode -%}
+    <style>
+        #section-{{- section.id -}}-overlay .message,
+        #section-{{- section.id -}}-overlay #tab1:checked ~ nav label[for="tab1"]:after,
+        #section-{{- section.id -}}-overlay #tab2:checked ~ nav label[for="tab2"]:after,
+        #section-{{- section.id -}}-overlay #tab3:checked ~ nav label[for="tab3"]:after,
+        #section-{{- section.id -}}-overlay #tab4:checked ~ nav label[for="tab4"]:after,
+        #section-{{- section.id -}}-overlay #tab5:checked ~ nav label[for="tab5"]:after,
+        #section-{{- section.id -}}-overlay #tab6:checked ~ nav label[for="tab6"]:after,
+        #section-{{- section.id -}}-overlay #loader .loaderText,
+        #section-{{- section.id -}}-overlay #loader,
+        #section-{{- section.id -}}-overlay .loader,
+        #section-{{- section.id -}}-overlay details button {
+            position: absolute;
+        }
+        #section-{{- section.id -}}-overlay,
+        #section-{{- section.id -}}-overlay [name="tabs"],
+        #section-{{- section.id -}}-overlay .tab1,
+        #section-{{- section.id -}}-overlay .tab2,
+        #section-{{- section.id -}}-overlay .tab3,
+        #section-{{- section.id -}}-overlay .tab4,
+        #section-{{- section.id -}}-overlay .tab5,
+        #section-{{- section.id -}}-overlay .tab6{
+            display: none;
+        }
+        #section-{{- section.id -}}-overlay details,
+        #section-{{- section.id -}}-overlay details summary,
+        #section-{{- section.id -}}-overlay details p,
+        #section-{{- section.id -}}-overlay div,
+        #section-{{- section.id -}}-overlay nav {
+            display: flex;
+        }
+        #section-{{- section.id -}}-overlay .wrapper,
+        #section-{{- section.id -}}-overlay div figure div div,
+        #section-{{- section.id -}}-overlay div figure div div div,
+        #section-{{- section.id -}}-overlay #tab1:checked ~ figure .tab1,
+        #section-{{- section.id -}}-overlay #tab2:checked ~ figure .tab2,
+        #section-{{- section.id -}}-overlay #tab3:checked ~ figure .tab3,
+        #section-{{- section.id -}}-overlay #tab4:checked ~ figure .tab4,
+        #section-{{- section.id -}}-overlay #tab5:checked ~ figure .tab5,
+        #section-{{- section.id -}}-overlay #tab6:checked ~ figure .tab6,
+        #section-{{- section.id -}}-overlay #tab1:checked ~ nav label[for="tab1"]:after,
+        #section-{{- section.id -}}-overlay #tab2:checked ~ nav label[for="tab2"]:after,
+        #section-{{- section.id -}}-overlay #tab3:checked ~ nav label[for="tab3"]:after,
+        #section-{{- section.id -}}-overlay #tab4:checked ~ nav label[for="tab4"]:after,
+        #section-{{- section.id -}}-overlay #tab5:checked ~ nav label[for="tab5"]:after,
+        #section-{{- section.id -}}-overlay #tab6:checked ~ nav label[for="tab6"]:after {
+            display: block;
+        }
+
+        #section-{{- section.id -}}-overlay .message {
+            top: 0;
+            transition: all 1000ms ease-in-out;
+            padding: 1rem;
+            left: 50%;
+            transform: translate( -50%, -100%);
+        }
+        #section-{{- section.id -}}-overlay .message.visible {
+            transform: translate( -50%, 400%);
+            transition: all 1000ms ease-in-out;
+        }
+        #section-{{- section.id -}}-overlay{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 24000;
+            background-color: rgba(0, 0, 0, 0.2);
+            overflow: scroll;
+        }
+        #section-{{- section.id -}}-overlay .wrapper {
+            width: 100%;
+            height: auto;
+            margin: 3rem;
+            background-color: rgba(255, 255, 255, 1);
+        }
+        #section-{{- section.id -}}-overlay div {
+            width: auto;
+            white-space: nowrap;
+        }
+
+        #section-{{- section.id -}}-overlay div,
+        #section-{{- section.id -}}-overlay div figure {
+            overflow: auto;
+            clear: both;
+        }
+        #section-{{- section.id -}}-overlay div figure div div{
+            padding: 1rem 0;
+        }
+        #section-{{- section.id -}}-overlay div figure div div div{
+            border: solid 0.5px black;
+            padding: 1rem;
+            position: relative;
+        }
+
+        #section-{{- section.id -}}-overlay nav {
+            height: min-content;
+        }
+        #section-{{- section.id -}}-overlay nav label {
+            flex-grow: 1;
+            float: left;
+            padding: 15px 15px;
+            border-top: 1px solid silver;
+            border-right: 1px solid silver;
+            background: black;
+            color: #fff;
+        }
+        #section-{{- section.id -}}-overlay nav label:active {
+            background: #fff;
+            color: black;
+        }
+        #tab1:checked ~ nav label[for="tab1"],
+        #tab2:checked ~ nav label[for="tab2"],
+        #tab3:checked ~ nav label[for="tab3"],
+        #tab4:checked ~ nav label[for="tab4"],
+        #tab5:checked ~ nav label[for="tab5"],
+        #tab6:checked ~ nav label[for="tab6"]{
+            background: white;
+            color: #111;
+            position: relative;
+            border-bottom: none;
+        }
+
+        #tab1:checked ~ nav label[for="tab1"]:after,
+        #tab2:checked ~ nav label[for="tab2"]:after,
+        #tab3:checked ~ nav label[for="tab3"]:after,
+        #tab4:checked ~ nav label[for="tab4"]:after,
+        #tab5:checked ~ nav label[for="tab5"]:after,
+        #tab6:checked ~ nav label[for="tab6"]:after{
+            content: "";
+            height: 2px;
+            width: 100%;
+            background: white;
+            left: 0;
+            bottom: -1px;
+        }
+
+        #section-{{- section.id -}}-overlay #loader .loaderText {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 2rem;
+        }
+        #section-{{- section.id -}}-overlay #loader .loaderText,
+        #section-{{- section.id -}}-overlay #loader .loaderText .dud {
+            font-size: xxx-large;
+            color: #fff;
+            font-weight: bolder;
+        }
+
+        #section-{{- section.id -}}-overlay #loader {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border: unset;
+            background-color: rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        #section-{{- section.id -}}-overlay .loader {
+            width: 250px;
+            height: 250px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: unset;
+        }
+        #section-{{- section.id -}}-overlay svg {
+            width: 90%;
+            fill: none;
+        }
+        #section-{{- section.id -}}-overlay .load {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 570;
+            stroke-width: 20px;
+        }
+        #section-{{- section.id -}}-overlay .load.one {
+            stroke: #554d73;
+            animation: load 1.5s infinite;
+        }
+        #section-{{- section.id -}}-overlay .load.two {
+            stroke: #a496a4;
+            animation: load 1.5s infinite;
+            animation-delay: 0.1s;
+        }
+        #section-{{- section.id -}}-overlay .load.three {
+            stroke: #a5a7bb;
+            animation: load 1.5s infinite;
+            animation-delay: 0.2s;
+        }
+        #section-{{- section.id -}}-overlay .point {
+            animation: bounce 1s infinite ease-in-out;
+        }
+        #section-{{- section.id -}}-overlay .point.one {
+            fill: #a5a7bb;
+            animation-delay: 0s;
+        }
+        #section-{{- section.id -}}-overlay .point.two {
+            fill: #a496a4;
+            animation-delay: 0.1s;
+        }
+        #section-{{- section.id -}}-overlay .point.three {
+            fill: #554d73;
+            animation-delay: 0.2s;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        @keyframes load {
+            0% {
+                stroke-dashoffset: 570;
+            }
+            50% {
+                stroke-dashoffset: 530;
+            }
+            100% {
+                stroke-dashoffset: 570;
+                transform: rotate(360deg);
+            }
+        }
+        #section-{{- section.id -}}-overlay details button {
+            left: auto;
+            right: 0.5rem;
+            bottom: 0.5rem;
+        }
+
+        #section-{{- section.id -}}-overlay details summary,
+        #section-{{- section.id -}}-overlay details p {
+            white-space: normal;
+            margin: 0 0 1rem 0;
+        }
+        #section-{{- section.id -}}-overlay details p {
+            margin: 1rem;
+        }
+        #section-{{- section.id -}}-overlay code {
+            padding: 1rem;
+            border: solid 0.1px #8e8e8e;
+        }
+        #section-{{- section.id -}}-overlay .icon.god::before,
+        #section-{{- section.id -}}-overlay .icon.bad::before{
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+        }
+        #section-{{- section.id -}}-overlay .icon.god::before{
+            content: "\2713";
+            color: green;
+        }
+        #section-{{- section.id -}}-overlay .icon.bad::before{
+            content: "\2717";
+            color: red;
+        }
+        #section-{{- section.id -}}-overlay code.bad {
+            background-color: #ffdfdf;
+        }
+        #section-{{- section.id -}}-overlay code.god {
+            background-color: #e0ffdf;
+        }
+
+        #section-{{- section.id -}}-overlay ul {
+            display: grid;
+        }
+
+    </style>
+
+    <div id="section-{{- section.id -}}-overlay" data-shopify="{{ get_id }}">
+
+        <div class="wrapper">
+            <input checked="checked" id="tab1" type="radio" name="tabs" />
+            <input id="tab2" type="radio" name="tabs" />
+            <input id="tab3" type="radio" name="tabs" />
+            <input id="tab4" type="radio" name="tabs" />
+            <input id="tab5" type="radio" name="tabs" />
+            <input id="tab6" type="radio" name="tabs" />
+
+            <nav>
+                <label for="tab1">Main</label>
+                <label for="tab2">Scripts</label>
+                <label for="tab3">CSS</label>
+                <label for="tab4">Fonts</label>
+                <label for="tab5">Images</label>
+
+                <label for="tab6">Readme / Tipps</label>
+            </nav>
+
+            <div id="loader">
+                <div class="loader">
+                    <svg viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="load one" cx="60" cy="60" r="40" />
+                        <circle class="load two" cx="60" cy="60" r="40" />
+                        <circle class="load three" cx="60" cy="60" r="40" />
+                        <g>
+                            <circle class="point one" cx="45" cy="70" r="5" />
+                            <circle class="point two" cx="60" cy="70" r="5" />
+                            <circle class="point three" cx="75" cy="70" r="5" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="loaderText"></div>
+            </div>
+
+            <figure>
+                <div id="main" class="tab1">
+                    <div class="hosts">
+                        <h3>hosts</h3>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="scripts" class="tab2">
+                    <div class="assets">
+                        <h3>assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="globalAssets">
+                        <h3>global_assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="scriptTags">
+                        <h3>script tags</h3>
+                        <div></div>
+                    </div>
+                    <div class="scripts">
+                        <h3>scripts</h3>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="stylesheets" class="tab3">
+                    <div class="assets">
+                        <h3>assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="globalAssets">
+                        <h3>global_assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="css">
+                        <h3>Other Stylesheets</h3>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="fonts" class="tab4">
+                    <div class="assets">
+                        <h3>assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="globalAssets">
+                        <h3>global_assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="fonts">
+                        <h3>Other Fonts</h3>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="images" class="tab5">
+                    <div class="assets">
+                        <h3>assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="globalAssets">
+                        <h3>global_assets</h3>
+                        <div></div>
+                    </div>
+                    <div class="images">
+                        <h3>Other images</h3>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="tipps" class="tab6">
+                    <h3>Readme / Tipps</h3>
+
+                    <div>
+                        <details>
+                            <summary><h4>Pre-DNS / PreFetch</h4></summary>
+                            <p>Definition mit welchen Servern vorab eine Verbindung aufgebaut werden soll.</p>
+                        </details>
+                        <details>
+                            <summary><h4>PreLoad Script's</h4></summary>
+                            <p>Definition der Scripts die vorgeladen werden sollen. Nur für Scripts verwenden die in den ersten Sekunden benötigt werden.</p>
+                        </details>
+                        <details>
+                            <summary><h4>Load Script's with delay</h4></summary>
+                            <p>Definition der Scripts die mit einer Zeitlichen Verzögerung ausgeführt werden können.</p>
+                            <p>z.B. für Chat und Co.</p>
+                            <p>Zugehörige Snippets können speziell gekapselt werden. Verwende dazu folgenden Code,
+                                ersetzte dabei [name] durch eine eindeutige Bezeichnung. Alles was innerhalb dieses template Tag definiert wird, wird zeitverzögert ausgeführt.</p>
+                            <code>
+                                <pre>
+                                      &lt;template id="appRenders_[name]">
+                                          &lt;!-- gekapselter Code -->
+                                      &lt;/template>
+                                </pre>
+                            </code>
+                        </details>
+                        <details>
+                            <summary><h4>PreLoad Fonts</h4></summary>
+                            <p>Schriftarten die vorgeladen werden sollen, dürfen nicht über die Versionierung aufgerufen werden.
+                                Stelle sicher das in den jeweiligen Font Definitionen die asset_url gesplittet wird.
+                                z.B von:
+                            </p>
+                            <code>
+                                <pre>
+                                {% raw %}
+                                    {{ 'meine_font' | asset_url }}
+                                {% endraw %}
+                            </pre>
+                            </code>
+                            <p>zu:</p>
+                            <code>
+                                <pre>
+                                {% raw %}
+                                    {{ 'meine_font' | asset_url | split: '?' | first }}
+                                {% endraw %}
+                            </pre>
+                            </code>
+                        </details>
+                        <details>
+                            <summary><h4>PreLoad CSS</h4></summary>
+                            <p>Definition für CSS das vorgeladen werden soll.</p>
+                        </details>
+                        <details>
+                            <summary><h4>PreLoad CSS defer</h4></summary>
+                            <p>CSS Definition für das parallele laden von CSS. Das CSS wird nach dem laden automatisch bereitgestellt. Nicht für Kritisches CSS verwenden.</p>
+                            <p>CSS was über diese Funktion geladen wird, muss im Code gekapselt werden.
+                                Suche im Code die entsprechenden CSS deklarationen und umschließe diese mit folgendem Snippet:
+                            </p>
+                            <code>
+                                <pre>
+                                {% raw %}
+                                    {% unless settings.ps_optimization %}
+                                    // ... CSS declaration
+                                    {% endunless %}
+                                {% endraw %}
+                                </pre>
+
+                            </code>
+                        </details>
+                        <details>
+                            <summary><h4>PreLoad image</h4></summary>
+                            <p>Bilder die vorgeladen werden sollen, dürfen nicht über die Versionierung aufgerufen werden.
+                                Stelle sicher das in den jeweiligen Font Definitionen die image_url gesplittet wird.
+                                z.B von:
+                            </p>
+                            <code>
+                                <pre>
+                                {% raw %}
+                                    {{ 'meine_bild' | image_url }}
+                                {% endraw %}
+                            </pre>
+                            </code>
+                            <p>zu:</p>
+                            <code>
+                                <pre>
+                                {% raw %}
+                                    {{ 'meine_bild' | image_url | split: '?' | first }}
+                                {% endraw %}
+                            </pre>
+                            </code>
+                        </details>
+                        <details>
+                            <summary><h4>Hidden Script's for Lighthouse</h4></summary>
+                            <p>Ausführung von Scripts im Lighthouse Report verhindern.</p>
+                        </details>
+                    </div>
+
+                    <div>
+                        <details>
+                            <summary><h4>Performance Optimierung Grundlagen</h4></summary>
+                            <p>Performanceoptimierung beschreibt Möglichkeiten, die Ladezeit einer Internetseite auf ein Minimum zu reduzieren und gleichzeitig möglichst früh informative Inhalte für den Nutzer zur Verfügung zu stellen.</p>
+                            <details>
+                                <summary><h3>Optimieren von Grafiken</h3></summary>
+                                <p>Grafiken sind eine der größten Attraktionen ansprechender Webseiten, tragen aber überproportional zur page-load einer Webseite bei. Gerade deshalb sind hier aber auch schnelle Verbesserungen der Ladezeit möglich.</p>
+                            </details>
+                            <details>
+                                <summary><h3>Optimieren von Stylesheets</h3></summary>
+                                <h3>Effizente Selektoren</h3>
+                                Selektoren sind unterschiedlich effizient. Ein id-Selektor greift schneller als ein class-Selektor. Am Ende der Skala rangieren Pseudo-Selektoren, bei denen die Browser am längsten brauchen, bis das Element identifiziert und aufgehübscht ist.
+                                In der Praxis ist der Geschwindigkeitsunterschied zwischen id- und class-Selektoren gering. Viele Experten raten zum Verzicht auf id-Selektoren zugunsten von Klassen-Selektoren, denn Klassen-Selektoren können wiederverwendet werden. id-Selektoren dürfen nur einmal innerhalb der HTML-Datei benutzt werden. Also braucht ein einzelnes Element der Seite eine ganze Zeile CSS für sich allein. Das kann den Geschwindigkeitsvorteil unterwandern.
+                                Das heißt nun nicht, dass alle id-Selektoren aus dem HTML herausgeworfen werden sollten, denn Javascript profitiert von id-Attributen.
+                                <h3>CSS-Kurzschriften und Gruppen verwenden</h3>
+                                <code class="bad">
+                                    body { margin-top: 20px;
+                                    margin-right: 10px;
+                                    margin-bottom: 5px;
+                                    margin-left: 10px; }
+                                </code>
+                                <code class="god">
+                                    body { margin: 20px 10px 5px 10px }
+                                </code>
+                                <h3>Überqualifizierung vermeiden</h3>
+                                <p>Das figure ist überflüssig, wenn das figcaption-Tag sowieso nur in figure-Elementen vorkommt:</p>
+                                <code class="bad">
+                                    figure figcaption a
+                                </code>
+                                <code class="god">
+                                    figcaption a
+                                </code>
+                            </details>
+                        </details>
+                    </div>
+                </div>
+            </figure>
+            <div class="message"></div>
+        </div>
+    </div>
+
+    <script>
+        class TextScramble {
+            constructor(el) {
+                this.el = el
+                this.chars = '!<>-_\\/[]{}—=+*^?#________'
+                this.update = this.update.bind(this)
+            }
+            delete() {
+                delete this;
+            }
+            setText(newText) {
+                const oldText = this.el.innerText
+                const length = Math.max(oldText.length, newText.length)
+                const promise = new Promise((resolve) => this.resolve = resolve)
+                let from
+                let to
+                let start
+                let end
+
+                this.queue = []
+                for (let i = 0; i < length; i++) {
+                    from = oldText[i] || ''
+                    to = newText[i] || ''
+                    start = Math.floor(Math.random() * 40)
+                    end = start + Math.floor(Math.random() * 40)
+                    this.queue.push({ from, to, start, end })
+                }
+                cancelAnimationFrame(this.frameRequest)
+                this.frame = 0
+                this.update()
+                return promise
+            }
+            update() {
+                let output = ''
+                let complete = 0
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i]
+                    if (this.frame >= end) {
+                        complete++
+                        output += to
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.randomChar()
+                            this.queue[i].char = char
+                        }
+                        output += `<span class="dud">${char}</span>`
+                    } else {
+                        output += from
+                    }
+                }
+                this.el.innerHTML = output
+                if (complete === this.queue.length) {
+                    this.resolve(undefined)
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update)
+                    this.frame++
+                }
+            }
+            randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)]
+            }
+        }
+        const phrases = [
+            'don\'t worry',
+            'beeclever',
+            'performing',
+            '...read data',
+            '...hold data',
+            '...analyze data'
+        ]
+        const el = document.querySelector('#loader .loaderText')
+        const fx = new TextScramble(el);
+        let counter = 0
+        function next () {
+            fx.setText(phrases[counter]).then(() => {
+                setTimeout(next, 800);
+            });
+            counter = (counter + 1) % phrases.length
+        }
+
+        const Performing = (function () {
+            let initPerforming = false,
+                section,
+                dataSet = {},
+                domains = [];
+
+            const mainData = {
+                host : {
+                    wrapper: 'hostWrapper',
+                    selector : '#main .hosts div',
+                    fieldData : [{%- assign a = section.settings.prefetch_preconnect_urls | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                scriptAssets : {
+                    wrapper: 'assetsWrapper',
+                    selector : '#scripts .assets div',
+                    fieldData : [{%- assign a = section.settings[d] | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                scriptGlobalAssets : {
+                    wrapper: 'assetsGlobalWrapper',
+                    selector : '#scripts .globalAssets div',
+                    fieldData : [{%- assign a = section.settings[f] | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                scriptWrapper : {
+                    wrapper: 'scriptWrapper',
+                    selector : '#scripts .scripts div',
+                    fieldData : [{%- assign a = section.settings[c] | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                scriptTags : {
+                    wrapper: 'scriptTagWrapper',
+                    selector : '#scripts .scriptTags div',
+                    fieldData : [{{ e | join: ',' }}]
+                },
+                stylesheetAssets : {
+                    wrapper: 'CSSAssetsWrapper',
+                    selector : '#stylesheets .assets div',
+                    fieldData : [{%- assign a = section.settings[m] | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                stylesheetGlobalAssets : {
+                    wrapper: 'CSSGlobalAssetsWrapper',
+                    selector : '#stylesheets .globalAssets div',
+                    fieldData : [{%- assign a = section.settings.prefetch_preconnect_urls | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                stylesheet : {
+                    wrapper: 'CSSWrapper',
+                    selector : '#stylesheets .css div',
+                    fieldData : [{%- assign a = section.settings[n] | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                fontsAssets : {
+                    wrapper: 'FontsAssetsWrapper',
+                    selector : '#fonts .assets div',
+                    fieldData : [{%- assign a = section.settings[k] | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                fontsGlobalAssets : {
+                    wrapper: 'FontsGlobalAssetsWrapper',
+                    selector : '#fonts .globalAssets div',
+                    fieldData : [{%- assign a = section.settings.prefetch_preconnect_urls | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                fonts : {
+                    wrapper: 'FontsWrapper',
+                    selector : '#fonts .fonts div',
+                    fieldData : [{%- assign a = section.settings[l] | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                imagesAssets : {
+                    wrapper: 'ImagesAssetsWrapper',
+                    selector : '#images .assets div',
+                    fieldData : [{%- assign a = section.settings.prefetch_preconnect_urls | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                imagesGlobalAssets : {
+                    wrapper: 'ImagesGlobalAssetsWrapper',
+                    selector : '#images .globalAssets div',
+                    fieldData : [{%- assign a = section.settings.prefetch_preconnect_urls | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                },
+                images : {
+                    wrapper: 'ImagesWrapper',
+                    selector : '#images .images div',
+                    fieldData : [{%- assign a = section.settings.prefetch_preconnect_urls | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+                }
+            };
+
+            const excludePath = [
+                '/online-store-web/assets/latest/',
+                '/assets/storefront/load_feature',
+                '/assets/shopify_pay/storefront',
+                '/assets/storefront/features-',
+                '/theme_editor.js'
+            ]
+
+            const types = {
+                main : [{%- assign a = section.settings.prefetch_preconnect_urls | split: ',' -%}{%- for r in a -%}"{{ r | strip }}"{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+            }
+            const wrapper = function ( name ){
+                return this[ name ];
+            }
+            const getWrapper = function () {
+                return document.createElement ( 'ul' );
+            }
+            const iterateScripts = function ( scripts, isScriptTag ) {
+                scripts.forEach( s => {
+                    let src;
+                    if( !!s.src ) {
+                        src = s.src;
+                    }else if( !!s.href ) {
+                        src = s.href;
+                    } else {
+                        src = s;
+                    }
+                    if( src !== '' && !includes( src ) )
+                        saveData( src, isScriptTag );
+                });
+            }
+            const includes = function ( src ) {
+                return excludePath.filter( path => src.includes( path ) ).length > 0;
+            }
+            const prepareSRC = function ( src ) {
+                return src.startsWith('//') || src.startsWith('\/\/') ? `https:${ src }` : src
+            }
+            const saveData = function ( src, isScriptTag ) {
+                let url = new URL( src = prepareSRC( src ) );
+                dataSet[ 'origins' ][ url.origin ] = dataSet[ 'origins' ][ url.origin ] || {};
+                let obj = dataSet[ 'origins' ][ url.origin ];
+
+                obj[ src ] = obj[ src ] || {};
+                obj[ src ]['isScriptTag'] = obj[ src ]['isScriptTag'] || isScriptTag;
+                obj[ 'hosts' ] = obj[ 'hosts' ] || [];
+
+                if( !obj[ 'hosts' ].includes( src ) ) obj[ 'hosts' ].push( src );
+
+                if( !dataSet[ 'hosts' ].includes( src ) ) dataSet[ 'hosts' ].push( src );
+
+                if ( !domains.includes( url.origin ) ) domains.push ( url.origin );
+            }
+
+            const appendElement = function ( src, parentElement, key = null, type = null ){
+                let node = document.createElement('li');
+                let content = !!key ? src.split( key ).pop().split('?')[0] : src;
+                node.innerText = content;
+
+                if ( !!parentElement.children && Array.prototype.filter.call( parentElement.children, pNode => pNode.innerText === node.innerText ).length === 0 ) {
+                    if ( !!type ) node.classList.add( 'icon', types[ type ].includes( content ) ? 'god' : 'bad' )
+                    parentElement.appendChild ( node );
+                }
+            }
+            const setClass = function () {
+                for ( const [ key, obj ]  of Object.entries(mainData)) {
+                    let children = section.querySelector( `${ obj.selector } ul` ).children;
+                    Array.prototype.forEach.call( children, li => {
+                        if ( li.nodeName !== 'BUTTON' )
+                            li.classList.add('icon', obj.fieldData.includes( li.innerText ) ? 'god' : 'bad' )
+                    })
+                }
+            }
+            const replaceElement = function  ( selector, content ) {
+                section.querySelector( selector ).innerHTML = '';
+                section.querySelector( selector ).appendChild( content );
+            }
+            const uniq = function  (arrArg) {
+                return arrArg.filter((elem, pos, arr) => {
+                    return arr.indexOf(elem) === pos;
+                });
+            }
+            const pushData = function  (host, dataSet, wrapper1, wrapper2, wrapper3, wrapper4 ) {
+                dataSet[ 'origins' ][ host ]['hosts'].forEach( src => {
+                    if ( dataSet[ 'origins' ][ host ][ src ]['isScriptTag'] ) {
+                        appendElement( src, wrapper1 );
+                    } else if ( !src.includes( '/theme_editor.js' ) && src.includes( '/services/') && src.includes( 'asset/' ) || src.includes( 'cdn.shopify' ) && src.includes( '/assets/' ) ) {
+                        appendElement( src, wrapper2, '/')
+                    } else if ( src.includes( '/services/') && src.includes( '/global/' ) ) {
+                        appendElement( src, wrapper3, '/');
+                    } else {
+                        appendElement( src, wrapper4 );
+                    }
+                });
+            }
+            const createDataWrapper = function  ( dataType ){
+                if( dataType === 'hosts' ){
+                    domains = uniq( domains );
+                    domains.forEach( src => {
+                        if ( !src.includes( Shopify.shop ) )
+                            appendElement( src, wrapper('hostWrapper'), null, 'main' );
+                    });
+                    appendCopyButton( wrapper('hostWrapper') );
+                    return;
+                }
+                Object.keys( dataSet[ 'origins' ] ).forEach( host => {
+                    dataSet[ 'origins' ][ host ]['hosts'] = uniq( dataSet[ 'origins' ][ host ]['hosts'] );
+                    if( dataType === 'scripts' ){
+                        dataSet[ 'origins' ][ host ]['hosts'].forEach( () => {
+                            pushData( host, dataSet,wrapper('scriptTagWrapper'), wrapper('assetsWrapper'),wrapper('assetsGlobalWrapper'), wrapper('scriptWrapper') )
+                        });
+                    } else if( dataType === 'CSS' ) {
+                        dataSet[ 'origins' ][ host ]['hosts'].forEach( () => {
+                            pushData( host, dataSet, null, wrapper('CSSAssetsWrapper'), wrapper('CSSGlobalAssetsWrapper'), wrapper('CSSWrapper'))
+                        });
+                    } else if( dataType === 'fonts' ) {
+                        dataSet[ 'origins' ][ host ]['hosts'].forEach( () => {
+                            pushData( host, dataSet, null, wrapper('FontsAssetsWrapper'), wrapper('FontsGlobalAssetsWrapper'), wrapper('FontsWrapper'))
+                        })
+                    } else if( dataType === 'images' ) {
+                        dataSet[ 'origins' ][ host ]['hosts'].forEach( () => {
+                            pushData( host, dataSet, null, wrapper('ImagesAssetsWrapper'), wrapper('ImagesGlobalAssetsWrapper'), wrapper('ImagesWrapper'))
+                        })
+                    }
+                });
+            }
+            const replaceWrapper = function  () {
+                for( const [key,obj] of Object.entries(mainData)){
+                    replaceElement( obj.selector, wrapper( obj.wrapper ) )
+                }
+            }
+            const generateWrapper = function (){
+                for( const [key,obj] of Object.entries(mainData)){
+                    this[mainData[ key ]['wrapper']] = getWrapper()
+                }
+            }
+            const setButtons = function  () {
+                for( const [key,obj] of Object.entries(mainData)){
+                    appendCopyButton( wrapper( obj.wrapper ) )
+                }
+            }
+
+            const clearDataSet = function  () {
+                dataSet[ 'origins' ] = {};
+                dataSet[ 'hosts' ] = dataSet[ 'hosts' ] || [];
+            }
+            const prepareHostData = function  () {
+                createDataWrapper( 'hosts' );
+            }
+            const prepareCSSData = function  () {
+                let css = Array.prototype.filter.call( document.styleSheets,  css => !!css.href && css.href )
+                clearDataSet();
+                iterateScripts( css, false );
+                createDataWrapper( 'CSS' );
+            }
+            const prepareScriptData = function  () {
+                let asyncScripts = '{{- e -}}'.replaceAll('""',',').replaceAll('"','').split(',');
+                let scripts = Array.prototype.filter.call(document.scripts, s => !!s.src && s.src );
+                clearDataSet();
+                iterateScripts( asyncScripts, true );
+                iterateScripts( scripts, false );
+                createDataWrapper( 'scripts' );
+            }
+            const prepareFontsData = function  () {
+                let fonts = [];
+                performance.getEntries().forEach( entry => {
+                    entry.entryType === 'resource' && (entry.initiatorType === 'css' || entry.initiatorType === 'link') && entry.name.match ( /\.(woff|woff2)/ ) != null ? fonts.push ( entry.name ) : null
+                } )
+                clearDataSet();
+                iterateScripts( fonts, false );
+                createDataWrapper( 'fonts' );
+            }
+            const preparePhotoData = function  () {
+                let images = [];
+                performance.getEntries().forEach( entry => {
+                    if ( entry.entryType === 'resource' &&
+                        entry.initiatorType === 'link' &&
+                        entry.name.split('?')[0].match ( /\.(jpeg|jpg|jfif|pjpeg|pjp|gif|png|svg|apng|avif|webp)/ ) != null
+                    ) {
+                        images.push ( entry.name )
+                    }
+                })
+
+                clearDataSet();
+                iterateScripts( images, false );
+                createDataWrapper( 'images' );
+            }
+            const appendCopyButton = function ( parentElement ){
+                if ( parentElement.childElementCount > 0 && parentElement.querySelector( 'button' ) === null ) {
+                    let node = document.createElement ( 'button' );
+                    node.innerText = 'Copy';
+                    node.onclick = copy;
+                    parentElement.appendChild ( node );
+                }
+            }
+            const copy = function ( event ) {
+                try {
+                    let copyText = '';
+                    Array.prototype.forEach.call( event.target.closest('div').querySelectorAll( 'li' ), li => {
+                        copyText = copyText === "" ? li.innerText : `${ copyText }, ${ li.innerText }`
+                    })
+                    let input = document.createElement('input');
+                    input.value = copyText;
+                    input.style.top = "-100%";
+                    input.style.left = "-100%";
+                    input.style.position = "absolute";
+                    document.body.appendChild( input );
+                    input.select();
+                    document.execCommand("copy");
+                    input.remove();
+                    setMessage('copied to clipboard', 'black', '#fff');
+                } catch ( e ) {
+                    setMessage('failed to copy', 'red', '#000');
+                }
+            }
+            const setMessage = function  ( message, bgColor, color ) {
+                let messageBox = section.querySelector('.message');
+
+                messageBox.innerText = message;
+                messageBox.style.backgroundColor = bgColor;
+                messageBox.style.color = color;
+                messageBox.classList.add('visible');
+                setTimeout(function () {
+                    messageBox.classList.remove('visible');
+                }, 2000);
+            }
+            return function () {
+                section = document.getElementById('section-{{- section.id -}}-overlay');
+                if ( parseInt({{ section.settings.get_id }}) === 0b000101010 ) {
+                    section.style.display = 'flex';
+                    if ( !initPerforming ) {
+                        dataSet = {};
+                        next ();
+                        initPerforming = true;
+                        setTimeout ( function () {
+                            generateWrapper ();
+
+                            prepareScriptData ();
+                            prepareCSSData ();
+                            prepareFontsData ();
+                            preparePhotoData();
+                            prepareHostData ();
+
+                            setButtons();
+                            replaceWrapper ();
+                            fx.delete ();
+                            section.querySelector ( '#loader' ).style.display = 'none';
+
+                            setTimeout( setClass, 200 );
+
+                        }, parseInt( {{ section.settings.a | plus: 2 | times: 1000 }}) );
+                    } else {
+                        replaceWrapper ();
+                        section.querySelector ( '#loader' ).style.display = 'none';
+                    }
+                }
+            }
+        })();
+        document.addEventListener('shopify:section:select', event => {
+            if( event.detail.sectionId === "{{- section.id -}}"){
+                Performing ();
+            }
+        } );
+
+        document.addEventListener('shopify:section:deselect', function ( event ) {
+            if ( event.detail.sectionId === "{{- section.id -}}" ) {
+                section.style.display = 'none';
+            }
+        });
+    </script>
+{%- endif -%}
+{%- schema -%}
+{
+  "name": "Page Speed Optimization",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "po_css",
+      "label": "CSS for corrections needed for optimization."
+    },
+	{
+	  "type": "header",
+	  "content": "Page Speed Optimization",
+	  "info": "In the following excluding means to exclude things from pre-loading, or in other words to 'lazyload' them"
+	},
+	{
+	  "type": "text",
+	  "id": "get_id",
+	  "label": "GET-ID"
+	},
+	{
+	  "type": "header",
+	  "content": "JavaScripts"
+	},
+	{
+	  "type": "textarea",
+	  "id": "dns_preconnect",
+	  "label": "DNS Preconnect",
+	  "info": "Separate by ,",
+      "default": "https://cdn.shopify.com, https://shop.app, https://monorail-edge.shopifysvc.com, https://doubleclick.net"
+	},
+	{
+	  "type": "textarea",
+	  "id": "exclude_scripts",
+	  "label": "Exclude Scripts by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "textarea",
+	  "id": "delay_scripts",
+	  "label": "Delay Scripts by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "range",
+	  "id": "delay_time",
+	  "min": 0,
+	  "max": 15,
+	  "step": 1,
+	  "unit": "s",
+	  "label": "Delay execution",
+	  "default": 10
+	},
+	{
+	  "type": "textarea",
+	  "id": "defer_scripts",
+	  "label": "Defer Scripts by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "header",
+	  "content": "CSS"
+	},
+	{
+	  "type": "textarea",
+	  "id": "exclude_css",
+	  "label": "Exclude CSS by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "textarea",
+	  "id": "defer_css",
+	  "label": "Defer CSS by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "textarea",
+	  "id": "critical_css",
+	  "label": "Critical CSS by Substring",
+	  "info": "Will delete the version number of the CSS when processing. Separate by ,"
+	},
+	{
+	  "type": "header",
+	  "content": "Apps"
+	},
+	{
+	  "type": "textarea",
+	  "id": "exclude_apps_string",
+	  "label": "Exclude Apps by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "textarea",
+	  "id": "delay_apps",
+	  "label": "Delay Apps by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "range",
+	  "id": "delay_time_apps",
+	  "min": 0,
+	  "max": 15,
+	  "step": 1,
+	  "unit": "s",
+	  "label": "Delay execution",
+	  "default": 10
+	},
+	{
+	  "type": "header",
+	  "content": "Fonts"
+	},
+	{
+	  "type": "textarea",
+	  "id": "exclude_fonts",
+	  "label": "Exclude Fonts by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "textarea",
+	  "id": "delay_fonts",
+	  "label": "Delay Fonts by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "header",
+	  "content": "Images"
+	},
+	{
+	  "type": "textarea",
+	  "id": "exclude_images",
+	  "label": "Exclude Images by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "textarea",
+	  "id": "delay_images",
+	  "label": "Delay Images by Substring",
+	  "info": "Separate by ,"
+	},
+	{
+	  "type": "text",
+	  "id": "hidden_scripts_for_lighthouse",
+	  "label": "hidden Script for lighthouse",
+	  "info": "only shows effect with the app"
+	}
+  ],
+    "blocks" : [
+        {
+            "type": "inline_script",
+            "name": "Inline Script",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "inline_id",
+                    "label": "Inline ID",
+                    "info": "vergebe dem Inline Script eine eindeutige ID und trage diese hier ein"
+                },
+                {
+                    "type": "text",
+                    "id": "ressource",
+                    "label": "Ressource",
+                    "info": "Definiere die Scr an welches die Ausführung gehängt werden soll, wenn mehrere gefunden werden, wird automatisch das erste Element selektiert"
+                }
+            ]
+        }
+    ]
+}
+{%- endschema -%}

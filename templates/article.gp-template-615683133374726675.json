@@ -1,0 +1,79 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_global_section_608861418346775450-1": {
+      "type": "gp-global-section-608861418346775450",
+      "settings": {
+        "section_preload": "false",
+        "checksum": ""
+      }
+    },
+    "gp_section_615683133508944403": {
+      "type": "gp-section-615683133508944403",
+      "settings": {
+        "section_preload": "true",
+        "checksum": "e2fadddf8a34984ae31c5fd1b3d248684bf2418b0c67d0ed05c43237adcc00ff_1_1_0_0__1",
+        "ggyVHJuP_k1_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0815/6889/1219/files/Heimundgarten-Journal_4ba1ea53-fe02-4296-a975-1c2b7218b260.png?v=1771266175"
+      }
+    },
+    "gp_section_615683133509009939": {
+      "type": "gp-section-615683133509009939",
+      "settings": {
+        "checksum": "683023f91bb04298597ed9e461646c574d5aa00babb454f2b6115b345c2076f3_1_1_0_0__1",
+        "gg9aEEv_OLk_text": "<strong>7 Gründe, warum so viele Haushalte bei schwarzen Fugen auf dieses Mittel schwören</strong>",
+        "ggrEIv5veXR_text": "<p>Ein spezieller Fugenreiniger sorgt gerade für Aufsehen – weil er in Minuten schafft, woran Bürste und Schwamm seit Jahren scheitern.</p>",
+        "ggmY4is19M1_text": "<p>Von Eva Winzer | Advertorial | Vor 2 Stunden veröffentlicht</p>",
+        "ggnN_CqwSPk_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0815/6889/1219/files/ChatGPT_Image_18._Apr._2026_11_37_40.png",
+        "ggj4FI7WFFm_label": "<p><span style=\"color:#FFFFFF;font-size:20px;\">Verfügbarkeit prüfen 👉</span></p>",
+        "gghl5SJICY5_text": "<p>Du kennst das: Du gehst ins Bad, schaust auf die <strong>Fugen in der Dusche</strong> – und obwohl du erst letzte Woche geputzt hast, sind sie wieder dunkel. <strong>Grau. Stellenweise fast schwarz.</strong></p><p><br>Du hast schon alles probiert. Backpulver, Essig, teure Sprays aus der Drogerie, die alte Zahnbürste. Du kniest auf kalten Fliesen, schruppst 20 Minuten – und die Fuge sieht danach kaum besser aus.<br>Das Frustrierende: Es liegt nicht an dir. Die meisten Reiniger wirken nur an der Oberfläche. Was tief in der Fuge sitzt – Schimmel, Kalk, Ablagerungen – erreichen sie gar nicht.<br>Genau das ist der Grund, warum gerade ein <strong>spezieller Fugenreiniger für Aufsehen sorgt</strong>. Und warum über 27.000 Haushalte inzwischen darauf setzen.<br>&nbsp;</p>",
+        "ggLZYImlN3x_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0815/6889/1219/files/FugenRein_Schimmel-Stop_SQUARE.gif?v=1775588317",
+        "ggH5e1uQBo8_text": "<strong>1. Weil schwarze Fugen das ganze Bad ungepflegt wirken lassen</strong>",
+        "ggtTnG5HOwN_text": "<p>Du kannst das Waschbecken polieren, die Armaturen zum Glänzen bringen, den Boden wischen – wenn die Fugen dunkel sind, sieht trotzdem alles ungepflegt aus.<br><br>FugenRein wurde genau dafür entwickelt: Die Rezeptur dringt tief in die Fuge ein und löst, was sich über Monate und Jahre dort festgesetzt hat. Das <strong>Ergebnis </strong>– <strong>sichtbar hellere Fugen</strong> – verändert den Gesamteindruck des ganzen Raums.<br>&nbsp;</p>",
+        "ggkkNZvtyYu_srcSet_desktop_src": "https://gartenort.de/cdn/shop/files/FugenReinSchimmel-Stop_14_1296x.png?v=1775588972",
+        "ggcCgycG6Hm_text": "<strong>2. Weil Schrubben oft mehr schadet als es hilft</strong>",
+        "ggxnwlnHQnu_text": "<p><span style=\"background-color:var(--color-body);color:rgb(0,0,0);font-size:inherit;\">Was die wenigsten wissen: Intensives Schrubben mit harten Bürsten kann Fugen langfristig aufrauen. Die Oberfläche wird porös – und Schmutz und Schimmel setzen sich danach sogar schneller fest als vorher.</span><br><span style=\"background-color:var(--color-body);color:rgb(0,0,0);font-size:inherit;\">FugenRein arbeitet <strong>ohne mechanische Reibung</strong>. Auftragen, einwirken lassen, abwischen. Die aktive Rezeptur erledigt die Arbeit – nicht deine Hände.</span><br>&nbsp;</p><p><span style=\"background-color:var(--color-body);color:rgb(0,0,0);font-size:inherit;\"><i>„Ich habe jahrelang jedes Wochenende geschrubbt. Seit FugenRein spare ich mir das komplett. Auftragen, warten, fertig. Die Fugen sehen besser aus als je zuvor.\"</i></span><br><span style=\"background-color:var(--color-body);color:rgb(0,0,0);font-size:inherit;\">— Thomas K., Köln** ⭐⭐⭐⭐⭐</span><br>&nbsp;</p>",
+        "ggwl-wQBFmh_srcSet_desktop_src": "https://gartenort.de/cdn/shop/files/FugenReinSchimmel-Stop_9_1296x.png?v=1775588972",
+        "ggzqXTQHUzq_text": "<strong>3. Weil herkömmliche Reiniger nicht für Fugen gemacht sind</strong>",
+        "ggbMrbtbGHg_text": "<p><span style=\"color:#000000;\">Die meisten Badreiniger sind Allzweckprodukte. Sie wurden für glatte Oberflächen entwickelt – Fliesen, Armaturen, Glas. Auf Fugen perlen sie ab oder wirken nur oberflächlich.</span></p><p><br><span style=\"color:#000000;\"><strong>FugenRein ist anders:</strong> Die Rezeptur haftet direkt an der Fuge, läuft nicht weg und wirkt gezielt dort, wo sich Schimmel und Ablagerungen festgesetzt haben. In 10 bis 30 Minuten Einwirkzeit – je nach Verschmutzungsgrad.</span><br><span style=\"color:#000000;\">Das ist der <strong>Unterschied </strong>zwischen einem Allzweckreiniger und einem Spezialisten.</span><br>&nbsp;</p>",
+        "ggDBAjfADi0_srcSet_desktop_src": "https://gartenort.de/cdn/shop/files/FugenReinSchimmel-Stop_11_1296x.png?v=1775588972",
+        "gg4B480Nfd0_text": "<strong>4. Weil die Anwendung einfach ist</strong>",
+        "ggJnDIz9J6q_text": "<p><span style=\"background-color:var(--color-body);color:rgb(0,0,0);font-size:inherit;\">Viele Nutzer wollen keine <strong>komplizierte Reinigungsroutine</strong>, sondern eine <strong>schnelle und einfache Lösung</strong>. <strong>Auftragen, einwirken lassen, abwischen</strong> – genau das macht solche Produkte so <strong>attraktiv</strong>.</span></p>",
+        "ggrQeWOdbaA_srcSet_desktop_src": "https://gartenort.de/cdn/shop/files/FugenReinSchimmel-Stop_15_1296x.png?v=1775588972",
+        "ggI1-1TSbiN_text": "<strong>5. Weil Schimmel in Fugen nicht nur hässlich, sondern auch ungesund sein kann</strong>",
+        "gg2fNCddTRF_text": "<p><span style=\"color:#000000;\">Schimmel in Fugen ist nicht nur ein optisches Problem. In feuchten Räumen wie Bad und Dusche können S<strong>chimmelsporen die Raumluft belasten </strong>– besonders in schlecht belüfteten Badezimmern.</span><br><span style=\"color:#000000;\">Je länger Schimmel in den Fugen bleibt, desto tiefer setzt er sich fest. Frühes Handeln spart nicht nur Aufwand, sondern sorgt auch für ein besseres Raumklima.</span></p><p><br><span style=\"color:#000000;\">FugenRein setzt genau dort an – bevor aus einem kleinen Fleck ein großes Problem wird.</span><br>&nbsp;</p>",
+        "ggWzhtPWT-__srcSet_desktop_src": "https://gartenort.de/cdn/shop/files/FugenReinSchimmel-Stop_12_1296x.png?v=1775588972",
+        "ggoTU4r4AsP_text": "<strong>6. Weil das Ergebnis für sich spricht – in Minuten</strong>",
+        "gg1o1R7pXcu_text": "<p><span style=\"color:#000000;\">Keine Theorie, keine Versprechen – einfach der sichtbare Unterschied.</span><br><span style=\"color:#000000;\">FugenRein-Nutzer berichten immer wieder vom selben Moment: Man trägt es auf, wartet 15 Minuten, wischt ab – und traut seinen Augen nicht.</span></p>",
+        "gggXsEZrsRf_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0815/6889/1219/files/FugenReinSchimmel-Stop_5.png?v=1775586993",
+        "ggp_lU5Buuo_text": "<strong>7. Weil die Alternative teuer ist – und oft unnötig</strong>",
+        "ggJzDJntXS-_text": "<p>Wer Fugen professionell erneuern lässt, zahlt schnell 300 bis 600 €. Für etwas, das sich in vielen Fällen mit dem richtigen Mittel selbst lösen lässt.<br><strong>FugenRein kostet </strong>einen <strong>Bruchteil </strong>davon – und spart den Handwerkertermin, die Wartezeit und den Aufwand.</p><p><br><i>„Ich hatte schon einen Kostenvoranschlag für neue Fugen – über 400 €. Dann habe ich FugenRein ausprobiert. Das Ergebnis war so gut, dass ich den Termin abgesagt habe.\"</i><br>— Markus B., Hamburg** ⭐⭐⭐⭐⭐<br>&nbsp;</p>",
+        "ggtR30kbWKO_text": "50% rabatt",
+        "ggVaVIR6ReS_text": "<p><span style=\"color:#699E04;\">ONLINE-RABATT</span></p>",
+        "gge95Yg5150_text": "<p><span style=\"color:rgb(0,0,0);\">Das Angebot ist sehr gefragt und wir können die Verfügbarkeit der Waren nicht garantieren, da sie ständig ausverkauft sind.</span></p>",
+        "ggjblPdPhIA_label": "<p><span style=\"color:#FFFFFF;\">Jetzt Rabatt und Verfügbarkeit prüfen &nbsp;👉🏻</span></p>",
+        "ggKy1nAhDcW_text": "<p><span style=\"color:rgb(0,0,0);\">Dieses Sonderangebot ist gültig bis</span></p><p><span style=\"color:#699E04;\"><strong>Heute um 23:59 Uhr</strong></span></p>",
+        "ggGrecxCVPf_text": "Empfohlen:",
+        "ggf1qmWqway_childItem_0": "<p><strong>Tiefenwirksame Reinigung</strong></p>",
+        "ggf1qmWqway_childItem_1": "<p><strong>Schimmel effektiv entfernen</strong></p>",
+        "ggf1qmWqway_childItem_2": "<p><strong>Einfache Anwendung</strong></p>",
+        "ggf1qmWqway_childItem_3": "<p><strong>Lang anhaltende Sauberkeit</strong></p>",
+        "ggMizG7xEeD_srcSet_desktop_src": "https://gartenort.de/cdn/shop/files/FugenReinSchimmel-Stop_1080x.png?v=1775586993",
+        "gg9gHrkDJqf_label": "<p><span style=\"color:#FFFFFF;font-size:15px;\">Verfügbarkeit prüfen 👉🏻</span></p>"
+      }
+    }
+  },
+  "order": [
+    "gp_section_615683133508944403",
+    "gp_section_615683133509009939",
+    "gp_global_section_608861418346775450-1"
+  ],
+  "layout": "theme.gempages.blank"
+}

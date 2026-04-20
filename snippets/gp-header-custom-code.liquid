@@ -1,0 +1,42 @@
+
+{%- liquid
+  assign gpTemplateSuffix = template.suffix
+  assign arrSplitSuffix = gpTemplateSuffix | split: '-'
+  if gpTemplateSuffix contains 'gem-' and gpTemplateSuffix contains '-template' and arrSplitSuffix.size == 3
+    assign isV6GpTemplate = true
+  endif
+  if gpTemplateSuffix contains 'gp-template-' and arrSplitSuffix.size == 3
+    assign isV7GpTemplate = true
+  endif
+  assign gpShopMeta = shop.metafields.GEMPAGES
+  if gpShopMeta and request.page_type == 'product'
+    if gpShopMeta['product-default']
+      assign isV7GpTemplate = true
+    endif
+  endif
+  if gpShopMeta and request.page_type == 'index'
+    if gpShopMeta['index-default']
+      assign isV7GpTemplate = true
+    endif
+  endif
+  if gpShopMeta and request.page_type == 'collection'
+    if gpShopMeta['collection-default']
+      assign isV7GpTemplate = true
+    endif
+  endif
+%}
+
+{% if isV7GpTemplate %}
+<style>
+  .main-content{
+            padding-top: 0px !important;
+  }
+  .gp-text{
+    text-transform: inherit;
+    letter-spacing: initial;
+  }
+  footer.site-footer.critical-hidden {
+    margin-top: 0px;
+}
+</style>
+{% endif %}

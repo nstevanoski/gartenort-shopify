@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_611203008578978323": {
+      "settings": {
+        "checksum": "b3ef29e82a425ef028d262fffeb9b1ba999736abf776c51ddd6f7753f135ba3c_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">GartenOrt – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-611203008578978323"
+    },
+    "gp_section_611203008579043859": {
+      "settings": {
+        "checksum": "786322aee055db1fb1955a18d11f02f79da0e245a08ec60afc79d5d3902ca302_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-611203008579043859"
+    },
+    "gp_section_611203008579109395": {
+      "settings": {
+        "checksum": "0e46eb57c6a86cb8c06dc74749e27843986595bbdf067178b4e441e2f76e4127_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-611203008579109395"
+    }
+  },
+  "order": [
+    "gp_section_611203008579109395",
+    "gp_section_611203008579043859",
+    "gp_section_611203008578978323"
+  ]
+}

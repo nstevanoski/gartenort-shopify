@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_611218460948562451": {
+      "settings": {
+        "checksum": "a131a61cb256590a2ee0f46e5b3b88fd56e7ac875afe081a5412ac279d4e2a91_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">Gartenort – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-611218460948562451"
+    },
+    "gp_section_611218460948627987": {
+      "settings": {
+        "checksum": "9cfba377c8051df8a9108bade8b7f8c841197cfcd8e8b9943d77de8a2180d288_1_1_1_0__1"
+      },
+      "type": "gp-section-611218460948627987"
+    },
+    "gp_section_611218460948693523": {
+      "settings": {
+        "checksum": "5b6bd9d25b4bd4a4c9c23e8b5d21c7587efac3b82384516b265b7b4cf5511b10_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-611218460948693523"
+    },
+    "gp_section_611218460948759059": {
+      "settings": {
+        "checksum": "5e61585d8759290357fc156b49c3e4ed9db254d72070aaac12f94e8600329a7e_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-611218460948759059"
+    }
+  },
+  "order": [
+    "gp_section_611218460948759059",
+    "gp_section_611218460948627987",
+    "gp_section_611218460948693523",
+    "gp_section_611218460948562451"
+  ]
+}

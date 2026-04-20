@@ -1,0 +1,460 @@
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="cart-template" data-ajax-enabled="{{ section.settings.cart_ajax_enable }}">
+
+  <div {% if cart.item_count == 0 %}class="hide" {% endif %}data-cart-wrapper>
+    <div class="cart-header">
+      <h1 class="cart-header__title">{{ 'cart.general.title' | t }}</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="text-link text-link--accent">
+        {{ 'cart.general.continue_shopping' | t }}
+      </a>
+    </div>
+
+<div class="cart-header__title-message"style="text-align: center;font-size:12px;">✅ Glück gehabt! Deine Auswahl ist auf Lager <br> </div>
+    
+    <form action="{{ routes.cart_url }}" method="post" novalidate class="cart">
+      <table>
+        <thead class="cart__row cart__row--heading">
+          <th scope="col">{{ 'cart.label.product' | t }}</th>
+          <th class="text-right" scope="col">{{ 'cart.label.price' | t }}</th>
+          <th class="text-right small--hide" scope="col">{{ 'cart.label.quantity' | t }}</th>
+          <th class="text-right small--hide" scope="col">{{ 'cart.label.total' | t }}</th>
+        </thead>
+        <tbody data-cart-line-items>
+          {%- for item in cart.items -%}
+            <tr class="cart__row" data-cart-item data-cart-item-key="{{ item.key }}" data-cart-item-url="{{ item.url }}" data-cart-item-title="{{ item.title }}" data-cart-item-index="{{ forloop.index }}" data-cart-item-quantity="{{ item.quantity }}">
+              <td class="cart__meta small--text-left" data-cart-table-cell>
+                <div class="cart__product-information">
+                  <div class="cart__image-wrapper">
+                    <img class="cart__image{% if item.image == null %} hide{% endif %}" src="{{ item | img_url: 'x190' }}" alt="{{ item.image.alt | escape }}" data-cart-item-image>
+                  </div>
+                  <div>
+                    <div class="list-view-item__title">
+                      <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title data-role="product-title">
+                        {{ item.product.title }}
+<span class='booster-cart-item-success-notes' data-key='{{item.key}}'></span><span class='booster-cart-item-upsell-notes' data-key='{{item.key}}'></span>
+                      </a>
+                    </div>
+
+                    {%- assign variant_options = 'template ' | split: ' ' -%}
+                    {%- if item.product.has_only_default_variant != true -%}
+                      {%- assign variant_options = item.options_with_values -%}
+                    {%- endif -%}
+                    {%- assign property_size = item.properties | size -%}
+
+                    <ul class="product-details{% if item.product.has_only_default_variant and property_size == 0 and item.selling_plan_allocation == nil %} hide{% endif %}" data-cart-item-details aria-label="{{ 'cart.label.product_details' | t }}">
+                      {%- for option in variant_options -%}
+                        <li class="product-details__item product-details__item--variant-option{% if item.product.has_only_default_variant %} hide{% endif %}" data-cart-item-option>{{ option.name }}: {{ option.value }}</li>
+                      {%- endfor -%}
+
+                      <li
+                        class="product-details__item product-details__item--property
+                        {% if item.selling_plan_allocation == empty %} hide {% endif %}"
+                        data-cart-item-selling-plan-name
+                      >
+                        {{ item.selling_plan_allocation.selling_plan.name }}
+                      </li>
+
+                      {%- comment -%}
+                        Optional, loop through custom product line items if available
+
+                        Line item properties come in as having two parts. The first part will be passed with the default form,
+                        but p.last is the actual custom property and may be blank. If it is, don't show it.
+
+                        For more info on line item properties, visit:
+                          - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
+                      {%- endcomment -%}
+
+                      {%- assign properties = 'template ' | split: ' ' -%}
+                      {%- if property_size > 0 -%}
+                        {%- assign properties = item.properties -%}
+                      {%- endif -%}
+
+                      {%- for p in properties -%}
+                        {% assign property_first_char = p.first | slice: 0 %}
+                        <li class="product-details__item product-details__item--property
+                          {%if property_size == 0 or p.last == blank or property_first_char == '_' %} hide{% endif %}" data-cart-item-property>
+                          <span class="product-details__item-label" data-cart-item-property-name>{{ p.first }}: </span>
+
+                          {%- comment -%}
+                            Check if there was an uploaded file associated
+                          {%- endcomment -%}
+                          <span data-cart-item-property-value>
+                            {%- if p.last contains '/uploads/' -%}
+                              <a href="{{ p.last }}" data-role="product-upload">{{ p.last | split: '/' | last }}</a>
+                            {%- else -%}
+                              {{ p.last }}
+                            {%- endif -%}
+                          </span>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+
+                    <p class="cart__remove">
+                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove data-role="product-remove">{{ 'cart.general.remove' | t }}</a>
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td class="cart__price text-right">
+
+                {%- assign hasDiscount = false -%}
+                {%- if item.original_price != item.final_price -%}
+                  {%- assign hasDiscount = true -%}
+                {%- endif -%}
+
+                <div data-cart-item-price>
+                  <dl data-cart-item-price-list>
+                    {%- comment -%}
+                      Markup template for discount item
+                    {%- endcomment -%}
+                    <div {% unless hasDiscount %}class="hide" {% endunless %}data-cart-item-discounted-price-group>
+                      <dt>
+                        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                      </dt>
+                      <dd>
+                        <s data-cart-item-original-price>{{ item.original_price | money }}</s>
+                      </dd>
+                      <dt>
+                        <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
+                      </dt>
+                      <dd>
+                        <span class="order-discount" data-cart-item-final-price>{{ item.final_price | money }}</span>
+                      </dd>
+                    </div>
+
+                    {%- comment -%}
+                      Markup template for regular price item
+                    {%- endcomment -%}
+                    <div {% if hasDiscount %}class="hide" {% endif %}data-cart-item-regular-price-group>
+                      <dt>
+                        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                      </dt>
+                      <dd data-cart-item-regular-price>
+                        {{ item.original_price | money }}
+                      </dd>
+                    </div>
+
+                    {%- comment -%}
+                      Markup template for unit price
+                    {%- endcomment -%}
+                    <div {% unless item.unit_price_measurement %}class="hide" {% endunless %}data-unit-price-group>
+                      <dt>
+                        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.unit_price_label' | t }}</span>
+                      </dt>
+                      <dd>
+                        <span class="price-unit-price">
+                          {%- capture unit_price_separator -%}
+                            <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+                          {%- endcapture -%}
+                          {%- capture unit_price_base_unit -%}
+                            {%- if item.unit_price_measurement.reference_value != 1 -%}
+                              {{- item.unit_price_measurement.reference_value -}}
+                            {%- endif -%}
+                            {{ item.unit_price_measurement.reference_unit }}
+                          {%- endcapture -%}
+
+                          <span data-unit-price>{{ item.unit_price | money }}</span>{{- unit_price_separator -}}<span data-unit-price-base-unit>{{- unit_price_base_unit -}}</span>
+                        </span>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+
+                {%- assign itemDiscounts = 'template ' | split: ' ' -%}
+                {%- if item.line_level_discount_allocations != blank -%}
+                  {%- assign itemDiscounts = item.line_level_discount_allocations -%}
+                {%- endif -%}
+
+                <ul class="order-discount order-discount--list order-discount--title order-discount--cart{% if item.line_level_discount_allocations == blank %} hide{% endif %}" aria-label="{{ 'customer.order.discount' | t }}" data-cart-item-discount-list>
+                  {%- for discount_allocation in itemDiscounts -%}
+                    <li class="order-discount__item" data-cart-item-discount>
+                      {% include 'icon-saletag' %}
+                      <span data-cart-item-discount-title>
+                        {{- discount_allocation.discount_application.title -}}
+                      </span> (-<span data-cart-item-discount-amount>{{ discount_allocation.amount | money }}</span>)
+                    </li>
+                  {%- endfor -%}
+                </ul>
+
+                <div class="cart__qty medium-up--hide">
+                  <label for="updates_{{ item.key }}" class="cart__qty-label" aria-label="{{ 'cart.label.quantity' | t }}" data-quantity-label-mobile>
+                    {{ 'cart.label.qty' | t }}
+                  </label>
+                  <input id="updates_{{ item.key }}" class="cart__qty-input" type="number"
+                    value="{{ item.quantity }}" min="0" pattern="[0-9]*"
+                    data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-mobile data-role="product-quantity-mobile">
+                </div>
+                <div class="cart__qty-error-message-wrapper cart__qty-error-message-wrapper--mobile hide" role="alert" data-cart-quantity-error-message-wrapper>
+                  <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                  {% include 'icon-error' %}
+                  <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
+                </div>
+              </td>
+              <td class="cart__quantity-td text-right small--hide">
+                <div class="cart__qty">
+                  <label for="updates_large_{{ item.key }}" class="cart__qty-label" data-quantity-label-desktop>{{ 'cart.label.quantity' | t }}</label>
+                  <input id="updates_large_{{ item.key }}" class="cart__qty-input" type="number"
+                    name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*"
+                    data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-desktop data-role="product-quantity-desktop">
+                </div>
+                <div class="cart__qty-error-message-wrapper cart__qty-error-message-wrapper--desktop hide" role="alert" data-cart-quantity-error-message-wrapper>
+                  <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                  {% include 'icon-error' %}
+                  <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
+                </div>
+              </td>
+              <td class="cart__final-price text-right small--hide" data-cart-item-line-price>
+                {%- comment -%}
+                  Markup template for discount item
+                {%- endcomment -%}
+                <dl {% unless item.original_line_price != item.final_line_price %}class="hide" {% endunless %}data-cart-item-discounted-price-group>
+                  <dt>
+                    <span class="visually-hidden">{{ 'cart.label.regular_total' | t }}</span>
+                  </dt>
+                  <dd>
+                    <s data-cart-item-original-price>{{ item.original_line_price | money }}</s>
+                  </dd>
+                  <dt>
+                    <span class="visually-hidden">{{ 'cart.label.discounted_total' | t }}</span>
+                  </dt>
+                  <dd>
+                    <span class="order-discount" data-cart-item-final-price>{{ item.final_line_price | money }}</span>
+                  </dd>
+                </dl >
+
+                {%- comment -%}
+                  Markup template for regular price item
+                {%- endcomment -%}
+                <div {% if item.original_line_price != item.final_line_price %}class="hide" {% endif %}data-cart-item-regular-price-group>
+                  <span data-cart-item-regular-price><span class='booster-cart-item-line-price' data-key='{{item.key}}'>{{ item.original_line_price | money }}</span></span>
+                </div>
+              </td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+
+      <div class="cart__footer">
+        <div class="grid">
+          {%- if section.settings.cart_notes_enable -%}
+            <div class="grid__item medium-up--one-half cart-note">
+              <label for="CartSpecialInstructions" class="cart-note__label small--text-center">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" id="CartSpecialInstructions" class="cart-note__input" data-cart-notes>{{ cart.note }}</textarea>
+            </div>
+          {%- endif -%}
+          <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
+
+            {%- assign cartDiscounts = 'template ' | split: ' ' -%}
+            {%- if cart.cart_level_discount_applications.size > 0 -%}
+              {%- assign cartDiscounts = cart.cart_level_discount_applications -%}
+            {%- endif -%}
+            <div{% if cart.cart_level_discount_applications.size == 0 %} class="hide"{% endif %} data-cart-discount-wrapper>
+              <div class="order-discount-card-wrapper" data-cart-discount>
+                {%- for discount_application in cartDiscounts -%}
+                  <span class="order-discount order-discount--title order-discount--cart">
+                    {% include 'icon-saletag' %}<span class="visually-hidden">{{ 'customer.order.discount' | t }}:</span><span data-cart-discount-title>{{- discount_application.title -}}</span>
+                  </span>
+                  <span class="order-discount order-discount--cart order-discount--cart-total">
+                    -<span data-cart-discount-amount>{{ discount_application.total_allocated_amount | money }}</span>
+                  </span>
+                {%- endfor -%}
+              </div>
+            </div>
+
+            <div class="cart-subtotal">
+              <span class="cart-subtotal__title">{{ 'cart.general.subtotal' | t }}</span>
+              <span class="cart-subtotal__price" data-cart-subtotal><span class="wh-original-cart-total"><span class='wh-original-price'>{{ cart.total_price | money_with_currency }}</span></span><span class="wh-cart-total"></span><div class="additional-notes"><span class="wh-minimums-note"></span><span class="wh-extra-note"></span></div></span>
+            </div>
+
+            {%- capture taxes_shipping_checkout -%}
+              {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- elsif cart.taxes_included -%}
+                {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+              {%- elsif shop.shipping_policy.body != blank -%}
+                {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+              {%- else -%}
+                {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
+              {%- endif -%}
+            {%- endcapture -%}
+            <div class="cart__shipping rte">{{ taxes_shipping_checkout }}</div>
+            <div class="cart__buttons-container">
+              <div class="cart__submit-controls">
+                {%- unless section.settings.cart_ajax_enable -%}
+                <input type="submit" name="update"
+                  class="cart__submit btn btn--secondary"
+                  value="{{ 'cart.general.update' | t }}">
+                {%- endunless -%}
+                <input type="submit" name="checkout"
+                  class="cart__submit btn btn--small-wide"
+                  value="{{ 'cart.general.checkout' | t }}">
+              </div>
+
+              <div class="cart__error-message-wrapper hide" role="alert" data-cart-error-message-wrapper>
+                <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                {% include 'icon-error' %}
+                <span class="cart__error-message" data-cart-error-message></span>
+              </div>
+
+               <hr style="margin:5px;">
+              
+                         <ul class="payment-icons list--inline site-footer__icon-list"><li class="payment-icon">
+
+          
+        
+<li class="HorizontalList__Item" style="display: inline-block;margin: 6px 6px 6px 6px;"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-american_express"><title id="pi-american_express"><ly-as-328336>American Express</ly-as-328336></title><g fill="none"><path fill="#000" d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z" opacity=".07"></path><path fill="#006FCF" d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1"></path><path fill="#FFF" d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"></path></g></svg></li><li class="HorizontalList__Item" style="
+    display: inline-block;
+    margin: 6px 6px 6px 6px;
+">
+<svg width="52" height="22" viewBox="0 0 52 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 11C0 6.52374 0 4.28561 1.09227 2.69164C1.51967 2.06792 2.05676 1.52792 2.6771 1.0982C4.26247 0 6.4885 0 10.9406 0H41.0595C45.5113 0 47.7376 0 49.3228 1.0982C49.9433 1.52792 50.4805 2.06792 50.9077 2.69164C52 4.28561 52 6.52374 52 11C52 15.4763 52 17.7144 50.9077 19.3084C50.4805 19.9321 49.9433 20.4721 49.3228 20.9018C47.7376 22 45.5113 22 41.0595 22H10.9406C6.4885 22 4.26247 22 2.6771 20.9018C2.05676 20.4721 1.51967 19.9321 1.09227 19.3084C0 17.7144 0 15.4763 0 11Z" fill="#FFA8CD"/>
+<path d="M42.2929 14.1627C41.3627 14.1627 40.6377 13.3773 40.6377 12.4236C40.6377 11.4699 41.3627 10.6844 42.2929 10.6844C43.2231 10.6844 43.9481 11.4699 43.9481 12.4236C43.9481 13.3773 43.2231 14.1627 42.2929 14.1627ZM41.8276 16C42.6211 16 43.6334 15.6914 44.1945 14.4853L44.249 14.5133C44.0029 15.1725 44.0029 15.5652 44.0029 15.6634V15.8177H46V9.02945H44.0029V9.18375C44.0029 9.28193 44.0029 9.67463 44.249 10.3338L44.1945 10.3619C43.6334 9.15569 42.6211 8.84713 41.8276 8.84713C39.9263 8.84713 38.5857 10.3899 38.5857 12.4236C38.5857 14.4572 39.9263 16 41.8276 16ZM35.1109 8.84713C34.208 8.84713 33.4967 9.16972 32.9221 10.3619L32.8674 10.3338C33.1136 9.67463 33.1136 9.28193 33.1136 9.18375V9.02945H31.1164V15.8177H33.1684V12.2412C33.1684 11.3016 33.7019 10.7125 34.5637 10.7125C35.4256 10.7125 35.8496 11.2174 35.8496 12.2272V15.8177H37.9016V11.4979C37.9016 9.95512 36.725 8.84713 35.1109 8.84713ZM28.1478 10.3619L28.0931 10.3338C28.3393 9.67463 28.3393 9.28193 28.3393 9.18375V9.02945H26.3421V15.8177H28.3941L28.4077 12.5498C28.4077 11.5961 28.9002 11.021 29.7073 11.021C29.9262 11.021 30.1041 11.0491 30.3093 11.1052V9.02945C29.4064 8.8331 28.5993 9.18375 28.1478 10.3619ZM21.6225 14.1627C20.6922 14.1627 19.9672 13.3773 19.9672 12.4236C19.9672 11.4699 20.6922 10.6844 21.6225 10.6844C22.5527 10.6844 23.2778 11.4699 23.2778 12.4236C23.2778 13.3773 22.5527 14.1627 21.6225 14.1627ZM21.1574 16C21.9508 16 22.9631 15.6914 23.524 14.4853L23.5787 14.5133C23.3325 15.1725 23.3325 15.5652 23.3325 15.6634V15.8177H25.3297V9.02945H23.3325V9.18375C23.3325 9.28193 23.3325 9.67463 23.5787 10.3338L23.524 10.3619C22.9631 9.15569 21.9508 8.84713 21.1574 8.84713C19.2558 8.84713 17.9152 10.3899 17.9152 12.4236C17.9152 14.4572 19.2558 16 21.1574 16ZM15.0561 15.8177H17.1081V6H15.0561V15.8177ZM13.5513 6H11.4583C11.4583 7.75317 10.4049 9.32398 8.80438 10.446L8.1751 10.8948V6H6V15.8177H8.1751V10.9509L11.7729 15.8177H14.4269L10.9658 11.1613C12.539 9.99722 13.565 8.18793 13.5513 6Z" fill="#0B051D"/>
+</svg>
+</li><li class="HorizontalList__Item" style="
+    
+    display: inline-block;
+    margin: 6px 6px 6px 6px;
+"><svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master"><ly-as-328339>Mastercard</ly-as-328339></title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#F79E1B" cx="23" cy="12" r="7"></circle><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg></li><li class="HorizontalList__Item" style="
+    display: inline-block;
+    margin: 6px 6px 6px 6px;
+"><svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal"><ly-as-328340>PayPal</ly-as-328340></title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"></path><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"></path><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"></path></svg></li><li class="HorizontalList__Item" style="
+    display: inline-block;
+    margin: 6px 6px 6px 6px;
+"><svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa"><title id="pi-visa"><ly-as-328341>Visa</ly-as-328341></title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg></li>
+          </li></ul>
+              
+
+              {%- if additional_checkout_buttons -%}
+                <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <p class="visually-hidden" data-cart-status
+      aria-live="polite"
+      role="status"
+    ></p>
+  </div>
+
+  <div class="empty-page-content{% if cart.item_count > 0 %} hide{% endif %} text-center" data-empty-page-content>
+    <h1>{{ 'cart.general.title' | t }}</h1>
+    <p class="cart--empty-message">{{ 'cart.general.empty' | t }}</p>
+    <div class="cookie-message">
+      <p>{{ 'cart.general.cookies_required' | t }}</p>
+    </div>
+    <a href="{{ routes.root_url }}" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": {
+    "cs": "Stránka košíku",
+    "da": "Side med indkøbskurv",
+    "de": "Warenkorb-Seite",
+    "en": "Cart page",
+    "es": "Página del carrito",
+    "fi": "Ostoskorisivu",
+    "fr": "Page du panier",
+    "it": "Pagina del carrello",
+    "ja": "カートページ",
+    "ko": "카트 페이지",
+    "nb": "Handlekurvside",
+    "nl": "Winkelwagenpagina",
+    "pl": "Strona koszyka",
+    "pt-BR": "Página do carrinho",
+    "pt-PT": "Página do carrinho",
+    "sv": "Varukorgssida",
+    "th": "หน้าตะกร้าสินค้า",
+    "tr": "Sepet sayfası",
+    "vi": "Trang giỏ hàng",
+    "zh-CN": "购物车页面",
+    "zh-TW": "購物車頁面"
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "cart_ajax_enable",
+      "label": {
+        "cs": "Povolit automatické aktualizace košíku",
+        "da": "Aktivér automatisk opdatering af indkøbskurv",
+        "de": "Automatische Warenkorbaktualisierungen aktivieren",
+        "en": "Enable automatic cart updates",
+        "es": "Habilitar las actualizaciones automáticas del carrito",
+        "fi": "Ota automaattinen ostoskorin päivitykset käyttöön",
+        "fr": "Activer les mises à jour automatiques",
+        "it": "Abilita aggiornamenti automatici carrello",
+        "ja": "自動カートの更新を有効にする",
+        "ko": "자동 카트 업데이트 활성화하기",
+        "nb": "Aktiver automatiske oppdateringer av handlekurven",
+        "nl": "Automatische winkelwagen-updates inschakelen",
+        "pl": "Włącz automatyczne aktualizacje koszyka",
+        "pt-BR": "Permitir atualizações automáticas do carrinho",
+        "pt-PT": "Ativar atualizações automáticas do carrinho",
+        "sv": "Aktivera automatiska uppdateringar av varukorgen",
+        "th": "เปิดใช้การอัปเดตตะกร้าสินค้าอัตโนมัติ",
+        "tr": "Otomatik sepet güncellemelerini etkinleştir",
+        "vi": "Bật cập nhật giỏ hàng tự động",
+        "zh-CN": "启用购物车自动更新功能",
+        "zh-TW": "啟用自動更新購物車"
+      },
+      "info": {
+        "cs": "Aktualizuje košík hned, jak zákazník provede změny.",
+        "da": "Opdaterer indkøbskurven, så snart kunden foretager ændringer",
+        "de": "Aktualisiert den Warenkorb, sobald Kundenänderungen vorgenommen werden",
+        "en": "Updates the cart as soon as customer changes are made",
+        "es": "Actualiza el carrito tan pronto como el cliente realice cambios",
+        "fi": "Päivittää ostoskorin heti, kun asiakkaan muutokset on tehty",
+        "fr": "Mise à jour du panier dès que les modifications apportées aux clients ont été effectuées",
+        "it": "Aggiorna il carrello appena il cliente apporta le modifiche",
+        "ja": "お客様が変更されるとすぐにカートを更新します",
+        "ko": "고객 변경 시 카트를 업데이트합니다.",
+        "nb": "Oppdaterer handlekurven så snart kundens endringer er gjort",
+        "nl": "De winkelwagen wordt bijgewerkt zodra de klant wijzigingen aanbrengt",
+        "pl": "Aktualizuje koszyk, gdy tylko wprowadzone zostaną zmiany u klienta",
+        "pt-BR": "Atualiza o carrinho assim que o cliente faz alterações",
+        "pt-PT": "Atualiza o carrinho assim que o cliente faz alterações",
+        "sv": "Uppdaterar varukorgen så snart kundändringar görs",
+        "th": "อัปเดตตะกร้าสินค้าเมื่อลูกค้าได้ทำการเปลี่ยนแปลง",
+        "tr": "Müşteri değişiklikleri yapıldıktan sonra sepet güncellenir",
+        "vi": "Cập nhật giỏ hàng ngay khi khách hàng thay đổi",
+        "zh-CN": "客户做出更改后立即更新购物车",
+        "zh-TW": "在顧客進行變更時立即更新購物車"
+      },
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_notes_enable",
+      "label": {
+        "cs": "Povolit poznámky ke košíku",
+        "da": "Aktivér bemærkninger til indkøbskurv",
+        "de": "Warenkorbanmerkungen erlauben",
+        "en": "Enable cart notes",
+        "es": "Habilitar notas del carrito",
+        "fi": "Ota tilauskommentit käyttöön",
+        "fr": "Activer les notes de panier",
+        "it": "Abilita note carrello",
+        "ja": "カートメモを有効にする",
+        "ko": "카트 참고 사항 사용",
+        "nb": "Aktiver handlekurvmerknader",
+        "nl": "Opmerkingen voor winkelwagen inschakelen",
+        "pl": "Włącz uwagi dotyczące koszyka",
+        "pt-BR": "Habilitar observações do carrinho",
+        "pt-PT": "Ativar notas do carrinho",
+        "sv": "Aktivera varukorgsmeddelanden",
+        "th": "เปิดใช้หมายเหตุสำหรับตะกร้าสินค้า",
+        "tr": "Sepet notlarını etkinleştir",
+        "vi": "Bật ghi chú trong giỏ hàng",
+        "zh-CN": "启用购物车备注",
+        "zh-TW": "啟用購物車備註"
+      },
+      "default": false
+    }
+  ]
+}
+{% endschema %}

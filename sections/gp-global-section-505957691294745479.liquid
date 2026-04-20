@@ -1,0 +1,1736 @@
+
+{% render 'gp-head', 'isThemeSection: true' %}
+<style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-505957691294745479.gps.gpsil [style*="--aspect:"]{aspect-ratio:var(--aspect)}.gps-505957691294745479.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-505957691294745479.gps.gpsil [style*="--hvr-bg:"]:hover{background:var(--hvr-bg)}.gps-505957691294745479.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-505957691294745479.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-505957691294745479.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-505957691294745479.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-505957691294745479.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-505957691294745479.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-505957691294745479.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-505957691294745479.gps.gpsil [style*="--hvr-b:"]:hover{border:var(--hvr-b)}.gps-505957691294745479.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-505957691294745479.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-505957691294745479.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-505957691294745479.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-505957691294745479.gps.gpsil [style*="--radius:"]{border-radius:var(--radius)}.gps-505957691294745479.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-505957691294745479.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-505957691294745479.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-505957691294745479.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-505957691294745479.gps.gpsil [style*="--bottom:"]{bottom:var(--bottom)}.gps-505957691294745479.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-505957691294745479.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-505957691294745479.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-505957691294745479.gps.gpsil [style*="--ff:"]{font-family:var(--ff)}.gps-505957691294745479.gps.gpsil [style*="--size:"]{font-size:var(--size)}.gps-505957691294745479.gps.gpsil [style*="--weight:"]{font-weight:var(--weight)}.gps-505957691294745479.gps.gpsil [style*="--fs:"]{font-style:var(--fs)}.gps-505957691294745479.gps.gpsil [style*="--gg:"]{grid-gap:var(--gg)}.gps-505957691294745479.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-505957691294745479.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-505957691294745479.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-505957691294745479.gps.gpsil [style*="--left:"]{left:var(--left)}.gps-505957691294745479.gps.gpsil [style*="--ls:"]{letter-spacing:var(--ls)}.gps-505957691294745479.gps.gpsil [style*="--m:"]{margin:var(--m)}.gps-505957691294745479.gps.gpsil [style*="--mb:"]{margin-bottom:var(--mb)}.gps-505957691294745479.gps.gpsil [style*="--ml:"]{margin-left:var(--ml)}.gps-505957691294745479.gps.gpsil [style*="--mt:"]{margin-top:var(--mt)}.gps-505957691294745479.gps.gpsil [style*="--maxw:"]{max-width:var(--maxw)}.gps-505957691294745479.gps.gpsil [style*="--minw:"]{min-width:var(--minw)}.gps-505957691294745479.gps.gpsil [style*="--objf:"]{-o-object-fit:var(--objf);object-fit:var(--objf)}.gps-505957691294745479.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-505957691294745479.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-505957691294745479.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-505957691294745479.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-505957691294745479.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-505957691294745479.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-505957691294745479.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-505957691294745479.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-505957691294745479.gps.gpsil [style*="--right:"]{right:var(--right)}.gps-505957691294745479.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-505957691294745479.gps.gpsil [style*="--tt:"]{text-transform:var(--tt)}.gps-505957691294745479.gps.gpsil [style*="--top:"]{top:var(--top)}.gps-505957691294745479.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-505957691294745479.gps.gpsil [style*="--w:"]{width:var(--w)}.gps-505957691294745479.gps.gpsil [style*="--line-clamp:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp);display:-webkit-box;overflow:hidden}@media only screen and (max-width:1024px){.gps-505957691294745479.gps.gpsil [style*="--aspect-tablet:"]{aspect-ratio:var(--aspect-tablet)}.gps-505957691294745479.gps.gpsil [style*="--bottom-tablet:"]{bottom:var(--bottom-tablet)}.gps-505957691294745479.gps.gpsil [style*="--cg-tablet:"]{-moz-column-gap:var(--cg-tablet);column-gap:var(--cg-tablet)}.gps-505957691294745479.gps.gpsil [style*="--size-tablet:"]{font-size:var(--size-tablet)}.gps-505957691294745479.gps.gpsil [style*="--gtc-tablet:"]{grid-template-columns:var(--gtc-tablet)}.gps-505957691294745479.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-505957691294745479.gps.gpsil [style*="--jc-tablet:"]{justify-content:var(--jc-tablet)}.gps-505957691294745479.gps.gpsil [style*="--left-tablet:"]{left:var(--left-tablet)}.gps-505957691294745479.gps.gpsil [style*="--ml-tablet:"]{margin-left:var(--ml-tablet)}.gps-505957691294745479.gps.gpsil [style*="--maxw-tablet:"]{max-width:var(--maxw-tablet)}.gps-505957691294745479.gps.gpsil [style*="--minw-tablet:"]{min-width:var(--minw-tablet)}.gps-505957691294745479.gps.gpsil [style*="--objf-tablet:"]{-o-object-fit:var(--objf-tablet);object-fit:var(--objf-tablet)}.gps-505957691294745479.gps.gpsil [style*="--o-tablet:"]{order:var(--o-tablet)}.gps-505957691294745479.gps.gpsil [style*="--pb-tablet:"]{padding-bottom:var(--pb-tablet)}.gps-505957691294745479.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-505957691294745479.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-505957691294745479.gps.gpsil [style*="--pt-tablet:"]{padding-top:var(--pt-tablet)}.gps-505957691294745479.gps.gpsil [style*="--right-tablet:"]{right:var(--right-tablet)}.gps-505957691294745479.gps.gpsil [style*="--top-tablet:"]{top:var(--top-tablet)}.gps-505957691294745479.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}.gps-505957691294745479.gps.gpsil [style*="--line-clamp-tablet:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-tablet);display:-webkit-box;overflow:hidden}}@media only screen and (max-width:767px){.gps-505957691294745479.gps.gpsil [style*="--aspect-mobile:"]{aspect-ratio:var(--aspect-mobile)}.gps-505957691294745479.gps.gpsil [style*="--bottom-mobile:"]{bottom:var(--bottom-mobile)}.gps-505957691294745479.gps.gpsil [style*="--cg-mobile:"]{-moz-column-gap:var(--cg-mobile);column-gap:var(--cg-mobile)}.gps-505957691294745479.gps.gpsil [style*="--size-mobile:"]{font-size:var(--size-mobile)}.gps-505957691294745479.gps.gpsil [style*="--gg-mobile:"]{grid-gap:var(--gg-mobile)}.gps-505957691294745479.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-505957691294745479.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-505957691294745479.gps.gpsil [style*="--jc-mobile:"]{justify-content:var(--jc-mobile)}.gps-505957691294745479.gps.gpsil [style*="--left-mobile:"]{left:var(--left-mobile)}.gps-505957691294745479.gps.gpsil [style*="--mb-mobile:"]{margin-bottom:var(--mb-mobile)}.gps-505957691294745479.gps.gpsil [style*="--ml-mobile:"]{margin-left:var(--ml-mobile)}.gps-505957691294745479.gps.gpsil [style*="--maxw-mobile:"]{max-width:var(--maxw-mobile)}.gps-505957691294745479.gps.gpsil [style*="--minw-mobile:"]{min-width:var(--minw-mobile)}.gps-505957691294745479.gps.gpsil [style*="--objf-mobile:"]{-o-object-fit:var(--objf-mobile);object-fit:var(--objf-mobile)}.gps-505957691294745479.gps.gpsil [style*="--o-mobile:"]{order:var(--o-mobile)}.gps-505957691294745479.gps.gpsil [style*="--pc-mobile:"]{place-content:var(--pc-mobile)}.gps-505957691294745479.gps.gpsil [style*="--pb-mobile:"]{padding-bottom:var(--pb-mobile)}.gps-505957691294745479.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-505957691294745479.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-505957691294745479.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-505957691294745479.gps.gpsil [style*="--right-mobile:"]{right:var(--right-mobile)}.gps-505957691294745479.gps.gpsil [style*="--ta-mobile:"]{text-align:var(--ta-mobile)}.gps-505957691294745479.gps.gpsil [style*="--top-mobile:"]{top:var(--top-mobile)}.gps-505957691294745479.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}.gps-505957691294745479.gps.gpsil [style*="--line-clamp-mobile:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile);display:-webkit-box;overflow:hidden}}.gps-505957691294745479 .-gp-translate-x-1\/2,.gps-505957691294745479 .-gp-translate-y-1\/2,.gps-505957691294745479 .gp-rotate-0,.gps-505957691294745479 .gp-rotate-180,.gps-505957691294745479 .mobile\:gp-rotate-0,.gps-505957691294745479 .mobile\:gp-rotate-180,.gps-505957691294745479 .tablet\:gp-rotate-0,.gps-505957691294745479 .tablet\:gp-rotate-180{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1}.gps-505957691294745479 .gp-shadow-md{--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000}.gps-505957691294745479 .gp-static{position:static}.gps-505957691294745479 .gp-absolute{position:absolute}.gps-505957691294745479 .gp-relative{position:relative}.gps-505957691294745479 .gp-left-0{left:0}.gps-505957691294745479 .gp-left-1\/2{left:50%}.gps-505957691294745479 .gp-right-0{right:0}.gps-505957691294745479 .gp-top-0{top:0}.gps-505957691294745479 .gp-top-1\/2{top:50%}.gps-505957691294745479 .gp-z-0{z-index:0}.gps-505957691294745479 .gp-z-1{z-index:1}.gps-505957691294745479 .gp-z-\[90\]{z-index:90}.gps-505957691294745479 .\!gp-m-0{margin:0!important}.gps-505957691294745479 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-505957691294745479 .gp-my-0{margin-bottom:0;margin-top:0}.gps-505957691294745479 .gp-mb-0{margin-bottom:0}.gps-505957691294745479 .gp-block{display:block}.gps-505957691294745479 .gp-flex{display:flex}.gps-505957691294745479 .gp-inline-flex{display:inline-flex}.gps-505957691294745479 .gp-grid{display:grid}.gps-505957691294745479 .\!gp-hidden{display:none!important}.gps-505957691294745479 .gp-hidden{display:none}.gps-505957691294745479 .gp-aspect-\[56\/32\]{aspect-ratio:56/32}.gps-505957691294745479 .gp-aspect-square{aspect-ratio:1/1}.gps-505957691294745479 .gp-h-0{height:0}.gps-505957691294745479 .gp-h-full{height:100%}.gps-505957691294745479 .\!gp-min-h-full{min-height:100%!important}.gps-505957691294745479 .\!gp-w-full{width:100%!important}.gps-505957691294745479 .gp-w-14{width:56px}.gps-505957691294745479 .gp-w-5{width:20px}.gps-505957691294745479 .gp-w-\[12px\]{width:12px}.gps-505957691294745479 .gp-w-full{width:100%}.gps-505957691294745479 .\!gp-min-w-full{min-width:100%!important}.gps-505957691294745479 .\!gp-max-w-full{max-width:100%!important}.gps-505957691294745479 .gp-max-w-full{max-width:100%}.gps-505957691294745479 .gp-flex-1{flex:1 1 0%}.gps-505957691294745479 .gp-shrink-0{flex-shrink:0}.gps-505957691294745479 .-gp-translate-x-1\/2{--tw-translate-x:-50%}.gps-505957691294745479 .-gp-translate-x-1\/2,.gps-505957691294745479 .-gp-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-505957691294745479 .-gp-translate-y-1\/2{--tw-translate-y:-50%}.gps-505957691294745479 .gp-rotate-0{--tw-rotate:0deg}.gps-505957691294745479 .gp-rotate-0,.gps-505957691294745479 .gp-rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-505957691294745479 .gp-rotate-180{--tw-rotate:180deg}.gps-505957691294745479 .gp-cursor-pointer{cursor:pointer}.gps-505957691294745479 .gp-select-none{-webkit-user-select:none;-moz-user-select:none;user-select:none}.gps-505957691294745479 .\!gp-flex-row{flex-direction:row!important}.gps-505957691294745479 .gp-flex-row{flex-direction:row}.gps-505957691294745479 .gp-flex-row-reverse{flex-direction:row-reverse}.gps-505957691294745479 .gp-flex-col{flex-direction:column}.gps-505957691294745479 .\!gp-flex-nowrap{flex-wrap:nowrap!important}.gps-505957691294745479 .gp-items-start{align-items:flex-start}.gps-505957691294745479 .gp-items-center{align-items:center}.gps-505957691294745479 .gp-justify-center{justify-content:center}.gps-505957691294745479 .gp-justify-between{justify-content:space-between}.gps-505957691294745479 .gp-gap-2{gap:8px}.gps-505957691294745479 .gp-gap-y-0{row-gap:0}.gps-505957691294745479 .gp-overflow-hidden{overflow:hidden}.gps-505957691294745479 .gp-break-words{overflow-wrap:break-word}.gps-505957691294745479 .\!gp-rounded-none{border-radius:0!important}.gps-505957691294745479 .gp-rounded{border-radius:4px}.gps-505957691294745479 .gp-rounded-full{border-radius:9999px}.gps-505957691294745479 .gp-rounded-none{border-radius:0}.gps-505957691294745479 .gp-bg-black\/80{background-color:rgba(0,0,0,.8)}.gps-505957691294745479 .gp-object-cover{-o-object-fit:cover;object-fit:cover}.gps-505957691294745479 .gp-px-0{padding-left:0;padding-right:0}.gps-505957691294745479 .\!gp-pb-0{padding-bottom:0!important}.gps-505957691294745479 .gp-text-center{text-align:center}.gps-505957691294745479 .gp-text-g-bg-3{color:var(--g-c-bg-3)}.gps-505957691294745479 .gp-text-g-text-2{color:var(--g-c-text-2)}.gps-505957691294745479 .gp-text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.gps-505957691294745479 .gp-text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}.gps-505957691294745479 .gp-no-underline{text-decoration-line:none}.gps-505957691294745479 .gp-shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.gps-505957691294745479 .gp-outline-1{outline-width:1px}.gps-505957691294745479 .-gp-outline-offset-1{outline-offset:-1px}.gps-505957691294745479 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-505957691294745479 .gp-transition-opacity{transition-duration:.15s;transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-505957691294745479 .gp-duration-200{transition-duration:.2s}.gps-505957691294745479 .gp-duration-300{transition-duration:.3s}.gps-505957691294745479 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-505957691294745479 .disabled\:gp-btn-disabled:disabled{cursor:default}@media (hover:hover) and (pointer:fine){.gps-505957691294745479 .hover\:gp-bg-\[\#ef0800\]:hover{--tw-bg-opacity:1;background-color:rgb(239 8 0/var(--tw-bg-opacity))}}.gps-505957691294745479 .disabled\:gp-pointer-events-none:disabled{pointer-events:none}.gps-505957691294745479 .disabled\:gp-opacity-30:disabled{opacity:.3}@media (hover:hover) and (pointer:fine){.gps-505957691294745479 .gp-group\/button:hover .group-hover\/button\:\!gp-text-inherit{color:inherit!important}}.gps-505957691294745479 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-505957691294745479 .data-\[outline\=active\]\:gp-outline[data-outline=active]{outline-style:solid}.gps-505957691294745479 .gp-group\/button[data-state=loading] .group-data-\[state\=loading\]\/button\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-505957691294745479 .tablet\:gp-static{position:static}.gps-505957691294745479 .tablet\:gp-left-0{left:0}.gps-505957691294745479 .tablet\:gp-right-0{right:0}.gps-505957691294745479 .tablet\:gp-block{display:block}.gps-505957691294745479 .tablet\:\!gp-hidden{display:none!important}.gps-505957691294745479 .tablet\:gp-hidden{display:none}.gps-505957691294745479 .tablet\:\!gp-min-h-full{min-height:100%!important}.gps-505957691294745479 .tablet\:gp-rotate-0{--tw-rotate:0deg}.gps-505957691294745479 .tablet\:gp-rotate-0,.gps-505957691294745479 .tablet\:gp-rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-505957691294745479 .tablet\:gp-rotate-180{--tw-rotate:180deg}.gps-505957691294745479 .tablet\:\!gp-flex-row{flex-direction:row!important}.gps-505957691294745479 .tablet\:gp-flex-row{flex-direction:row}.gps-505957691294745479 .tablet\:\!gp-flex-nowrap{flex-wrap:nowrap!important}.gps-505957691294745479 .tablet\:gp-px-0{padding-left:0;padding-right:0}}@media (max-width:767px){.gps-505957691294745479 .mobile\:gp-static{position:static}.gps-505957691294745479 .mobile\:gp-left-0{left:0}.gps-505957691294745479 .mobile\:gp-right-0{right:0}.gps-505957691294745479 .mobile\:gp-block{display:block}.gps-505957691294745479 .mobile\:\!gp-hidden{display:none!important}.gps-505957691294745479 .mobile\:gp-hidden{display:none}.gps-505957691294745479 .mobile\:\!gp-min-h-full{min-height:100%!important}.gps-505957691294745479 .mobile\:gp-rotate-0{--tw-rotate:0deg}.gps-505957691294745479 .mobile\:gp-rotate-0,.gps-505957691294745479 .mobile\:gp-rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-505957691294745479 .mobile\:gp-rotate-180{--tw-rotate:180deg}.gps-505957691294745479 .mobile\:\!gp-flex-row{flex-direction:row!important}.gps-505957691294745479 .mobile\:gp-flex-row{flex-direction:row}.gps-505957691294745479 .mobile\:\!gp-flex-nowrap{flex-wrap:nowrap!important}.gps-505957691294745479 .mobile\:gp-px-0{padding-left:0;padding-right:0}}.gps-505957691294745479 .\[\&\>svg\]\:\!gp-h-\[var\(--height-desktop\)\]>svg{height:var(--height-desktop)!important}.gps-505957691294745479 .\[\&\>svg\]\:gp-h-full>svg{height:100%}.gps-505957691294745479 .\[\&\>svg\]\:\!gp-w-auto>svg{width:auto!important}.gps-505957691294745479 .\[\&\>svg\]\:gp-w-full>svg{width:100%}@media (max-width:1024px){.gps-505957691294745479 .tablet\:\[\&\>svg\]\:\!gp-h-\[var\(--height-tablet\)\]>svg{height:var(--height-tablet)!important}}@media (max-width:767px){.gps-505957691294745479 .mobile\:\[\&\>svg\]\:\!gp-h-\[var\(--height-mobile\)\]>svg{height:var(--height-mobile)!important}}.gps-505957691294745479 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-505957691294745479 .\[\&_p\]\:gp-inline p{display:inline}.gps-505957691294745479 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}.gps-505957691294745479 .\[\&_p\]\:after\:gp-whitespace-pre-wrap p:after{content:var(--tw-content);white-space:pre-wrap}.gps-505957691294745479 .\[\&_p\]\:after\:gp-content-\[\'\\A\'\] p:after{--tw-content:"\A";content:var(--tw-content)}</style>
+
+       
+      
+            <section
+              class="gp-mx-auto gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+              style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:0px;--pl-tablet:0px;--pl-mobile:0px;--pr:0px;--pr-tablet:0px;--pr-mobile:0px"
+            >
+              
+    <div
+      enableLazyloadImage id="gMLcIGkbVM" data-id="gMLcIGkbVM"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--pt:var(undefined);--pl:15px;--pb:var(--g-s-4xl);--pr:15px;--pt-mobile:24px;--pl-mobile:15px;--pb-mobile:24px;--pr-mobile:15px;--pt-tablet:var(--g-s-4xl);--pl-tablet:15px;--pb-tablet:var(--g-s-4xl);--pr-tablet:15px;--cg:var(--g-s-2xl);--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:#FFFFFF;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gMLcIGkbVM gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="g7SMvVKXy_ gp-relative gp-flex gp-flex-col"
+    >
+      
+    {%- assign gpBkProduct = product -%}
+    
+        {%- liquid
+          if request.page_type == 'product'
+            if 'static' == 'static'
+              if '8752391881043' == 'latest'
+                paginate collections.all.products by 100000
+                  assign product = collections.all.products | sort: 'created_at' | reverse | first
+                endpaginate
+              else
+                assign product = all_products['magische-blumen-windmuhle']
+                assign productId = '8752391881043' | times: 1
+                if product == empty or product == null
+                  paginate collections.all.products by 100000
+                    for item in collections.all.products
+                      if item.id == productId
+                        assign product = item
+                      endif
+                    endfor
+                  endpaginate
+                endif
+              endif
+            endif
+          else
+            if '8752391881043' == 'latest'
+              paginate collections.all.products by 100000
+                assign product = collections.all.products | sort: 'created_at'| reverse | first
+              endpaginate
+            else
+              assign product = all_products['magische-blumen-windmuhle']
+              assign productId = '8752391881043' | times: 1
+              if product == empty or product == null
+                paginate collections.all.products by 100000
+                  for item in collections.all.products
+                    if item.id == productId
+                      assign product = item
+                    endif
+                  endfor
+                endpaginate
+              endif
+            endif
+          endif
+        -%}
+      
+
+    {%-if product != empty and product != null -%}
+      {%- assign initVariantId =  -%}
+      {%- assign product_form_id = 'product-form-' | append: "g5vvKPq5zz" -%}
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
+        {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+      {%-if variant == empty or variant == null -%}
+        {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+      <gp-product data-uid="g5vvKPq5zz" data-id="g5vvKPq5zz"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [], "isSyncProduct": "", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+        gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'>
+        <product-form class="product-form">
+          {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
+            <input type="hidden" name="id" value="{{ variant.id }}" />
+            <input type="hidden" name="quantity" value="{{ quantity }}" />
+            <button type="submit" onclick="return false;" style="display:none;"></button>
+            
+       
+      
+    <div
+      id="g5vvKPq5zz" data-id="g5vvKPq5zz-row"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--cg:30px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%"
+        class="g5vvKPq5zz gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gijdvKk8dz gp-relative gp-flex gp-flex-col"
+    >
+      
+       
+      
+    <div
+      enableLazyloadImage parentTag="Col" id="gi57ByiuyO" data-id="gi57ByiuyO"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-3xl);--cg:var(--g-s-2xl);--pc:start;--gtc:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gi57ByiuyO gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gUdyS2kqpg gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gc4mUIJSIK">
+    <div
+      enableLazyloadImage parentTag="Col"
+        class="gc4mUIJSIK "
+        style="--tt:default;--ta:center;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-l)"
+      >
+      <div class="gp-flex" style="--jc:center">
+        <h2
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text-g-text-2 gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:center;--c:#242424;--fs:normal;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-heading, heading);--weight:700;--ls:normal;--size:40px;--size-tablet:40px;--size-mobile:28px;word-break:break-word;--radius:var(--g-radius-none);overflow:hidden"
+        ><p>Handgemachte Blumen Windmühle</p></h2>
+      </div>
+    </div>
+    </gp-text>
+    
+  {% assign featured_image = product.featured_image %}
+  {%- if variant != null and variant.featured_image != null -%}
+  {% assign featured_image = variant.featured_image %}
+  {%- endif -%}
+    <gp-product-images-v2
+      gp-data='
+    {
+      "id":"gsan9rJ4XD",
+      "pageContext": {"isTranslateWithLocale":true,"sectionName":"gp-global-section-505957691294745479"},
+      "setting":{"arrowIcon":"","clickOpenLightBox":{"desktop":false,"mobile":false,"tablet":false},"dragToScroll":true,"ftArrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","ftArrowIconColor":"#000000","ftClickOpenLightBox":{"desktop":"none"},"ftNavigationPosition":{"desktop":"none","mobile":"none","tablet":"none"},"hoverEffect":"none","loop":{"desktop":true,"mobile":true,"tablet":true},"navigationPosition":{"desktop":"inside","mobile":"inside","tablet":"inside"},"otherImage":0,"pauseOnHover":true,"showActiveStatus":true,"speed":1,"type":{"desktop":"images","mobile":"images","tablet":"images"},"zoom":1.5,"zoomType":"default"},
+      "styles":{"align":{"desktop":"center","mobile":"center","tablet":"center"},"aspectHeight":{"desktop":0,"mobile":0,"tablet":0},"aspectWidth":{"desktop":0,"mobile":0,"tablet":0},"dotActiveColor":{"desktop":"highlight"},"dotColor":{"desktop":"bg-1"},"ftAspectHeight":{"desktop":0,"mobile":0,"tablet":0},"ftAspectWidth":{"desktop":0,"mobile":0,"tablet":0},"ftLayout":{"desktop":"fill","mobile":"cover","tablet":"cover"},"ftShape":{"desktop":{"shape":"original","shapeLinked":true,"width":"100%"},"mobile":{"shape":"original","shapeLinked":true,"width":"100%"},"tablet":{"shape":"original","shapeLinked":true,"width":"100%"}},"itemSpacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"layout":{"desktop":"cover","mobile":"cover","tablet":"cover"},"position":{"desktop":"only-feature","mobile":"only-feature","tablet":"only-feature"},"ratioLayout":{"desktop":{},"mobile":{},"tablet":{}},"ratioLayoutRight":{"desktop":{},"mobile":{},"tablet":{}},"shape":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeFor1Col":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeFor2Col":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"50%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeForBottom":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"20%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeForFtOnly":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"spacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"verticalLayout":{"desktop":false,"mobile":false,"tablet":false},"verticalLayoutRow":{"desktop":true,"mobile":true,"tablet":true}}, "productUrl":{{product.url | json | escape}}, "product":{{product | json | escape}}, "collectionUrl": {{ collection.url | json | escape }}, "collection": {{ collection | json | escape}}
+    }
+  '
+      section-id="{{section.id}}"
+      style="--b:solid;--bc:#121212;--bw:0px;--shadow:1.2246467991473532e-16px 2px 4px 0px rgba(18, 18, 18, 0.12);--d:none;--d-mobile:block;--d-tablet:none;--op:100%;--bblr:30px;--bbrr:30px;--btlr:30px;--btrr:30px;--mb-mobile:0px"
+      data-id="gsan9rJ4XD"
+      class="gsan9rJ4XD gp-overflow-hidden"
+    >
+      <div
+        class="{%- if product.media.size > 1 -%} gp-grid gp-w-full !gp-m-0 gp-relative {%- else -%} gp-w-full !gp-m-0 gp-relative {%- endif -%}"
+        {%- if product.media.size > 1 -%}
+        style="--gtc:minmax(0, 12fr);--gtc-tablet:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--gg:var(--g-s-s);--gg-mobile:var(--g-s-s)"
+        {%- else -%}
+        style="--gtc:minmax(0, 12fr);--gg:var(--g-s-s);--gg-mobile:var(--g-s-s)"
+        {%- endif -%}
+      >
+        
+    {% capture featureImageOnlyOne %}
+      
+        {% assign featureMedia = variant.featured_media %}
+        {% unless featureMedia %}
+        {% assign featureMedia = product.featured_media %}
+        {% endunless %}
+        {% if product.media.size > 1 %}
+          
+          {% assign featureMedia = variant.featured_media %}
+          {% unless featureMedia %}
+          {% assign featureMedia = product.featured_media %}
+          {% endunless %}
+        
+        {% endif %}
+        {% assign largestRatio = 0 %}
+        {% assign height = featureMedia.height | times: 1.0 %}
+        {% assign width = featureMedia.width | times: 1.0 %}
+        {% assign ratio = height | divided_by: width %}
+        {% if ratio > largestRatio %}
+          {% assign largestRatio = ratio %}
+        {% endif %}
+        {% assign productImageWidth = 0 %}
+        {% case featureMedia.media_type %}
+          {% when 'image' %}
+            {% assign productImageWidth = featureMedia.width %}
+          {% else %}
+            {% assign productImageWidth = featureMedia.preview_image.width %}
+        {% endcase %}
+        {% if featureMedia == null %}
+        {% assign productImageWidth = 1600 %}
+        {% endif %}
+        <div 
+          class='gp-feature-image-carousel gp-feature-image-only' 
+          style="--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex;--jc:center;--jc-tablet:center;--jc-mobile:center"
+        >
+          <div 
+            class="gp-relative"
+            style="--w:100%;--w-tablet:100%;--w-mobile:100%"
+          >
+            
+      
+    
+            <div 
+              type="gp-feature-image-only"
+              product-id="{{product.id}}"
+              product-media="{{product.media.size}}"
+              class="gp-image-item gp-ft-image-item gp-group gp-z-0 gp-flex !gp-max-w-full !gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-featured-image-wrapper"
+              style="--h:auto;--h-tablet:auto;--h-mobile:auto;width:{{productImageWidth}}px"
+            >
+              <div 
+                class="gp-w-full  {% if featureMedia == null or featureMedia.media_type == 'image' %} {{ 'gp-h-0' }} {% else %} {{ 'gp-h-full !gp-pb-0' }} {% endif %} gp-relative" 
+                style="--pb: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-tablet: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-mobile: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%); {% if featureMedia.media_type == 'video' or featureMedia.media_type == 'external_video' %} {{ 'display: flex; align-items: center; justify-content: center' }} {% endif %}"
+              >
+                
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        
+      
+    {% assign src = featureMedia.src %}
+    
+    
+  <img
+      id="{%- if featureMedia != null -%}
+              {{featureMedia.id}}
+            {%- endif -%}"
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp-w-full gp-transition-opacity {{shouldHidden}} gp_lazyload"
+      data-src="{{src | image_url}}" data-srcset="{%- if src != null -%}
+              {{src | img_url: '480x480'}} 480w, {{src | img_url: '768x768'}} 768w,{{src | img_url: '1024x1024'}} 1024w,{{src | img_url: '1440x1440'}} 1440w
+            {%- else -%}
+              {{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}
+            {%- endif -%}" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPgogICAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imcte3tmZWF0dXJlTWVkaWEud2lkdGh9fS17e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSI+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSIyMCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI3MCUiIC8+CiAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0idXJsKCNnLXt7ZmVhdHVyZU1lZGlhLndpZHRofX0te3tmZWF0dXJlTWVkaWEuaGVpZ2h0fX0pIiAvPgogICAgPGFuaW1hdGUgeGxpbms6aHJlZj0iI3IiIGF0dHJpYnV0ZU5hbWU9IngiIGZyb209Ii17e2ZlYXR1cmVNZWRpYS53aWR0aH19IiB0bz0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{featureMedia.width}}" height="{{featureMedia.height}}" alt="{{featureMedia.alt}}" base-src="{{src | image_url}}"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:{{featureMedia.width}}/{{featureMedia.height}};--aspect-tablet:{{featureMedia.width}}/{{featureMedia.height}};--aspect-mobile:{{featureMedia.width}}/{{featureMedia.height}};--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+      
+      
+    
+      {% when 'external_video' %}
+        {% assign mediaSourceVideo = featureMedia | external_video_url %}
+        
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{featureMedia.alt}}"
+      style="--aspect:;--aspect-tablet:;--aspect-mobile:"
+    >
+    </iframe>
+  
+      {% when 'video' %}
+        {% assign mediaSourceVideo = featureMedia.sources.last.url %}
+        
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{featureMedia.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+      {% when 'model' %}
+        
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%"
+      
+      
+      
+      
+      src="{% if featureMedia.sources.first.url contains '.glb' %}{{ featureMedia.sources.first.url }}{% else %}{{featureMedia.sources.last.url}}{% endif %}"
+      alt="{{featureMedia.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{featureMedia.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+      {% else %}
+        
+    
+  <img
+      
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp_lazyload"
+      data-src data-srcset="https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="2237" height="1678" alt="No Image"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:2237/1678;--aspect-tablet:2237/1678;--aspect-mobile:2237/1678;--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+    {% endcase %}
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    {% endcapture %}
+    {% if product.media.size > 1 %}
+      
+      
+    <gp-carousel data-id="gp-carousel-gsan9rJ4XD" type="gp-feature-image-carousel" product-id="{{product.id}}" product-media="{{product.media.size}}" id="gp-root-carousel-ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}-{{section.id}}" class="
+          gp-px-0 tablet:gp-px-0 mobile:gp-px-0
+          gp-flex-1 gp-w-full gp-feature-image-carousel
+          gp-group/carousel gp-flex" gp-data='{"id":"ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}-{{section.id}}","setting":{"slidesToShow":{"desktop":1},"dotStyle":{},"dotSize":{"desktop":12},"dotGapToCarousel":{"desktop":16},"dotColor":{"desktop":"bg-1"},"dotActiveColor":{"desktop":"line-3"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":false},"enableDrag":{},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{},"roundedArrow":{},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","navigationStyle":{"desktop":"none","mobile":"none","tablet":"none"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"align":{"desktop":"center","tablet":"center","mobile":"center"}},"isHiddenArrowWhenDisabled":true}' style="--jc:center;--jc-tablet:center;--jc-mobile:center;--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex">
+      <div class="gp-hidden gp-aspect-square gp-w-[12px] gp-rounded-full gp-shadow-md"></div>
+      <div
+        
+        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-carousel-gsan9rJ4XD gp-featured-image-wrapper"
+        style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto"
+      >
+        <div
+          class="gp-h-full gp-relative gp-mx-auto gp-flex gp-items-center gp-justify-between mobile:!gp-flex-row tablet:!gp-flex-row !gp-flex-row"
+          style="--h:100%;--h-tablet:100%;--h-mobile:100%;gap:16px"
+        >
+          
+    <button
+      type="button"
+      aria-label='Carousel Back Arrow'
+      class="gp-z-1 ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}} gp-carousel-action-back gem-slider-previous ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gsan9rJ4XD gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      style="--left:initial;--top:initial;--right:initial;--bottom:;--left-tablet:initial;--top-tablet:initial;--right-tablet:initial;--bottom-tablet:;--left-mobile:initial;--top-mobile:initial;--right-mobile:initial;--bottom-mobile:;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-180 tablet:gp-rotate-180 mobile:gp-rotate-180"
+  style="--c:#000000;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z" fill="currentColor"/>
+    </svg>
+    </div>
+      <style>
+    .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD {
+      
+    }
+    .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD {
+        
+      }
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD::before {
+        
+        
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD {
+        
+      }
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD::before {
+        
+        
+      }
+    }
+  </style>
+    </button>
+  
+          <div id="gp-carousel-ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
+          style="--cg-mobile:undefinedpx;--cg-tablet:undefinedpx;--cg:undefinedpx">
+          
+          {%- if product.media.size > 0 -%}
+            
+      
+    
+            {% assign largestRatio = 0 %}
+            {% for featureMedia in product.media %}
+              {% assign height = featureMedia.height | times: 1.0 %}
+              {% assign width = featureMedia.width | times: 1.0 %}
+              {% assign ratio = height | divided_by: width %}
+              {% if ratio > largestRatio %}
+                {% assign largestRatio = ratio %}
+              {% endif %}
+            {% endfor %}
+            {%- for featureMedia in product.media -%}
+              {%- if featureMedia.media_type == 'image' -%}
+                {%- for image in product.images -%}
+                  {% if image.src == featureMedia.src %}
+                    {% assign imageID = image.id %}
+                    {% break %}
+                  {% endif%}
+                {% endfor %}
+              {%- else -%}
+                {% assign imageID = '' %}
+              {%- endif -%}
+              
+    {% assign productImageWidth = 0 %}
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        {% assign productImageWidth = featureMedia.width %}
+      {% else %}
+        {% assign productImageWidth = featureMedia.preview_image.width %}
+    {% endcase %}
+    
+    <div
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      
+      id="{{section.id}}-{{imageID}}"
+      style="width:{{productImageWidth}}px;--minw:calc(100% / 4 - 33px);--minw-tablet:calc(100% / 4 - 33px);--minw-mobile:calc(100% / 4 - 33px);--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);outline-color:var(--g-c-brand, brand);--h:auto;--h-tablet:auto;--h-mobile:auto;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}} gp-child-item-undefined gp-group gp-z-0 gp-flex !gp-min-w-full !gp-max-w-full gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-outline-1 -gp-outline-offset-1 gp-image-item gp-ft-image-item data-[outline=active]:gp-outline undefined"
+      data-index=""
+    >
+      <div
+        class="gp-w-full",
+        
+      >
+      
+      <div 
+        class="gp-w-full  {% if featureMedia == null or featureMedia.media_type == 'image'  %} {{ 'gp-h-0' }} {% else %} {{ 'gp-h-full !gp-pb-0' }} {% endif %} gp-relative" 
+        style="--pb: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-tablet: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-mobile: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%); {% if featureMedia.media_type == 'video' or featureMedia.media_type == 'external_video' %} {{ 'display: flex; align-items: center; justify-content: center' }} {% endif %}"
+      >
+        
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        
+      
+    {% assign src = featureMedia.src %}
+    
+    
+  <img
+      id="{%- if featureMedia != null -%}
+              {{featureMedia.id}}
+            {%- endif -%}"
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp-w-full gp-transition-opacity {{shouldHidden}} gp_lazyload"
+      data-src="{{src | image_url}}" data-srcset="{%- if src != null -%}
+              {{src | img_url: '480x480'}} 480w, {{src | img_url: '768x768'}} 768w,{{src | img_url: '1024x1024'}} 1024w,{{src | img_url: '1440x1440'}} 1440w
+            {%- else -%}
+              {{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}
+            {%- endif -%}" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPgogICAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imcte3tmZWF0dXJlTWVkaWEud2lkdGh9fS17e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSI+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSIyMCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI3MCUiIC8+CiAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0idXJsKCNnLXt7ZmVhdHVyZU1lZGlhLndpZHRofX0te3tmZWF0dXJlTWVkaWEuaGVpZ2h0fX0pIiAvPgogICAgPGFuaW1hdGUgeGxpbms6aHJlZj0iI3IiIGF0dHJpYnV0ZU5hbWU9IngiIGZyb209Ii17e2ZlYXR1cmVNZWRpYS53aWR0aH19IiB0bz0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{featureMedia.width}}" height="{{featureMedia.height}}" alt="{{featureMedia.alt}}" base-src="{{src | image_url}}"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:{{featureMedia.width}}/{{featureMedia.height}};--aspect-tablet:{{featureMedia.width}}/{{featureMedia.height}};--aspect-mobile:{{featureMedia.width}}/{{featureMedia.height}};--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+      
+      
+    
+      {% when 'external_video' %}
+        {% assign mediaSourceVideo = featureMedia | external_video_url %}
+        
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{featureMedia.alt}}"
+      style="--aspect:;--aspect-tablet:;--aspect-mobile:"
+    >
+    </iframe>
+  
+      {% when 'video' %}
+        {% assign mediaSourceVideo = featureMedia.sources.last.url %}
+        
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{featureMedia.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+      {% when 'model' %}
+        
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%"
+      
+      
+      
+      
+      src="{% if featureMedia.sources.first.url contains '.glb' %}{{ featureMedia.sources.first.url }}{% else %}{{featureMedia.sources.last.url}}{% endif %}"
+      alt="{{featureMedia.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{featureMedia.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+      {% else %}
+        
+    
+  <img
+      
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp_lazyload"
+      data-src data-srcset="https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="2237" height="1678" alt="No Image"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:2237/1678;--aspect-tablet:2237/1678;--aspect-mobile:2237/1678;--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+    {% endcase %}
+    
+      </div>
+      
+      </div>
+    </div>
+  
+            {% endfor %}
+          {%- else -%}
+            
+  <img
+      id="noImageError"
+      
+      draggable="false"
+      class="gp-w-full featured-image-only !gp-rounded-none"
+      data-src="{{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}" data-srcset="{{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgwIiBoZWlnaHQ9IjQ4MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPgogICAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImctNDgwLTQ4MCI+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSIyMCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI3MCUiIC8+CiAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iNDgwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iNDgwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNnLTQ4MC00ODApIiAvPgogICAgPGFuaW1hdGUgeGxpbms6aHJlZj0iI3IiIGF0dHJpYnV0ZU5hbWU9IngiIGZyb209Ii00ODAiIHRvPSI0ODAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="480" height="480" alt="no image"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:480/480;--aspect-tablet:480/480;--aspect-mobile:480/480;--objf:fill;--objf-tablet:cover;--objf-mobile:cover;height:100%"
+    />
+  
+          {%- endif -%}
+        
+          </div>
+          
+    <button
+      type="button"
+      aria-label='Carousel Next Arrow'
+      class="gp-z-1 ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}} gp-carousel-action-next gem-slider-next ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gsan9rJ4XD gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      style="--left:initial;--top:;--right:initial;--bottom:initial;--left-tablet:initial;--top-tablet:;--right-tablet:initial;--bottom-tablet:initial;--left-mobile:initial;--top-mobile:;--right-mobile:initial;--bottom-mobile:initial;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-0 tablet:gp-rotate-0 mobile:gp-rotate-0"
+  style="--c:#000000;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z" fill="currentColor"/>
+    </svg>
+    </div>
+      <style>
+    .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD {
+      
+    }
+    .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD {
+        
+      }
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD::before {
+        
+        
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD {
+        
+      }
+      .ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gsan9rJ4XD::before {
+        
+        
+      }
+    }
+  </style>
+    </button>
+  
+        </div>
+        <div
+    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-ft-gp-carousel-gsan9rJ4XD-{{section.id}}-{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
+    style="--bottom:16px;--bottom-tablet:16px;--bottom-mobile:16px;--d:none;--d-tablet:none;--d-mobile:none"
+ ></div>
+      </div>
+    </gp-carousel>
+    {% if product.media.size > 1 %} <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-carousel-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script> {% endif %}
+
+  
+    
+      
+    {% else %}
+      {{ featureImageOnlyOne }}
+    {% endif %}
+  
+         
+      </div>
+    </gp-product-images-v2>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-product-images-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      enableLazyloadImage parentTag="Col" id="guvDSSdz4l" data-id="guvDSSdz4l"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--pl-mobile:32px;--pr-mobile:32px;--cg:62px;--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="guvDSSdz4l gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:center;--o-mobile:1"
+      class="gM6aEKZsg1 gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign featured_image = product.featured_image %}
+  {%- if variant != null and variant.featured_image != null -%}
+  {% assign featured_image = variant.featured_image %}
+  {%- endif -%}
+    <gp-product-images-v2
+      gp-data='
+    {
+      "id":"gTeMeJcCIi",
+      "pageContext": {"isTranslateWithLocale":true,"sectionName":"gp-global-section-505957691294745479"},
+      "setting":{"arrowIcon":"","clickOpenLightBox":{"desktop":false,"mobile":false,"tablet":false},"dragToScroll":true,"ftArrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","ftArrowIconColor":"#000000","ftClickOpenLightBox":{"desktop":"none"},"ftNavigationPosition":{"desktop":"none","mobile":"none","tablet":"none"},"hoverEffect":"none","loop":{"desktop":true,"mobile":true,"tablet":true},"navigationPosition":{"desktop":"inside","mobile":"inside","tablet":"inside"},"otherImage":0,"pauseOnHover":true,"showActiveStatus":true,"speed":1,"type":{"desktop":"images","mobile":"images","tablet":"images"},"zoom":1.5,"zoomType":"default"},
+      "styles":{"align":{"desktop":"center","mobile":"center","tablet":"center"},"aspectHeight":{"desktop":0,"mobile":0,"tablet":0},"aspectWidth":{"desktop":0,"mobile":0,"tablet":0},"dotActiveColor":{"desktop":"highlight"},"dotColor":{"desktop":"bg-1"},"ftAspectHeight":{"desktop":0,"mobile":0,"tablet":0},"ftAspectWidth":{"desktop":0,"mobile":0,"tablet":0},"ftLayout":{"desktop":"fill","mobile":"cover","tablet":"cover"},"ftShape":{"desktop":{"shape":"original","shapeLinked":true,"width":"100%"},"mobile":{"shape":"original","shapeLinked":true,"width":"100%"},"tablet":{"shape":"original","shapeLinked":true,"width":"100%"}},"itemSpacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"layout":{"desktop":"cover","mobile":"cover","tablet":"cover"},"position":{"desktop":"only-feature","mobile":"only-feature","tablet":"only-feature"},"ratioLayout":{"desktop":{},"mobile":{},"tablet":{}},"ratioLayoutRight":{"desktop":{},"mobile":{},"tablet":{}},"shape":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeFor1Col":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeFor2Col":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"50%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeForBottom":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"20%"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"shapeForFtOnly":{"desktop":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"mobile":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"},"tablet":{"height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1"}},"spacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"verticalLayout":{"desktop":false,"mobile":false,"tablet":false},"verticalLayoutRow":{"desktop":true,"mobile":true,"tablet":true}}, "productUrl":{{product.url | json | escape}}, "product":{{product | json | escape}}, "collectionUrl": {{ collection.url | json | escape }}, "collection": {{ collection | json | escape}}
+    }
+  '
+      section-id="{{section.id}}"
+      style="--b:solid;--bc:#121212;--bw:0px;--shadow:1.2246467991473532e-16px 2px 4px 0px rgba(18, 18, 18, 0.12);--d:block;--d-mobile:none;--d-tablet:block;--op:100%;--bblr:30px;--bbrr:30px;--btlr:30px;--btrr:30px;--mb-mobile:0px"
+      data-id="gTeMeJcCIi"
+      class="gTeMeJcCIi gp-overflow-hidden"
+    >
+      <div
+        class="{%- if product.media.size > 1 -%} gp-grid gp-w-full !gp-m-0 gp-relative {%- else -%} gp-w-full !gp-m-0 gp-relative {%- endif -%}"
+        {%- if product.media.size > 1 -%}
+        style="--gtc:minmax(0, 12fr);--gtc-tablet:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--gg:var(--g-s-s);--gg-mobile:var(--g-s-s)"
+        {%- else -%}
+        style="--gtc:minmax(0, 12fr);--gg:var(--g-s-s);--gg-mobile:var(--g-s-s)"
+        {%- endif -%}
+      >
+        
+    {% capture featureImageOnlyOne %}
+      
+        {% assign featureMedia = variant.featured_media %}
+        {% unless featureMedia %}
+        {% assign featureMedia = product.featured_media %}
+        {% endunless %}
+        {% if product.media.size > 1 %}
+          
+          {% assign featureMedia = variant.featured_media %}
+          {% unless featureMedia %}
+          {% assign featureMedia = product.featured_media %}
+          {% endunless %}
+        
+        {% endif %}
+        {% assign largestRatio = 0 %}
+        {% assign height = featureMedia.height | times: 1.0 %}
+        {% assign width = featureMedia.width | times: 1.0 %}
+        {% assign ratio = height | divided_by: width %}
+        {% if ratio > largestRatio %}
+          {% assign largestRatio = ratio %}
+        {% endif %}
+        {% assign productImageWidth = 0 %}
+        {% case featureMedia.media_type %}
+          {% when 'image' %}
+            {% assign productImageWidth = featureMedia.width %}
+          {% else %}
+            {% assign productImageWidth = featureMedia.preview_image.width %}
+        {% endcase %}
+        {% if featureMedia == null %}
+        {% assign productImageWidth = 1600 %}
+        {% endif %}
+        <div 
+          class='gp-feature-image-carousel gp-feature-image-only' 
+          style="--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex;--jc:center;--jc-tablet:center;--jc-mobile:center"
+        >
+          <div 
+            class="gp-relative"
+            style="--w:100%;--w-tablet:100%;--w-mobile:100%"
+          >
+            
+      
+    
+            <div 
+              type="gp-feature-image-only"
+              product-id="{{product.id}}"
+              product-media="{{product.media.size}}"
+              class="gp-image-item gp-ft-image-item gp-group gp-z-0 gp-flex !gp-max-w-full !gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-featured-image-wrapper"
+              style="--h:auto;--h-tablet:auto;--h-mobile:auto;width:{{productImageWidth}}px"
+            >
+              <div 
+                class="gp-w-full  {% if featureMedia == null or featureMedia.media_type == 'image' %} {{ 'gp-h-0' }} {% else %} {{ 'gp-h-full !gp-pb-0' }} {% endif %} gp-relative" 
+                style="--pb: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-tablet: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-mobile: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%); {% if featureMedia.media_type == 'video' or featureMedia.media_type == 'external_video' %} {{ 'display: flex; align-items: center; justify-content: center' }} {% endif %}"
+              >
+                
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        
+      
+    {% assign src = featureMedia.src %}
+    
+    
+  <img
+      id="{%- if featureMedia != null -%}
+              {{featureMedia.id}}
+            {%- endif -%}"
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp-w-full gp-transition-opacity {{shouldHidden}} gp_lazyload"
+      data-src="{{src | image_url}}" data-srcset="{%- if src != null -%}
+              {{src | img_url: '480x480'}} 480w, {{src | img_url: '768x768'}} 768w,{{src | img_url: '1024x1024'}} 1024w,{{src | img_url: '1440x1440'}} 1440w
+            {%- else -%}
+              {{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}
+            {%- endif -%}" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPgogICAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imcte3tmZWF0dXJlTWVkaWEud2lkdGh9fS17e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSI+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSIyMCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI3MCUiIC8+CiAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0idXJsKCNnLXt7ZmVhdHVyZU1lZGlhLndpZHRofX0te3tmZWF0dXJlTWVkaWEuaGVpZ2h0fX0pIiAvPgogICAgPGFuaW1hdGUgeGxpbms6aHJlZj0iI3IiIGF0dHJpYnV0ZU5hbWU9IngiIGZyb209Ii17e2ZlYXR1cmVNZWRpYS53aWR0aH19IiB0bz0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{featureMedia.width}}" height="{{featureMedia.height}}" alt="{{featureMedia.alt}}" base-src="{{src | image_url}}"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:{{featureMedia.width}}/{{featureMedia.height}};--aspect-tablet:{{featureMedia.width}}/{{featureMedia.height}};--aspect-mobile:{{featureMedia.width}}/{{featureMedia.height}};--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+      
+      
+    
+      {% when 'external_video' %}
+        {% assign mediaSourceVideo = featureMedia | external_video_url %}
+        
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{featureMedia.alt}}"
+      style="--aspect:;--aspect-tablet:;--aspect-mobile:"
+    >
+    </iframe>
+  
+      {% when 'video' %}
+        {% assign mediaSourceVideo = featureMedia.sources.last.url %}
+        
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{featureMedia.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+      {% when 'model' %}
+        
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%"
+      
+      
+      
+      
+      src="{% if featureMedia.sources.first.url contains '.glb' %}{{ featureMedia.sources.first.url }}{% else %}{{featureMedia.sources.last.url}}{% endif %}"
+      alt="{{featureMedia.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{featureMedia.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+      {% else %}
+        
+    
+  <img
+      
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp_lazyload"
+      data-src data-srcset="https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="2237" height="1678" alt="No Image"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:2237/1678;--aspect-tablet:2237/1678;--aspect-mobile:2237/1678;--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+    {% endcase %}
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    {% endcapture %}
+    {% if product.media.size > 1 %}
+      
+      
+    <gp-carousel data-id="gp-carousel-gTeMeJcCIi" type="gp-feature-image-carousel" product-id="{{product.id}}" product-media="{{product.media.size}}" id="gp-root-carousel-ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}-{{section.id}}" class="
+          gp-px-0 tablet:gp-px-0 mobile:gp-px-0
+          gp-flex-1 gp-w-full gp-feature-image-carousel
+          gp-group/carousel gp-flex" gp-data='{"id":"ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}-{{section.id}}","setting":{"slidesToShow":{"desktop":1},"dotStyle":{},"dotSize":{"desktop":12},"dotGapToCarousel":{"desktop":16},"dotColor":{"desktop":"bg-1"},"dotActiveColor":{"desktop":"line-3"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":false},"enableDrag":{},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{},"roundedArrow":{},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","navigationStyle":{"desktop":"none","mobile":"none","tablet":"none"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"align":{"desktop":"center","tablet":"center","mobile":"center"}},"isHiddenArrowWhenDisabled":true}' style="--jc:center;--jc-tablet:center;--jc-mobile:center;--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex">
+      <div class="gp-hidden gp-aspect-square gp-w-[12px] gp-rounded-full gp-shadow-md"></div>
+      <div
+        
+        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-carousel-gTeMeJcCIi gp-featured-image-wrapper"
+        style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto"
+      >
+        <div
+          class="gp-h-full gp-relative gp-mx-auto gp-flex gp-items-center gp-justify-between mobile:!gp-flex-row tablet:!gp-flex-row !gp-flex-row"
+          style="--h:100%;--h-tablet:100%;--h-mobile:100%;gap:16px"
+        >
+          
+    <button
+      type="button"
+      aria-label='Carousel Back Arrow'
+      class="gp-z-1 ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}} gp-carousel-action-back gem-slider-previous ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gTeMeJcCIi gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      style="--left:initial;--top:initial;--right:initial;--bottom:;--left-tablet:initial;--top-tablet:initial;--right-tablet:initial;--bottom-tablet:;--left-mobile:initial;--top-mobile:initial;--right-mobile:initial;--bottom-mobile:;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-180 tablet:gp-rotate-180 mobile:gp-rotate-180"
+  style="--c:#000000;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z" fill="currentColor"/>
+    </svg>
+    </div>
+      <style>
+    .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi {
+      
+    }
+    .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi {
+        
+      }
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi::before {
+        
+        
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi {
+        
+      }
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi::before {
+        
+        
+      }
+    }
+  </style>
+    </button>
+  
+          <div id="gp-carousel-ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
+          style="--cg-mobile:undefinedpx;--cg-tablet:undefinedpx;--cg:undefinedpx">
+          
+          {%- if product.media.size > 0 -%}
+            
+      
+    
+            {% assign largestRatio = 0 %}
+            {% for featureMedia in product.media %}
+              {% assign height = featureMedia.height | times: 1.0 %}
+              {% assign width = featureMedia.width | times: 1.0 %}
+              {% assign ratio = height | divided_by: width %}
+              {% if ratio > largestRatio %}
+                {% assign largestRatio = ratio %}
+              {% endif %}
+            {% endfor %}
+            {%- for featureMedia in product.media -%}
+              {%- if featureMedia.media_type == 'image' -%}
+                {%- for image in product.images -%}
+                  {% if image.src == featureMedia.src %}
+                    {% assign imageID = image.id %}
+                    {% break %}
+                  {% endif%}
+                {% endfor %}
+              {%- else -%}
+                {% assign imageID = '' %}
+              {%- endif -%}
+              
+    {% assign productImageWidth = 0 %}
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        {% assign productImageWidth = featureMedia.width %}
+      {% else %}
+        {% assign productImageWidth = featureMedia.preview_image.width %}
+    {% endcase %}
+    
+    <div
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      
+      id="{{section.id}}-{{imageID}}"
+      style="width:{{productImageWidth}}px;--minw:calc(100% / 4 - 33px);--minw-tablet:calc(100% / 4 - 33px);--minw-mobile:calc(100% / 4 - 33px);--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);outline-color:var(--g-c-brand, brand);--h:auto;--h-tablet:auto;--h-mobile:auto;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}} gp-child-item-undefined gp-group gp-z-0 gp-flex !gp-min-w-full !gp-max-w-full gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-outline-1 -gp-outline-offset-1 gp-image-item gp-ft-image-item data-[outline=active]:gp-outline undefined"
+      data-index=""
+    >
+      <div
+        class="gp-w-full",
+        
+      >
+      
+      <div 
+        class="gp-w-full  {% if featureMedia == null or featureMedia.media_type == 'image'  %} {{ 'gp-h-0' }} {% else %} {{ 'gp-h-full !gp-pb-0' }} {% endif %} gp-relative" 
+        style="--pb: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-tablet: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%);--pb-mobile: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%); {% if featureMedia.media_type == 'video' or featureMedia.media_type == 'external_video' %} {{ 'display: flex; align-items: center; justify-content: center' }} {% endif %}"
+      >
+        
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        
+      
+    {% assign src = featureMedia.src %}
+    
+    
+  <img
+      id="{%- if featureMedia != null -%}
+              {{featureMedia.id}}
+            {%- endif -%}"
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp-w-full gp-transition-opacity {{shouldHidden}} gp_lazyload"
+      data-src="{{src | image_url}}" data-srcset="{%- if src != null -%}
+              {{src | img_url: '480x480'}} 480w, {{src | img_url: '768x768'}} 768w,{{src | img_url: '1024x1024'}} 1024w,{{src | img_url: '1440x1440'}} 1440w
+            {%- else -%}
+              {{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}
+            {%- endif -%}" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPgogICAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imcte3tmZWF0dXJlTWVkaWEud2lkdGh9fS17e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSI+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSIyMCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI3MCUiIC8+CiAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgaGVpZ2h0PSJ7e2ZlYXR1cmVNZWRpYS5oZWlnaHR9fSIgZmlsbD0idXJsKCNnLXt7ZmVhdHVyZU1lZGlhLndpZHRofX0te3tmZWF0dXJlTWVkaWEuaGVpZ2h0fX0pIiAvPgogICAgPGFuaW1hdGUgeGxpbms6aHJlZj0iI3IiIGF0dHJpYnV0ZU5hbWU9IngiIGZyb209Ii17e2ZlYXR1cmVNZWRpYS53aWR0aH19IiB0bz0ie3tmZWF0dXJlTWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{featureMedia.width}}" height="{{featureMedia.height}}" alt="{{featureMedia.alt}}" base-src="{{src | image_url}}"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:{{featureMedia.width}}/{{featureMedia.height}};--aspect-tablet:{{featureMedia.width}}/{{featureMedia.height}};--aspect-mobile:{{featureMedia.width}}/{{featureMedia.height}};--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+      
+      
+    
+      {% when 'external_video' %}
+        {% assign mediaSourceVideo = featureMedia | external_video_url %}
+        
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{featureMedia.alt}}"
+      style="--aspect:;--aspect-tablet:;--aspect-mobile:"
+    >
+    </iframe>
+  
+      {% when 'video' %}
+        {% assign mediaSourceVideo = featureMedia.sources.last.url %}
+        
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{featureMedia.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+      {% when 'model' %}
+        
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%"
+      
+      
+      
+      
+      src="{% if featureMedia.sources.first.url contains '.glb' %}{{ featureMedia.sources.first.url }}{% else %}{{featureMedia.sources.last.url}}{% endif %}"
+      alt="{{featureMedia.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{featureMedia.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+      {% else %}
+        
+    
+  <img
+      
+      
+      draggable="false"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp_lazyload"
+      data-src data-srcset="https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="2237" height="1678" alt="No Image"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:2237/1678;--aspect-tablet:2237/1678;--aspect-mobile:2237/1678;--objf:fill;--objf-tablet:cover;--objf-mobile:cover"
+    />
+  
+    {% endcase %}
+    
+      </div>
+      
+      </div>
+    </div>
+  
+            {% endfor %}
+          {%- else -%}
+            
+  <img
+      id="noImageError"
+      
+      draggable="false"
+      class="gp-w-full featured-image-only !gp-rounded-none"
+      data-src="{{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}" data-srcset="{{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgwIiBoZWlnaHQ9IjQ4MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPgogICAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImctNDgwLTQ4MCI+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSIyMCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI3MCUiIC8+CiAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iNDgwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iNDgwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNnLTQ4MC00ODApIiAvPgogICAgPGFuaW1hdGUgeGxpbms6aHJlZj0iI3IiIGF0dHJpYnV0ZU5hbWU9IngiIGZyb209Ii00ODAiIHRvPSI0ODAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="480" height="480" alt="no image"
+      quality-type={}
+      quality-percent={}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:480/480;--aspect-tablet:480/480;--aspect-mobile:480/480;--objf:fill;--objf-tablet:cover;--objf-mobile:cover;height:100%"
+    />
+  
+          {%- endif -%}
+        
+          </div>
+          
+    <button
+      type="button"
+      aria-label='Carousel Next Arrow'
+      class="gp-z-1 ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}} gp-carousel-action-next gem-slider-next ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gTeMeJcCIi gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      style="--left:initial;--top:;--right:initial;--bottom:initial;--left-tablet:initial;--top-tablet:;--right-tablet:initial;--bottom-tablet:initial;--left-mobile:initial;--top-mobile:;--right-mobile:initial;--bottom-mobile:initial;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-0 tablet:gp-rotate-0 mobile:gp-rotate-0"
+  style="--c:#000000;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z" fill="currentColor"/>
+    </svg>
+    </div>
+      <style>
+    .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi {
+      
+    }
+    .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi {
+        
+      }
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi::before {
+        
+        
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi {
+        
+      }
+      .ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gTeMeJcCIi::before {
+        
+        
+      }
+    }
+  </style>
+    </button>
+  
+        </div>
+        <div
+    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-ft-gp-carousel-gTeMeJcCIi-{{section.id}}-{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
+    style="--bottom:16px;--bottom-tablet:16px;--bottom-mobile:16px;--d:none;--d-tablet:none;--d-mobile:none"
+ ></div>
+      </div>
+    </gp-carousel>
+    {% if product.media.size > 1 %} <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-carousel-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script> {% endif %}
+
+  
+    
+      
+    {% else %}
+      {{ featureImageOnlyOne }}
+    {% endif %}
+  
+         
+      </div>
+    </gp-product-images-v2>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-product-images-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    </div><div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:center;--o-mobile:0"
+      class="g12RylmKiB gp-relative gp-flex gp-flex-col"
+    >
+      
+       
+      
+    <div
+      enableLazyloadImage parentTag="Col" id="gkLkrZ1LH2" data-id="gkLkrZ1LH2"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-3xl);--pt:0px;--pl:0px;--pb:0px;--pr:0px;--cg:var(--g-s-xl);--pc:start;--pc-mobile:center;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:rgba(251, 251, 251, 0);--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gkLkrZ1LH2 gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gSLInJ_9XF gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gykwChCdX8">
+    <div
+      enableLazyloadImage parentTag="Col"
+        class="gykwChCdX8 "
+        style="--tt:default;--ta:left;--ta-mobile:center;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-s)"
+      >
+      <div class="gp-flex" style="--jc:left;--jc-mobile:center">
+        <h2
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text-g-text-2 gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--ta-mobile:center;--c:#242424;--fs:normal;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-heading, heading);--weight:700;--ls:normal;--size:19px;--size-tablet:19px;--size-mobile:18px;word-break:break-word;--radius:var(--g-radius-none);overflow:hidden"
+        ><p><strong>Masterful Design</strong></p></h2>
+      </div>
+    </div>
+    </gp-text>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gxzkesFvcV">
+    <div
+      enableLazyloadImage parentTag="Col"
+        class="gxzkesFvcV "
+        style="--tt:default;--ta:left;--ta-mobile:center;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none)"
+      >
+      <div class="gp-flex" style="--jc:left;--jc-mobile:center">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--ta-mobile:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:#575757;--ff:var(--g-font-Assistant, 'Assistant'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:16px;word-break:break-word;--radius:var(--g-radius-none);overflow:hidden"
+        ><p>Jedes Blatt der Handgemachten magischen Windmühle dreht sich in seine eigene Richtung und wirft einen fesselnden Zauber aus Licht und Schatten.</p></div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      enableLazyloadImage parentTag="Col" id="gEeiUoZX7-" data-id="gEeiUoZX7-"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-3xl);--pt:0px;--pl:0px;--pb:0px;--pr:0px;--cg:var(--g-s-xl);--pc:start;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:rgba(251, 251, 251, 0);--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gEeiUoZX7- gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gGqFSeN_35 gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gcFLZOOVLa">
+    <div
+      enableLazyloadImage parentTag="Col"
+        class="gcFLZOOVLa "
+        style="--tt:default;--ta:left;--ta-mobile:center;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-s)"
+      >
+      <div class="gp-flex" style="--jc:left;--jc-mobile:center">
+        <h2
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text-g-text-2 gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--ta-mobile:center;--c:#242424;--fs:normal;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-heading, heading);--weight:700;--ls:normal;--size:19px;--size-tablet:19px;--size-mobile:18px;word-break:break-word;--radius:var(--g-radius-none);overflow:hidden"
+        ><p>Unnachgiebige Handwerkskunst</p></h2>
+      </div>
+    </div>
+    </gp-text>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="g9MTuS7AWv">
+    <div
+      enableLazyloadImage parentTag="Col"
+        class="g9MTuS7AWv "
+        style="--tt:default;--ta:left;--ta-mobile:center;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none)"
+      >
+      <div class="gp-flex" style="--jc:left;--jc-mobile:center">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--ta-mobile:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:#575757;--ff:var(--g-font-Assistant, 'Assistant'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:16px;word-break:break-word;--radius:var(--g-radius-none);overflow:hidden"
+        ><p><span style="background-color:rgb(255,255,255);color:rgb(13,13,13);font-size:16px;">Forged with precision, our windmill's stainless steel is immune to rust, ensuring it stands the test of time and weather.</span></p></div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      enableLazyloadImage parentTag="Col" id="gfBC2W93Ii" data-id="gfBC2W93Ii"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-3xl);--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-mobile:var(--g-s-2xl);--cg:var(--g-s-xl);--pc:start;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:rgba(251, 251, 251, 0);--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gfBC2W93Ii gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gi9UH5BJlu gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gexuDr_Fnm">
+    <div
+      enableLazyloadImage parentTag="Col"
+        class="gexuDr_Fnm "
+        style="--tt:default;--ta:left;--ta-mobile:center;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-s)"
+      >
+      <div class="gp-flex" style="--jc:left;--jc-mobile:center">
+        <h2
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text-g-text-2 gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--ta-mobile:center;--c:#242424;--fs:normal;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-heading, heading);--weight:700;--ls:normal;--size:19px;--size-tablet:19px;--size-mobile:18px;word-break:break-word;--radius:var(--g-radius-none);overflow:hidden"
+        ><p>Das Flüstern der Brise</p></h2>
+      </div>
+    </div>
+    </gp-text>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gVedP1C22G">
+    <div
+      enableLazyloadImage parentTag="Col"
+        class="gVedP1C22G "
+        style="--tt:default;--ta:left;--ta-mobile:center;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none)"
+      >
+      <div class="gp-flex" style="--jc:left;--jc-mobile:center">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--ta-mobile:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:#575757;--ff:var(--g-font-Assistant, 'Assistant'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:16px;word-break:break-word;--radius:var(--g-radius-none);overflow:hidden"
+        ><p>So leise, dass man sie nur an der hypnotisierenden Bewegung erkennt, ist die Handgemachte magische Windmühle ein stiller Wächter Ihres friedlichen Gartens.</p></div>
+      </div>
+    </div>
+    </gp-text>
+    
+  <gp-button >
+  <div
+    style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mt:36px;--mb:0px;--mb-mobile:0px;--pl-mobile:0px;--pr-mobile:0px;--ta:center"
+    
+  >
+    <style>
+    .gcousG0Pcs.gp-button-base::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: transparent;
+  
+      
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      
+    }
+
+    .gcousG0Pcs:hover::before {
+      
+      
+    }
+
+    .gcousG0Pcs:hover .gp-button-icon {
+      color: undefined;
+    }
+
+     .gcousG0Pcs .gp-button-icon {
+      color: var(--g-c-bg-3, bg-3);
+    }
+
+    .gcousG0Pcs:hover .gp-button-price {
+      color: undefined;
+    }
+
+    .gcousG0Pcs .gp-button-price {
+      color: var(--g-c-bg-3, bg-3);
+    }
+
+    .gcousG0Pcs .gp-product-dot-price {
+       color: var(--g-c-bg-3, bg-3);
+    }
+
+    .gcousG0Pcs:hover .gp-product-dot-price {
+      color: undefined;
+    }
+  </style>
+    <a
+      href="https://gartenort.de/click" target="_self" data-id="gcousG0Pcs" aria-label="HIER KAUFEN"
+      
+      data-state="idle"
+      class="gcousG0Pcs gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-text-g-bg-3 gp-text-center"
+      style="--hvr-bg:#52C41A;--bg:#44A714;--bblr:40px;--bbrr:40px;--btlr:40px;--btrr:40px;--shadow:-0.06980962574913391px 3.999390780625565px 8px 0px rgba(0, 0, 0, 0.25);--pl:48px;--pr:48px;--pt:16px;--pb:16px;--pl-tablet:48px;--pr-tablet:48px;--pt-tablet:16px;--pb-tablet:16px;--pl-mobile:48px;--pr-mobile:48px;--pt-mobile:16px;--pb-mobile:16px;--w:100%;--w-tablet:Auto;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--c:var(--g-c-bg-3, bg-3);--size:16px;--size-tablet:16px;--size-mobile:18px;--ff:var(--g-font-Assistant, 'Assistant'), var(--g-font-body, body);--weight:bold"
+    >
+      
+    <div
+    class="gp-inline-flex gp-flex-row-reverse">
+    <span
+        class="gp-inline-flex gp-button-icon gp-transition-colors gp-duration-300 gp-shrink-0 gp-items-center gp-justify-center group-data-[state=loading]/button:gp-invisible gp-z-1 [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
+        style="--ml:8px;--height-desktop:1em;--height-tablet:1em;--height-mobile:1em"
+      ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="493334320557850973">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" /></svg></span>
+      <span
+        data-gp-text
+        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
+        "
+        style="--size:16px;--size-tablet:16px;--size-mobile:18px;--c:var(--g-c-bg-3, bg-3)"
+      >
+        HIER KAUFEN
+      </span>
+      </div>
+    
+    </a>
+  </div>
+  </gp-button>
+
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+          {%- endform -%}
+        </product-form>
+      </gp-product>
+      {%- assign product = gpBkProduct -%}
+    {% else %}
+      <div class="gp-text-center">{{ "gempages.Product.product_not_found" | t }}</div>
+    {%- endif -%}
+     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-product.v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    </div>
+    </div>
+  
+            </section>
+           
+    
+<style {% if section.settings.section_preload == "false" %} class="gps-link" type="text/disabled-css" {% endif %}>@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/assistant/v22/2sDPZGJYnIjSi6H75xkZZE1I0yCmYzzQtuZnIGaV2Q.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4gaVQ.woff) format('woff');
+}
+/* hebrew */
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/assistant/v22/2sDPZGJYnIjSi6H75xkZZE1I0yCmYzzQtuZnIGSV2YOrrM95Dylg.woff) format('woff');
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/assistant/v22/2sDPZGJYnIjSi6H75xkZZE1I0yCmYzzQtuZnIGiV2YOrrM95Dylg.woff) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/assistant/v22/2sDPZGJYnIjSi6H75xkZZE1I0yCmYzzQtuZnIGaV2YOrrM95Dw.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4taVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4kaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4saVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4jaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* hebrew */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4iaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+/* math */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x5caVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x5OaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4vaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4gaVQUwaEQbjA.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+{% schema %}
+  {
+    "presets": [{ "name": "Section 2" }],
+    "name": "Section 2",
+    "tag": "section",
+    "class": "gps-505957691294745479 gps gpsil",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/c39dbb-40/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=505957691294745479)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {"de":{}}
+  }
+{% endschema %}

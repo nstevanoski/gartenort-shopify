@@ -1,0 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_601935094105506522": {
+      "settings": {
+        "checksum": "da062820b2436b7745bfebabe3cd61e7832ef07b31cacb861dfa65e6b1b9381a_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">Gartenort – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-601935094105506522"
+    },
+    "gp_section_601935094105572058": {
+      "settings": {
+        "checksum": "c50a8f838943303d7238b30cf50339795cdd54f1cfcf248cb09d4723edf4059c_1_1_1_0__1",
+        "ggRnnk0eSPv_text": "Abschließender Abverkauf unseres Sortiments&nbsp;<br>Solange der Vorrat reicht."
+      },
+      "type": "gp-section-601935094105572058"
+    },
+    "gp_section_601935094105637594": {
+      "settings": {
+        "checksum": "3121c6325b4c06f16f0830bc312a8a591aca0b05e614ba03c1cb271ff6d78044_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-601935094105637594"
+    },
+    "gp_section_601940750208336847": {
+      "settings": {
+        "checksum": "ecfd672a2a232bcb64825e73a6bad0121a46c59754a1c2e42a7daea0ef313fc3_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-601940750208336847"
+    }
+  },
+  "order": [
+    "gp_section_601940750208336847",
+    "gp_section_601935094105572058",
+    "gp_section_601935094105637594",
+    "gp_section_601935094105506522"
+  ]
+}

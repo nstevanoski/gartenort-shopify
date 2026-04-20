@@ -1,0 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_591949779617972766": {
+      "settings": {
+        "checksum": "5929f6a62cff036b373c6a24c65c718c48335e15acd6582c74e0613509807097_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">GartenOrt – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-591949779617972766"
+    },
+    "gp_section_591949779618038302": {
+      "settings": {
+        "checksum": "d4a8c9f44fb86639008a4327310263b611e8ddead5fa7aec4ab26d5a33a310f0_1_1_1_0__1",
+        "gg-yQ0hoFr5_text": "<p>Robuste Materialien</p>",
+        "gg0Z3xUDoBo_text": "<p>Von Experten empfohlen</p>",
+        "gg4N6rbjzTV_text": "<p>Von Experten empfohlen</p>",
+        "ggBMd8DYIJA_text": "<p>Robuste Materialien</p>",
+        "ggMSgTJuzC7_text": "<p>Emotionale Lampen</p>",
+        "ggRXvOJqYIX_text": "<p>Emotionale Lampen</p>",
+        "ggg6Dh1Zpy__text": "<p>Kostenlose Lieferung</p>",
+        "ggjLfFzs7U6_text": "<p>Kostenlose Lieferung</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-591949779618038302"
+    },
+    "gp_section_591949779618103838": {
+      "settings": {
+        "checksum": "c1cbe03706a87e1acc715c24539591bf1f2058bcb6ae227ccf7d393ea250a288_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-591949779618103838"
+    }
+  },
+  "order": [
+    "gp_section_591949779618038302",
+    "gp_section_591949779618103838",
+    "gp_section_591949779617972766"
+  ]
+}

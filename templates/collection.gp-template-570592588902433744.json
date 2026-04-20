@@ -1,0 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_570592588952765392": {
+      "settings": {
+        "checksum": "3b0e9606921571fc7a7c10246789569c57f52acf3121137435de33cda1ddb985_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-570592588952765392"
+    },
+    "gp_section_570592588952830928": {
+      "settings": {
+        "checksum": "d6e05f86a5cf156f2080c0f065d6b744b189b9340ec87635d0bf41d0019c028b_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">GartenOrt – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-570592588952830928"
+    },
+    "gp_section_570592588986319824": {
+      "settings": {
+        "checksum": "1628f557f7deb3647829e2b4619e731e875e7b0ac68d379dbf14d2e65c701391_1_1_1_0__1",
+        "gg-yQ0hoFr5_text": "<p>Breite Zehenbox</p>",
+        "gg0Z3xUDoBo_text": "<p>Von Gärtnern empfohlen</p>",
+        "gg4N6rbjzTV_text": "<p>Podologe empfohlen</p>",
+        "ggBMd8DYIJA_text": "<p>Robuste Materialien</p>",
+        "ggMSgTJuzC7_text": "<p>Schmerzlindernde Lösung</p>",
+        "ggRXvOJqYIX_text": "<p>Langlebiger Komfort</p>",
+        "ggg6Dh1Zpy__text": "<p>Kostenlose Lieferung</p>",
+        "ggjLfFzs7U6_text": "<p>Kostenlose Lieferung</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-570592588986319824"
+    }
+  },
+  "order": [
+    "gp_section_570592588986319824",
+    "gp_section_570592588952765392",
+    "gp_section_570592588952830928"
+  ]
+}

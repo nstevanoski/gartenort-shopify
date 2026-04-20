@@ -1,0 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_601958564105290327": {
+      "settings": {
+        "checksum": "b74667498fc56484253ad987837b713fe82fe0d50fd9472301a0cbed710bbefc_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-601958564105290327"
+    },
+    "gp_section_601958564105355863": {
+      "settings": {
+        "checksum": "c4030122ad9427b586c8d5590d4aa4cd5b9943913d61f4644cf159d9fdc5c21b_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">Gartenort – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-601958564105355863"
+    },
+    "gp_section_601958564105421399": {
+      "settings": {
+        "checksum": "82f6b60ae93f9378e9cbf764d5e0aa72e33ee6f3fbcfb3d5876b65ceb115bf7c_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-601958564105421399"
+    },
+    "gp_section_601958809388188623": {
+      "settings": {
+        "checksum": "4ef39d80291c34cfe78dd34d0cd19ed024c05a4acdf93207caa11b7caf9bbf70_1_1_1_0__1",
+        "ggm5YedEoQk_text": "Abschließender Abverkauf unseres Sortiments&nbsp;<br>Solange der Vorrat reicht."
+      },
+      "type": "gp-section-601958809388188623"
+    }
+  },
+  "order": [
+    "gp_section_601958564105421399",
+    "gp_section_601958809388188623",
+    "gp_section_601958564105290327",
+    "gp_section_601958564105355863"
+  ]
+}

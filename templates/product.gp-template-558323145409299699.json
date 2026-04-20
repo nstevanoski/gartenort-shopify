@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_558323145527002355": {
+      "type": "gp-section-558323145527002355",
+      "settings": {
+        "section_preload": "true",
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527067891": {
+      "type": "gp-section-558323145527067891",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527133427": {
+      "type": "gp-section-558323145527133427",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527526643": {
+      "type": "gp-section-558323145527526643",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145526871283": {
+      "type": "gp-section-558323145526871283",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527395571": {
+      "type": "gp-section-558323145527395571",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527198963": {
+      "type": "gp-section-558323145527198963",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145526936819": {
+      "type": "gp-section-558323145526936819",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145526805747": {
+      "type": "gp-section-558323145526805747",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527264499": {
+      "type": "gp-section-558323145527264499",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527330035": {
+      "type": "gp-section-558323145527330035",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527461107": {
+      "type": "gp-section-558323145527461107",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145527592179": {
+      "type": "gp-section-558323145527592179",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    },
+    "gp_section_558323145526740211": {
+      "type": "gp-section-558323145526740211",
+      "settings": {
+        "checksum": "_1_1"
+      }
+    }
+  },
+  "order": [
+    "gp_section_558323145527002355",
+    "gp_section_558323145527067891",
+    "gp_section_558323145527133427",
+    "gp_section_558323145527526643",
+    "gp_section_558323145526871283",
+    "gp_section_558323145527395571",
+    "gp_section_558323145527198963",
+    "gp_section_558323145526936819",
+    "gp_section_558323145526805747",
+    "gp_section_558323145527264499",
+    "gp_section_558323145527330035",
+    "gp_section_558323145527461107",
+    "gp_section_558323145527592179",
+    "gp_section_558323145526740211"
+  ]
+}

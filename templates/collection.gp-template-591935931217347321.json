@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_591935931351565049": {
+      "settings": {
+        "checksum": "9db52d88a8764675de3713ea442e0522b75e6232e5a3546ea53198ba95000171_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">GartenOrt – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-591935931351565049"
+    },
+    "gp_section_591935931351630585": {
+      "settings": {
+        "checksum": "f34708119ff9e7f4152af5a216663d0f04e689f530794c0dfb742bd7f26ec890_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-591935931351630585"
+    },
+    "gp_section_591935931351696121": {
+      "settings": {
+        "checksum": "908a89c4e37d6880cf972881a3c58a930e8d43f07c37b1096b6d7573e7954bae_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-591935931351696121"
+    }
+  },
+  "order": [
+    "gp_section_591935931351696121",
+    "gp_section_591935931351630585",
+    "gp_section_591935931351565049"
+  ],
+  "layout": "theme.gempages.blank"
+}

@@ -1,0 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_601941157995348943": {
+      "settings": {
+        "checksum": "5c56e8324d0675ce9eadbffcd64fd1d900eb790e26d30caebeb030c8d239384e_1_1_1_0__1",
+        "ggKT3JaBTJB_text": "<p><strong>100% sicherer Checkout</strong></p>",
+        "ggKWq97tK7X_text": "<p><strong>942.000+ Menschen wählen Gartenort im Jahr 2026</strong></p>",
+        "ggKqALI4gN3_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(18,18,18);font-size:16px;\">GartenOrt – Ihr Weg zum sicheren Gärtnern</span></p>",
+        "ggbxSAnyyk2_text": "<p><strong>Kostenlose Lieferung bei Gartenort!</strong></p>",
+        "ggo2lAVwMxq_text": "<p>Wir bieten <strong>kostenlosen </strong>weltweiten Versand für alle Bestellungen</p>",
+        "ggy9opREYD5_text": "<p>Sicheres Bezahlen mit Paypal oder Kreditkarte mit Käuferschutz!</p>"
+      },
+      "type": "gp-section-601941157995348943"
+    },
+    "gp_section_601941157995414479": {
+      "settings": {
+        "checksum": "4d0e0b912b9150301396541b604ec3e52a2911a80ddc8862ea960f67ba81fc20_1_1_1_0__1",
+        "ggwek6rQ_Rc_customContent_prefix": "AUSVERKAUF",
+        "ggwek6rQ_Rc_customContent_suffix": "RABATT"
+      },
+      "type": "gp-section-601941157995414479"
+    },
+    "gp_section_601941157995480015": {
+      "settings": {
+        "checksum": "a13168f5a1c7be4ef24df97f3d75d47bf9b1af57fe49c576fd5e6ec729f6fc97_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-601941157995480015"
+    },
+    "gp_section_601943054928053199": {
+      "settings": {
+        "checksum": "9a70d65814161681f7dce9107974859da4d6ae53ae794b4a59f46fa2243975d9_1_1_1_0__1",
+        "ggfWKZHrNpR_text": "Abschließender Abverkauf unseres Sortiments&nbsp;<br>Solange der Vorrat reicht."
+      },
+      "type": "gp-section-601943054928053199"
+    }
+  },
+  "order": [
+    "gp_section_601941157995480015",
+    "gp_section_601943054928053199",
+    "gp_section_601941157995414479",
+    "gp_section_601941157995348943"
+  ]
+}
