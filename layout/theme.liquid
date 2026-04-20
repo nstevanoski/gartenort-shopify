@@ -13,6 +13,27 @@
       {{ _ | replace: '<div id="shopify-section-ps_optimization" class="shopify-section">', '' | replace: '</div>' }}
     {% endif %}
   <!-- Content for PO end -->
+
+  {%- liquid
+    assign cart_upsell_popup_active = false
+    assign cart_upsell_product = empty
+    # Collection metafield: custom.cart_upsell_product (product ref, Storefront on)
+    assign cart_upsell_mf_ns = 'custom'
+    assign cart_upsell_mf_key = 'cart_upsell_product'
+    if request.page_type == 'product'
+      for cart_upsell_collection in product.collections
+        assign cart_upsell_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_mf_key]
+        if cart_upsell_mf != blank and cart_upsell_mf.value != blank
+          assign cart_upsell_candidate = cart_upsell_mf.value
+          if cart_upsell_candidate != empty and cart_upsell_candidate.id != product.id
+            assign cart_upsell_product = cart_upsell_candidate
+            assign cart_upsell_popup_active = true
+            break
+          endif
+        endif
+      endfor
+    endif
+  -%}
   
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -91,6 +112,9 @@
   </script>
 
   <link rel="stylesheet" href="{{ 'theme.min.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
+  {%- if cart_upsell_popup_active -%}
+    {{ 'cart-upsell-popup.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
 
   <style>
     {{ header_font | font_face: font_display: 'swap' }}
@@ -163,6 +187,16 @@
       stylesheet: "{{ 'theme.min.css' | asset_url }}"
     };
 
+    {%- if cart_upsell_popup_active -%}
+    theme.cartUpsell = {
+      enabled: true,
+      upsellHandle: {{ cart_upsell_product.handle | json }},
+      upsellProductId: {{ cart_upsell_product.id | json }},
+      currentProductHandle: {{ product.handle | json }},
+      ajaxCartEnabled: {{ settings.enable_ajax | json }}
+    };
+    {%- endif -%}
+
     {%- if template == 'collection' -%}
       {%- if current_tags -%}
         {%- capture tag_handles -%}
@@ -193,6 +227,9 @@
   {%- endif -%}
 
   <script src="{{ 'theme.min.js' | asset_url }}" defer="defer"></script>
+  {%- if cart_upsell_popup_active -%}
+    <script src="{{ 'cart-upsell-popup.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
   <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
 
   <script type="text/javascript">
@@ -245,6 +282,9 @@
 
   {%- if settings.enable_ajax -%}
     {% include 'cart-popup' %}
+  {%- endif -%}
+  {%- if cart_upsell_popup_active -%}
+    {% render 'cart-upsell-popup', upsell_product: cart_upsell_product %}
   {%- endif -%}
 
   {% section 'header' %}

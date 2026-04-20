@@ -1,0 +1,93 @@
+{%- comment -%}
+  Renders when cart_upsell_popup_active is true (see layout/theme.liquid).
+  Pass upsell_product: resolved from the first product collection that has the configured collection metafield (product reference).
+{%- endcomment -%}
+{%- assign initial_variant = upsell_product.selected_or_first_available_variant -%}
+{%- assign upsell_image = initial_variant.featured_media | default: upsell_product.featured_media -%}
+{%- comment -%} Half of selling price (cents), rounded — use times: 0.5 | round, not divided_by: 2 (integer chop) {%- endcomment -%}
+{%- assign initial_offer_cents = initial_variant.price | times: 0.5 | round -%}
+<div
+  id="CartUpsellPopup"
+  class="cart-upsell-popup"
+  hidden
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cartUpsellTitle"
+  data-cart-upsell-popup
+>
+  <div class="cart-upsell-popup__panel">
+    <div class="cart-upsell-popup__badge">
+      −50% Rabatt
+    </div>
+    <button type="button" class="cart-upsell-popup__close" data-cart-upsell-close aria-label="{{ 'general.accessibility.close_modal' | t }}">
+      ×
+    </button>
+
+    <p class="cart-upsell-popup__eyebrow">Einmaliges Angebot</p>
+    <h2 id="cartUpsellTitle" class="cart-upsell-popup__title">
+      Schmerzfrei laufen – mit der passenden Einlage
+    </h2>
+    <p class="cart-upsell-popup__subtitle">
+      Füge jetzt die Orthofit-Einlage hinzu und spare <strong>50 %</strong>
+    </p>
+
+    <div class="cart-upsell-popup__row">
+      <div class="cart-upsell-popup__img-wrap">
+        {%- if upsell_image != blank -%}
+          <img
+            src="{{ upsell_image | image_url: width: 200 }}"
+            alt="{{ upsell_image.alt | default: upsell_product.title | escape }}"
+            width="84"
+            height="84"
+            loading="lazy"
+          >
+        {%- endif -%}
+      </div>
+      <div class="cart-upsell-popup__info">
+        <p class="cart-upsell-popup__product-title">{{ upsell_product.title }}</p>
+        <p class="cart-upsell-popup__product-sub">Schmerzlindernd · 2 Stück / Paar</p>
+        <div class="cart-upsell-popup__rating">
+          <span class="cart-upsell-popup__stars" aria-hidden="true">★★★★★</span>
+          {%- if upsell_product.metafields.loox.num_reviews != blank -%}
+            <span class="cart-upsell-popup__reviews">{{ upsell_product.metafields.loox.num_reviews }} Käufer</span>
+          {%- endif -%}
+        </div>
+        <div class="cart-upsell-popup__prices">
+          <span class="cart-upsell-popup__price" data-cart-upsell-price>{{ initial_offer_cents | money }}</span>
+          <span class="cart-upsell-popup__compare" data-cart-upsell-compare>{{ initial_variant.price | money }}</span>
+        </div>
+      </div>
+    </div>
+
+    <label class="cart-upsell-popup__label" for="CartUpsellVariantSelect">Deine Größe</label>
+    <select id="CartUpsellVariantSelect" class="cart-upsell-popup__select" data-cart-upsell-variant-select>
+      {%- for variant in upsell_product.variants -%}
+        <option
+          value="{{ variant.id }}"
+          {% if variant.id == initial_variant.id %}selected{% endif %}
+          {% unless variant.available %}disabled{% endunless %}
+          data-price="{{ variant.price }}"
+          data-offer-cents="{{ variant.price | times: 0.5 | round }}"
+          data-compare-at="{% if variant.compare_at_price %}{{ variant.compare_at_price }}{% else %}0{% endif %}"
+        >
+          {{ variant.title }}
+        </option>
+      {%- endfor -%}
+    </select>
+
+    <p class="cart-upsell-popup__error" data-cart-upsell-error aria-live="polite"></p>
+
+    <button type="button" class="cart-upsell-popup__cta" data-cart-upsell-add>
+      Ja, für {{ initial_offer_cents | money }} hinzufügen →
+    </button>
+
+    <button type="button" class="cart-upsell-popup__decline" data-cart-upsell-decline>
+      Nein danke, ich verzichte auf den Rabatt
+    </button>
+
+    <div class="cart-upsell-popup__trust">
+      <span>✓ Kostenloser Versand</span>
+      <span>✓ 14 Tage Rückgabe</span>
+    </div>
+  </div>
+</div>
