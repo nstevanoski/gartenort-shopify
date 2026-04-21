@@ -2,6 +2,7 @@
   --cart-upsell-radius-lg: 12px;
   --cart-upsell-radius-md: 8px;
   --cart-upsell-green: #699E04;
+  --cart-upsell-cta: #fd7e15;
   --cart-upsell-orange: #d85a30;
   --cart-upsell-star: #ef9f27;
   --cart-upsell-bg-primary: var(--color-body);
@@ -212,7 +213,7 @@
 
 .cart-upsell-popup__cta {
   width: 100%;
-  background: var(--cart-upsell-green);
+  background: var(--cart-upsell-cta);
   color: #fff;
   border: none;
   padding: 14px;

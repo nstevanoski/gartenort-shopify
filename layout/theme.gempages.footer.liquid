@@ -25,23 +25,32 @@
     assign cart_upsell_discount_mf_key = 'cart_upsell_discount_percentage'
     assign cart_upsell_title_mf_key = 'cart_upsell_title'
     assign cart_upsell_subtitle_mf_key = 'cart_upsell_subtitle'
+    assign cart_upsell_trigger_handle = ''
     if request.page_type == 'product'
       assign cart_upsell_target_from_page_mf = false
       assign cart_upsell_page_ref_mf = product.metafields[cart_upsell_mf_ns][cart_upsell_mf_key]
-      if cart_upsell_page_ref_mf != blank and cart_upsell_page_ref_mf.value != blank
-        assign cart_upsell_candidate = cart_upsell_page_ref_mf.value
-        if cart_upsell_candidate != empty and cart_upsell_candidate.id != product.id
-          assign cart_upsell_product = cart_upsell_candidate
-          assign cart_upsell_popup_active = true
-          assign cart_upsell_target_from_page_mf = true
+      assign cart_upsell_candidate = empty
+      if cart_upsell_page_ref_mf != blank
+        if cart_upsell_page_ref_mf.type == 'list.product_reference'
+          for _cart_upsell_ref in cart_upsell_page_ref_mf.value
+            assign cart_upsell_candidate = _cart_upsell_ref
+            break
+          endfor
+        elsif cart_upsell_page_ref_mf.value != blank
+          assign cart_upsell_candidate = cart_upsell_page_ref_mf.value
         endif
+      endif
+      if cart_upsell_candidate != blank and cart_upsell_candidate.id != blank
+        assign cart_upsell_product = cart_upsell_candidate
+        assign cart_upsell_popup_active = true
+        assign cart_upsell_target_from_page_mf = true
       endif
       unless cart_upsell_popup_active
         for cart_upsell_collection in product.collections
           assign cart_upsell_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_mf_key]
           if cart_upsell_mf != blank and cart_upsell_mf.value != blank
             assign cart_upsell_candidate = cart_upsell_mf.value
-            if cart_upsell_candidate != empty and cart_upsell_candidate.id != product.id
+            if cart_upsell_candidate != empty and cart_upsell_candidate.id != blank
               assign cart_upsell_product = cart_upsell_candidate
               assign cart_upsell_popup_active = true
               assign cart_upsell_disc_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_discount_mf_key]
@@ -110,6 +119,129 @@
           assign cart_upsell_subtitle = cart_upsell_prod_subtitle_mf.value
         endif
       endif
+    elsif request.page_type == 'cart' and cart.item_count > 0
+      for cart_upsell_cart_line in cart.items
+        assign line_product = cart_upsell_cart_line.product
+        assign cart_upsell_mf_source = line_product
+        if line_product.handle != blank
+          assign cart_upsell_line_catalog = all_products[line_product.handle]
+          if cart_upsell_line_catalog != empty and cart_upsell_line_catalog.id == line_product.id
+            assign cart_upsell_mf_source = cart_upsell_line_catalog
+          endif
+        endif
+        assign cart_upsell_popup_active = false
+        assign cart_upsell_product = empty
+        assign cart_upsell_discount_percent = 50
+        assign cart_upsell_title = ''
+        assign cart_upsell_subtitle = ''
+        assign cart_upsell_target_from_page_mf = false
+        assign cart_upsell_page_ref_mf = cart_upsell_mf_source.metafields[cart_upsell_mf_ns][cart_upsell_mf_key]
+        assign cart_upsell_candidate = empty
+        if cart_upsell_page_ref_mf != blank
+          if cart_upsell_page_ref_mf.type == 'list.product_reference'
+            for _cart_upsell_ref in cart_upsell_page_ref_mf.value
+              assign cart_upsell_candidate = _cart_upsell_ref
+              break
+            endfor
+          elsif cart_upsell_page_ref_mf.value != blank
+            assign cart_upsell_candidate = cart_upsell_page_ref_mf.value
+          endif
+        endif
+        if cart_upsell_candidate != blank and cart_upsell_candidate.id != blank
+          assign cart_upsell_product = cart_upsell_candidate
+          assign cart_upsell_popup_active = true
+          assign cart_upsell_target_from_page_mf = true
+        endif
+        unless cart_upsell_popup_active
+          for cart_upsell_collection in cart_upsell_mf_source.collections
+            assign cart_upsell_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_mf_key]
+            if cart_upsell_mf != blank and cart_upsell_mf.value != blank
+              assign cart_upsell_candidate = cart_upsell_mf.value
+              if cart_upsell_candidate != empty and cart_upsell_candidate.id != blank
+                assign cart_upsell_product = cart_upsell_candidate
+                assign cart_upsell_popup_active = true
+                assign cart_upsell_disc_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_discount_mf_key]
+                if cart_upsell_disc_mf != blank and cart_upsell_disc_mf.value != blank
+                  assign cart_upsell_discount_percent = cart_upsell_disc_mf.value
+                endif
+                if cart_upsell_discount_percent < 0
+                  assign cart_upsell_discount_percent = 0
+                elsif cart_upsell_discount_percent > 100
+                  assign cart_upsell_discount_percent = 100
+                endif
+                assign cart_upsell_title_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_title_mf_key]
+                if cart_upsell_title_mf != blank and cart_upsell_title_mf.value != blank
+                  assign cart_upsell_title = cart_upsell_title_mf.value
+                endif
+                assign cart_upsell_subtitle_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_subtitle_mf_key]
+                if cart_upsell_subtitle_mf != blank and cart_upsell_subtitle_mf.value != blank
+                  assign cart_upsell_subtitle = cart_upsell_subtitle_mf.value
+                endif
+                break
+              endif
+            endif
+          endfor
+        endunless
+        if cart_upsell_popup_active and cart_upsell_target_from_page_mf
+          for cart_upsell_collection in cart_upsell_mf_source.collections
+            assign cart_upsell_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_mf_key]
+            if cart_upsell_mf != blank and cart_upsell_mf.value != blank and cart_upsell_mf.value.id == cart_upsell_product.id
+              assign cart_upsell_disc_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_discount_mf_key]
+              if cart_upsell_disc_mf != blank and cart_upsell_disc_mf.value != blank
+                assign cart_upsell_discount_percent = cart_upsell_disc_mf.value
+              endif
+              if cart_upsell_discount_percent < 0
+                assign cart_upsell_discount_percent = 0
+              elsif cart_upsell_discount_percent > 100
+                assign cart_upsell_discount_percent = 100
+              endif
+              assign cart_upsell_title_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_title_mf_key]
+              if cart_upsell_title_mf != blank and cart_upsell_title_mf.value != blank
+                assign cart_upsell_title = cart_upsell_title_mf.value
+              endif
+              assign cart_upsell_subtitle_mf = cart_upsell_collection.metafields[cart_upsell_mf_ns][cart_upsell_subtitle_mf_key]
+              if cart_upsell_subtitle_mf != blank and cart_upsell_subtitle_mf.value != blank
+                assign cart_upsell_subtitle = cart_upsell_subtitle_mf.value
+              endif
+              break
+            endif
+          endfor
+        endif
+        if cart_upsell_popup_active
+          assign cart_upsell_prod_disc_mf = cart_upsell_mf_source.metafields[cart_upsell_mf_ns][cart_upsell_discount_mf_key]
+          if cart_upsell_prod_disc_mf != blank and cart_upsell_prod_disc_mf.value != blank
+            assign cart_upsell_discount_percent = cart_upsell_prod_disc_mf.value
+          endif
+          if cart_upsell_discount_percent < 0
+            assign cart_upsell_discount_percent = 0
+          elsif cart_upsell_discount_percent > 100
+            assign cart_upsell_discount_percent = 100
+          endif
+          assign cart_upsell_prod_title_mf = cart_upsell_mf_source.metafields[cart_upsell_mf_ns][cart_upsell_title_mf_key]
+          if cart_upsell_prod_title_mf != blank and cart_upsell_prod_title_mf.value != blank
+            assign cart_upsell_title = cart_upsell_prod_title_mf.value
+          endif
+          assign cart_upsell_prod_subtitle_mf = cart_upsell_mf_source.metafields[cart_upsell_mf_ns][cart_upsell_subtitle_mf_key]
+          if cart_upsell_prod_subtitle_mf != blank and cart_upsell_prod_subtitle_mf.value != blank
+            assign cart_upsell_subtitle = cart_upsell_prod_subtitle_mf.value
+          endif
+        endif
+        if cart_upsell_popup_active
+          assign upsell_already_in_cart = false
+          for check_line in cart.items
+            if check_line.product.id == cart_upsell_product.id
+              assign upsell_already_in_cart = true
+              break
+            endif
+          endfor
+          if upsell_already_in_cart
+            assign cart_upsell_popup_active = false
+          else
+            assign cart_upsell_trigger_handle = line_product.handle
+            break
+          endif
+        endif
+      endfor
     endif
   -%}
   
@@ -267,8 +399,9 @@
       enabled: true,
       upsellHandle: {{ cart_upsell_product.handle | json }},
       upsellProductId: {{ cart_upsell_product.id | json }},
-      currentProductHandle: {{ product.handle | json }},
-      ajaxCartEnabled: {{ settings.enable_ajax | json }}
+      currentProductHandle: {% if request.page_type == 'cart' and cart_upsell_trigger_handle != blank %}{{ cart_upsell_trigger_handle | json }}{% else %}{{ product.handle | json }}{% endif %},
+      ajaxCartEnabled: {{ settings.enable_ajax | json }},
+      openOnCartPageLoad: {% if request.page_type == 'cart' %}true{% else %}false{% endif %}
     };
     {%- endif -%}
 
