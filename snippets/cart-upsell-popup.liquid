@@ -1,11 +1,41 @@
 {%- comment -%}
   Renders when cart_upsell_popup_active is true (see layout/theme.liquid).
   Pass upsell_product: resolved from the first product collection that has the configured collection metafield (product reference).
+  Pass upsell_discount_percent: % off from collection metafield custom.cart_upsell_discount_percentage (default 50).
+  Pass upsell_title / upsell_subtitle: optional collection metafields custom.cart_upsell_title and custom.cart_upsell_subtitle.
+  In upsell_subtitle, use [[pct]] where the bold discount (e.g. "50 %") should appear.
 {%- endcomment -%}
+{%- if upsell_discount_percent == blank -%}
+  {%- assign upsell_discount_percent = 50 -%}
+{%- endif -%}
+{%- if upsell_discount_percent < 0 -%}
+  {%- assign upsell_discount_percent = 0 -%}
+{%- elsif upsell_discount_percent > 100 -%}
+  {%- assign upsell_discount_percent = 100 -%}
+{%- endif -%}
+{%- assign upsell_pay_numerator = 100 | minus: upsell_discount_percent -%}
+{%- if upsell_title == blank -%}
+  {%- assign upsell_title = 'Schmerzfrei laufen – mit der passenden Einlage' -%}
+{%- endif -%}
+{%- if upsell_subtitle == blank -%}
+  {%- assign upsell_subtitle = 'Füge jetzt die Orthofit-Einlage hinzu und spare [[pct]]' -%}
+{%- endif -%}
+{%- assign upsell_pct_html = '<strong>' | append: upsell_discount_percent | append: ' %</strong>' -%}
+{%- assign upsell_subtitle_rendered = upsell_subtitle | escape | replace: '[[pct]]', upsell_pct_html -%}
 {%- assign initial_variant = upsell_product.selected_or_first_available_variant -%}
+{%- if upsell_product.has_only_default_variant -%}
+  {%- assign upsell_variant_label = 'products.product.cart_upsell_variant_fallback' | t -%}
+{%- else -%}
+  {%- capture upsell_variant_label -%}
+    {%- for option in upsell_product.options_with_values -%}
+      {%- unless forloop.first -%} / {%- endunless -%}
+      {{- option.name -}}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign upsell_variant_label = upsell_variant_label | strip -%}
+{%- endif -%}
 {%- assign upsell_image = initial_variant.featured_media | default: upsell_product.featured_media -%}
-{%- comment -%} Half of selling price (cents), rounded — use times: 0.5 | round, not divided_by: 2 (integer chop) {%- endcomment -%}
-{%- assign initial_offer_cents = initial_variant.price | times: 0.5 | round -%}
+{%- assign initial_offer_cents = initial_variant.price | times: upsell_pay_numerator | times: 0.01 | round -%}
 <div
   id="CartUpsellPopup"
   class="cart-upsell-popup"
@@ -17,7 +47,7 @@
 >
   <div class="cart-upsell-popup__panel">
     <div class="cart-upsell-popup__badge">
-      −50% Rabatt
+      −{{ upsell_discount_percent }}% Rabatt
     </div>
     <button type="button" class="cart-upsell-popup__close" data-cart-upsell-close aria-label="{{ 'general.accessibility.close_modal' | t }}">
       ×
@@ -25,10 +55,10 @@
 
     <p class="cart-upsell-popup__eyebrow">Einmaliges Angebot</p>
     <h2 id="cartUpsellTitle" class="cart-upsell-popup__title">
-      Schmerzfrei laufen – mit der passenden Einlage
+      {{ upsell_title | escape }}
     </h2>
     <p class="cart-upsell-popup__subtitle">
-      Füge jetzt die Orthofit-Einlage hinzu und spare <strong>50 %</strong>
+      {{ upsell_subtitle_rendered }}
     </p>
 
     <div class="cart-upsell-popup__row">
@@ -45,7 +75,7 @@
       </div>
       <div class="cart-upsell-popup__info">
         <p class="cart-upsell-popup__product-title">{{ upsell_product.title }}</p>
-        <p class="cart-upsell-popup__product-sub">Schmerzlindernd · 2 Stück / Paar</p>
+        {% comment %} <p class="cart-upsell-popup__product-sub">Schmerzlindernd · 2 Stück / Paar</p> {% endcomment %}
         <div class="cart-upsell-popup__rating">
           <span class="cart-upsell-popup__stars" aria-hidden="true">★★★★★</span>
           {%- if upsell_product.metafields.loox.num_reviews != blank -%}
@@ -59,15 +89,16 @@
       </div>
     </div>
 
-    <label class="cart-upsell-popup__label" for="CartUpsellVariantSelect">Deine Größe</label>
+    <label class="cart-upsell-popup__label" for="CartUpsellVariantSelect">{{ upsell_variant_label | escape }}</label>
     <select id="CartUpsellVariantSelect" class="cart-upsell-popup__select" data-cart-upsell-variant-select>
       {%- for variant in upsell_product.variants -%}
+        {%- assign variant_offer_cents = variant.price | times: upsell_pay_numerator | times: 0.01 | round -%}
         <option
           value="{{ variant.id }}"
           {% if variant.id == initial_variant.id %}selected{% endif %}
           {% unless variant.available %}disabled{% endunless %}
           data-price="{{ variant.price }}"
-          data-offer-cents="{{ variant.price | times: 0.5 | round }}"
+          data-offer-cents="{{ variant_offer_cents }}"
           data-compare-at="{% if variant.compare_at_price %}{{ variant.compare_at_price }}{% else %}0{% endif %}"
         >
           {{ variant.title }}
