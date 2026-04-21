@@ -7301,24 +7301,29 @@ theme.Cart = (function() {
     },
 
     _createItemDiscountList: function(item) {
-      return item.line_level_discount_allocations.map(
-        function(discount) {
-          var discountNode = this.itemDiscountTemplate.cloneNode(true);
+      var allocations = item.line_level_discount_allocations || [];
+      return allocations
+        .filter(function(discount) {
+          return Number(discount.amount) > 0;
+        })
+        .map(
+          function(discount) {
+            var discountNode = this.itemDiscountTemplate.cloneNode(true);
 
-          discountNode.querySelector(
-            selectors.cartItemDiscountTitle
-          ).textContent = discount.discount_application.title;
+            discountNode.querySelector(
+              selectors.cartItemDiscountTitle
+            ).textContent = discount.discount_application.title;
 
-          discountNode.querySelector(
-            selectors.cartItemDiscountAmount
-          ).innerHTML = theme.Currency.formatMoney(
-            discount.amount,
-            theme.moneyFormat
-          );
+            discountNode.querySelector(
+              selectors.cartItemDiscountAmount
+            ).innerHTML = theme.Currency.formatMoney(
+              discount.amount,
+              theme.moneyFormat
+            );
 
-          return discountNode;
-        }.bind(this)
-      );
+            return discountNode;
+          }.bind(this)
+        );
     },
 
     _showQuantityErrorMessages: function(itemElement) {

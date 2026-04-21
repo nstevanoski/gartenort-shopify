@@ -159,20 +159,39 @@
                   </dl>
                 </div>
 
-                {%- assign itemDiscounts = 'template ' | split: ' ' -%}
-                {%- if item.line_level_discount_allocations != blank -%}
-                  {%- assign itemDiscounts = item.line_level_discount_allocations -%}
-                {%- endif -%}
+                {%- liquid
+                  assign itemDiscounts = 'template ' | split: ' '
+                  if item.line_level_discount_allocations != blank
+                    assign itemDiscounts = item.line_level_discount_allocations
+                  endif
+                  assign cart_item_has_positive_discount = false
+                  if item.line_level_discount_allocations != blank
+                    for da in item.line_level_discount_allocations
+                      if da.amount != blank and da.amount > 0
+                        assign cart_item_has_positive_discount = true
+                        break
+                      endif
+                    endfor
+                  endif
+                -%}
 
-                <ul class="order-discount order-discount--list order-discount--title order-discount--cart{% if item.line_level_discount_allocations == blank %} hide{% endif %}" aria-label="{{ 'customer.order.discount' | t }}" data-cart-item-discount-list>
+                <ul class="order-discount order-discount--list order-discount--title order-discount--cart{% unless cart_item_has_positive_discount %} hide{% endunless %}" aria-label="{{ 'customer.order.discount' | t }}" data-cart-item-discount-list>
                   {%- for discount_allocation in itemDiscounts -%}
-                    <li class="order-discount__item" data-cart-item-discount>
-                      {% include 'icon-saletag' %}
-                      <span data-cart-item-discount-title>
-                        {{- discount_allocation.discount_application.title -}}
-                      </span> (-<span data-cart-item-discount-amount>{{ discount_allocation.amount | money }}</span>)
-                    </li>
+                    {%- if discount_allocation.amount != blank and discount_allocation.amount > 0 -%}
+                      <li class="order-discount__item" data-cart-item-discount>
+                        {% include 'icon-saletag' %}
+                        <span data-cart-item-discount-title>
+                          {{- discount_allocation.discount_application.title -}}
+                        </span> (-<span data-cart-item-discount-amount>{{ discount_allocation.amount | money }}</span>)
+                      </li>
+                    {%- endif -%}
                   {%- endfor -%}
+                  {%- if section.settings.cart_ajax_enable and cart_item_has_positive_discount == false -%}
+                    <li class="order-discount__item hide" data-cart-item-discount aria-hidden="true">
+                      {% include 'icon-saletag' %}
+                      <span data-cart-item-discount-title></span> (-<span data-cart-item-discount-amount></span>)
+                    </li>
+                  {%- endif -%}
                 </ul>
 
                 <div class="cart__qty medium-up--hide">

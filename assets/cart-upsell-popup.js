@@ -130,20 +130,7 @@
     return true;
   }
 
-  function applyPackStyleVariantUi() {
-    if (!selectEl || selectEl.getAttribute('data-cart-upsell-pack-style') === '1') {
-      return;
-    }
-    if (!variantTitlesLookLikePackQuantities(selectEl)) {
-      return;
-    }
-    var i;
-    for (i = 0; i < selectEl.options.length; i++) {
-      if (!selectEl.options[i].disabled) {
-        selectEl.selectedIndex = i;
-        break;
-      }
-    }
+  function hideVariantSelectChrome() {
     selectEl.classList.add('hide');
     selectEl.setAttribute('aria-hidden', 'true');
     selectEl.setAttribute('tabindex', '-1');
@@ -156,6 +143,30 @@
     }
     selectEl.setAttribute('data-cart-upsell-pack-style', '1');
     updateVariantDisplay();
+  }
+
+  function applyPackStyleVariantUi() {
+    if (!selectEl || selectEl.getAttribute('data-cart-upsell-pack-style') === '1') {
+      return;
+    }
+    if (selectEl.options.length === 1) {
+      var singleTitle = (selectEl.options[0].textContent || '').trim();
+      if (singleTitle === 'Default Title') {
+        hideVariantSelectChrome();
+        return;
+      }
+    }
+    if (!variantTitlesLookLikePackQuantities(selectEl)) {
+      return;
+    }
+    var i;
+    for (i = 0; i < selectEl.options.length; i++) {
+      if (!selectEl.options[i].disabled) {
+        selectEl.selectedIndex = i;
+        break;
+      }
+    }
+    hideVariantSelectChrome();
   }
 
   if (selectEl) {

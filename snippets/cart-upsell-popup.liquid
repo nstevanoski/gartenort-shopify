@@ -36,6 +36,14 @@
 {%- endif -%}
 {%- assign upsell_image = initial_variant.featured_media | default: upsell_product.featured_media -%}
 {%- assign initial_offer_cents = initial_variant.price | times: upsell_pay_numerator | times: 0.01 | round -%}
+{%- liquid
+  assign upsell_hide_variant_select = false
+  if upsell_product.has_only_default_variant
+    assign upsell_hide_variant_select = true
+  elsif upsell_product.variants.size == 1 and upsell_product.variants.first.title == 'Default Title'
+    assign upsell_hide_variant_select = true
+  endif
+-%}
 <div
   id="CartUpsellPopup"
   class="cart-upsell-popup"
@@ -89,8 +97,17 @@
       </div>
     </div>
 
-    <label class="cart-upsell-popup__label" for="CartUpsellVariantSelect">{{ upsell_variant_label | escape }}</label>
-    <select id="CartUpsellVariantSelect" class="cart-upsell-popup__select" data-cart-upsell-variant-select>
+    <label
+      class="cart-upsell-popup__label{% if upsell_hide_variant_select %} hide{% endif %}"
+      for="CartUpsellVariantSelect"
+      {% if upsell_hide_variant_select %}aria-hidden="true"{% endif %}
+    >{{ upsell_variant_label | escape }}</label>
+    <select
+      id="CartUpsellVariantSelect"
+      class="cart-upsell-popup__select{% if upsell_hide_variant_select %} hide{% endif %}"
+      data-cart-upsell-variant-select
+      {% if upsell_hide_variant_select %}aria-hidden="true" tabindex="-1" data-cart-upsell-pack-style="1"{% endif %}
+    >
       {%- for variant in upsell_product.variants -%}
         {%- assign variant_offer_cents = variant.price | times: upsell_pay_numerator | times: 0.01 | round -%}
         <option
